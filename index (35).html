@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מחברת חפיפה — מנהלת תכנית עתידים לתעשייה ולהייטק</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #0A1F5C;
+  --navy2:   #0D2870;
+  --cyan:    #00B5CC;
+  --cyan2:   #00D4ED;
+  --lime:    #8BBF00;
+  --mag:     #C8257D;
+  --orange:  #F97316;
+  --bg:      #F7F9FC;
+  --surface: #FFFFFF;
+  --border:  #D4DCF0;
+  --text:    #1A2340;
+  --muted:   #5A6888;
+  --light:   #F0F4FF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Heebo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15px; }
+
+#pgbar { position: fixed; top: 0; right: 0; height: 3px; width: 0%; background: var(--cyan); z-index: 9999; transition: width 0.1s; }
+
+header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1a3a8c 100%); color: #fff; padding: 0; position: relative; overflow: hidden; }
+.header-wave { position: absolute; bottom: -1px; left: 0; right: 0; height: 60px; background: var(--bg); clip-path: ellipse(55% 100% at 50% 100%); }
+.header-inner { max-width: 900px; margin: 0 auto; padding: 44px 28px 72px; position: relative; z-index: 1; }
+.logo-row { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+.logo-img { height: 40px; }
+.badge { background: rgba(0,181,204,0.18); border: 1px solid rgba(0,181,204,0.4); color: var(--cyan2); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; }
+.header-tag { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.2; margin-bottom: 14px; }
+header h1 span { color: var(--cyan2); }
+.header-sub { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.7; }
+
+.toc-bar { background: var(--surface); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(10,31,92,0.07); }
+.toc-inner { max-width: 900px; margin: 0 auto; display: flex; overflow-x: auto; gap: 0; scrollbar-width: none; }
+.toc-inner::-webkit-scrollbar { display: none; }
+.toc-item { padding: 14px 16px; white-space: nowrap; font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; flex-shrink: 0; }
+.toc-item:hover, .toc-item.active { color: var(--navy); border-color: var(--cyan); }
+
+main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.section { margin-bottom: 56px; scroll-margin-top: 64px; }
+.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+.ic-navy   { background: var(--navy);   color: #fff; }
+.ic-cyan   { background: var(--cyan);   color: #fff; }
+.ic-lime   { background: var(--lime);   color: #fff; }
+.ic-mag    { background: var(--mag);    color: #fff; }
+.ic-orange { background: var(--orange); color: #fff; }
+h2 { font-size: 1.35rem; font-weight: 800; color: var(--navy); }
+.divider { height: 1px; background: var(--border); margin: 48px 0; }
+
+.info-block { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin-bottom: 16px; }
+.info-block h3 { font-size: 1rem; font-weight: 700; color: var(--mag); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.info-block h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin: 14px 0 6px; }
+
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 16px; }
+.contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; transition: box-shadow 0.2s, border-color 0.2s; }
+.contact-card:hover { border-color: var(--cyan); box-shadow: 0 4px 16px rgba(0,181,204,0.12); }
+.contact-role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cyan); font-weight: 700; margin-bottom: 4px; }
+.contact-name { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.contact-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.contact-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.ctag { background: var(--light); border: 1px solid var(--border); border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 600; color: var(--navy); }
+
+.process-steps { display: flex; flex-direction: column; gap: 12px; }
+.process-step { display: flex; gap: 14px; align-items: flex-start; }
+.step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+.step-content h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.step-content p  { font-size: 13.5px; color: var(--muted); }
+
+ul.fancy-list { list-style: none; padding: 0; }
+ul.fancy-list li { padding: 7px 0 7px 20px; position: relative; font-size: 14px; color: var(--text); border-bottom: 1px dashed var(--border); }
+ul.fancy-list li:last-child { border-bottom: none; }
+ul.fancy-list li::before { content: "◀"; position: absolute; right: 0; top: 8px; color: var(--cyan); font-size: 10px; }
+
+.timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.timeline-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.timeline-item.q1 { border-top: 3px solid var(--cyan); }
+.timeline-item.q2 { border-top: 3px solid var(--lime); }
+.timeline-item.q3 { border-top: 3px solid var(--orange); }
+.timeline-item.q4 { border-top: 3px solid var(--mag); }
+.tl-month { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px; }
+.tl-tasks { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+.highlight { background: var(--light); border-right: 4px solid var(--cyan); border-radius: 0 10px 10px 0; padding: 14px 18px; font-size: 14px; color: var(--text); margin: 12px 0; }
+.highlight.orange { border-color: var(--orange); background: #FFF8F0; }
+.highlight.lime   { border-color: var(--lime);   background: #F3FAE4; }
+.highlight.mag    { border-color: var(--mag);     background: #FEF0F7; }
+
+.eval-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.eval-table th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: right; font-weight: 700; }
+.eval-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.eval-table tr:nth-child(even) td { background: var(--light); }
+
+.link-grid { display: flex; flex-direction: column; gap: 10px; }
+.link-card { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
+.link-card:hover { border-color: var(--cyan); box-shadow: 0 3px 12px rgba(0,181,204,0.15); }
+.link-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.li-navy   { background: var(--navy);   color: #fff; }
+.li-cyan   { background: #E0F7FA; color: var(--cyan); }
+.li-lime   { background: #F1FADF; color: var(--lime); }
+.li-mag    { background: #FDE8F3; color: var(--mag); }
+.li-orange { background: #FFF3E0; color: var(--orange); }
+.link-card-body { flex: 1; }
+.link-card-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.link-card-desc  { font-size: 12.5px; color: var(--muted); }
+.link-card-note  { font-size: 11.5px; color: var(--orange); margin-top: 3px; }
+.link-card-arrow { color: var(--muted); font-size: 18px; }
+
+.gantt-wrap { overflow-x: auto; }
+.gantt-table { border-collapse: collapse; font-size: 13px; min-width: 640px; width: 100%; }
+.gantt-table th { background: var(--navy); color: #fff; padding: 9px 12px; text-align: center; white-space: nowrap; }
+.gantt-table td { padding: 8px 12px; border: 1px solid var(--border); text-align: center; vertical-align: middle; }
+.gantt-table td.label { text-align: right; font-weight: 700; background: var(--light); }
+.gantt-dot { color: var(--cyan); font-size: 18px; line-height: 1; }
+.gantt-dash { color: #ccc; }
+
+.checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.checklist-box { background: var(--surface); border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 16px; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 500; color: var(--text); transition: border-color 0.2s, background 0.2s; }
+.checklist-box:hover { border-color: var(--cyan); }
+.checklist-box.done { background: #E8FAE8; border-color: var(--lime); color: #1a4a1a; }
+.check-circle { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all 0.2s; }
+.checklist-box.done .check-circle { background: var(--lime); border-color: var(--lime); color: #fff; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.6); text-align: center; padding: 28px 20px; font-size: 13px; }
+footer a { color: var(--cyan); text-decoration: none; }
+
+@media(max-width: 640px) {
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .checklist-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 1.6rem; }
+}
+@media(max-width: 400px) {
+  .timeline { grid-template-columns: 1fr; }
+  .toc-item { padding: 12px 12px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div id="pgbar"></div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-row">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Atidim_logo.svg/320px-Atidim_logo.svg.png" alt="עתידים" class="logo-img" onerror="this.style.display='none'">
+      <span class="badge">תיק חפיפה מנהלת תכנית · 2026</span>
+    </div>
+    <div class="header-tag">עמותת עתידים · יחידת עתידים לקריירה</div>
+    <h1>ברוכה הבאה<br>למנהלת <span>עתידים לתעשייה ולהייטק</span> 🚀</h1>
+    <p class="header-sub">מדריך חפיפה מלא למנהלת התכנית — לוח שנה שנתי, ניהול צוות, קמפיין גיוס, ממשקים וכלים.</p>
+  </div>
+  <div class="header-wave"></div>
+</header>
+
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <a href="#role"       class="toc-item">🎯 תפקיד</a>
+    <a href="#calendar"   class="toc-item">📅 לוח שנה</a>
+    <a href="#team"       class="toc-item">👥 ניהול צוות</a>
+    <a href="#extracu"    class="toc-item">🎓 חוץ-אקדמי</a>
+    <a href="#screening"  class="toc-item">🔍 מיון</a>
+    <a href="#campaign"   class="toc-item">📣 קמפיין</a>
+    <a href="#conference" class="toc-item">🎉 כנס פתיחה</a>
+    <a href="#contacts"   class="toc-item">🤝 ממשקים</a>
+    <a href="#budget"     class="toc-item">💰 תקציב ורכש</a>
+    <a href="#research"   class="toc-item">📊 מחקר</a>
+    <a href="#tools"      class="toc-item">🔗 כלים</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══ 1. ROLE ══ -->
+<section class="section" id="role">
+  <div class="section-header">
+    <div class="section-icon ic-navy">🎯</div>
+    <h2>תפקיד ואחריות — מבט-על</h2>
+  </div>
+
+  <div class="info-block">
+    <h3>מהות התפקיד</h3>
+    <p style="font-size:14.5px;line-height:1.75">
+      מנהלת התכנית אחראית על ניהול מלא מקצה לקצה: מגיוס הסטודנטים ועד לסיום לימודיהם.
+      התפקיד משלב ניהול צוות רכזות, בניית תכנית פדגוגית חוץ-אקדמית שנתית, ניהול קמפיין גיוס,
+      עבודה מול 8 מוסדות אקדמיים, ניהול תקציב, ממשקים עם שותפים תעשייתיים ומחקר מלווה.
+    </p>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>הצוות הישיר</h3>
+      <ul class="fancy-list">
+        <li><strong>מורן רוזנברג</strong> — רכזת מוסדות צפון (בראודה, טכניון)</li>
+        <li><strong>מעיין גלס</strong> — רכזת מוסדות מרכז (ת"א, בר-אילן, אריאל, HIT)</li>
+        <li><strong>אוריה אפריים</strong> — רכזת מוסדות דרום וירושלים (העברית, בן גוריון)</li>
+        <li><strong>ליאן סלמה</strong> — רכזת ליווי קריירה תכניתית</li>
+        <li><strong>הדס גנוט</strong> — רכזת תכנית מטרוטק (קו כחול)</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>אחריות עיקרית</h3>
+      <ul class="fancy-list">
+        <li>ניהול ומשוב צוות הרכזות</li>
+        <li>בניית תכנית חוץ-אקדמית שנתית</li>
+        <li>קמפיין גיוס + תהליך מיון מועמדים</li>
+        <li>ניהול תמהיל מחזור ויעדים</li>
+        <li>תקציב, רכש ועבודה מול ספקים</li>
+        <li>ממשקים אקדמיים ותעשייתיים</li>
+        <li>מחקר מלווה ומדידת השמות</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 2. CALENDAR ══ -->
+<section class="section" id="calendar">
+  <div class="section-header">
+    <div class="section-icon ic-cyan">📅</div>
+    <h2>לוח שנה שנתי מפורט</h2>
+  </div>
+
+  <div class="info-block">
+    <h3>Q1 | אוקטובר – דצמבר</h3>
+    <div class="timeline">
+      <div class="timeline-item q1">
+        <div class="tl-month">אוקטובר</div>
+        <div class="tl-tasks">כנס פתיחת מחזור<br>שיחות אישיות שנים א'–ג'<br>בדיקת התנדבות 12/60</div>
+      </div>
+      <div class="timeline-item q1">
+        <div class="tl-month">נובמבר</div>
+        <div class="tl-tasks">ביקורים במוסדות<br>ישיבות צוות שבועיות<br>חיזוק קשרים דיקנאטים</div>
+      </div>
+      <div class="timeline-item q1">
+        <div class="tl-month">דצמבר</div>
+        <div class="tl-tasks">תכנית עבודה שנתית<br>תכנית תקציבית<br>מפגש חנוכה נבחרת STEP UP</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>Q2 | ינואר – מרץ</h3>
+    <div class="timeline">
+      <div class="timeline-item q2">
+        <div class="tl-month">ינואר</div>
+        <div class="tl-tasks">חופשת סמסטר<br>משוב אמצע לרכזות<br>תכנון קמפיין גיוס</div>
+      </div>
+      <div class="timeline-item q2">
+        <div class="tl-month">פברואר</div>
+        <div class="tl-tasks">ישיבות צוות תדירות גבוהה<br>הכשרות צוות<br>חזרה לסמסטר ב'</div>
+      </div>
+      <div class="timeline-item q2">
+        <div class="tl-month">מרץ</div>
+        <div class="tl-tasks">סגירת קמפיין<br>גאנט מיון + תשתיות<br>הפצת שאלון מחקר אמצע לסטודנטים</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>Q3 | אפריל – יוני</h3>
+    <div class="timeline">
+      <div class="timeline-item q3">
+        <div class="tl-month">אפריל</div>
+        <div class="tl-tasks">ניהול תמהיל<br>סיירת שיווק<br>ימים פתוחים במוסדות</div>
+      </div>
+      <div class="timeline-item q3">
+        <div class="tl-month">מאי</div>
+        <div class="tl-tasks">פתיחת הרשמה 12.5<br>מיון + תובנות לפרסום<br>בדיקת התנדבות 60/60</div>
+      </div>
+      <div class="timeline-item q3">
+        <div class="tl-month">יוני</div>
+        <div class="tl-tasks">ועדות קבלה שבועיות<br>ועדת חריגים<br>מפגש ארגון בוגרים</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>Q4 | יולי – ספטמבר</h3>
+    <div class="timeline">
+      <div class="timeline-item q4">
+        <div class="tl-month">יולי</div>
+        <div class="tl-tasks">משוב סוף שנה לרכזות<br>קורס אנגלית מתחיל<br>ניתוח נתוני שנה</div>
+      </div>
+      <div class="timeline-item q4">
+        <div class="tl-month">אוגוסט</div>
+        <div class="tl-tasks">הפצת שאלון מחקר סוף<br>הסכמים דיגיטליים<br>ממשק מטרוטק/יוצאים</div>
+      </div>
+      <div class="timeline-item q4">
+        <div class="tl-month">ספטמבר</div>
+        <div class="tl-tasks">מיטאפ שימור מתקבלים<br>STEP UP — תיאום אתי לוטן<br>הכנת כנס הבא</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 3. TEAM ══ -->
+<section class="section" id="team">
+  <div class="section-header">
+    <div class="section-icon ic-mag">👥</div>
+    <h2>ניהול צוות הרכזות</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>שגרות ניהול</h3>
+      <ul class="fancy-list">
+        <li>ישיבת צוות אחת לשבועיים — פרונטלית או מקוונת</li>
+        <li>פברואר: תדירות גבוהה + הכשרות צוות</li>
+        <li>ביקורים פיזיים במוסדות</li>
+        <li>מפגשי למידה — 2+ בשנה</li>
+        <li>2 מפגשי קפה חיבור ברבעון</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>משובים לרכזות</h3>
+      <ul class="fancy-list">
+        <li><strong>משוב אמצע שנה</strong> — ינואר (בחופשת הסמסטר)</li>
+        <li><strong>משוב סוף שנה</strong> — יולי (לאחר סיום הסמסטר)</li>
+        <li>
+          <a href="https://foratidim.sharepoint.com/:x:/s/crmteam/IQAteW8DX6BoToSDxYKgkPPbAVqLcVCExk-R9Ir60AauXUg?clickparams=eyAiWC1BcHBOYW1lIiA6ICJNaWNyb3NvZnQgT3V0bG9vayIsICJYLUFwcFZlcnNpb24iIDogIjE2LjAuMTkzMjguMjAyNDQiLCAiT1MiIDogIldpbmRvd3MiIH0%3D&CID=B03B4248-04F0-413E-9EED-13B80B68563B&wdLOR=c66005135-A9DD-43E2-BBFC-91A765B04D57"
+             target="_blank" style="color:var(--cyan);font-weight:600">📋 טופס הערכה למנהל/ת (Word)</a>
+        </li>
+        <li>
+          <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=p-cTmrAAiU6_hSN88CK-z-KNzr8amVVFpM7riUgBZl9UNUExRUtWWTE4SVFXWE5YVkFQWDZVNU9KQyQlQCN0PWcu"
+             target="_blank" style="color:var(--cyan);font-weight:600">📝 טופס הכנה לעובד/ת (Forms)</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 4. EXTRA-CURRICULAR ══ -->
+<section class="section" id="extracu">
+  <div class="section-header">
+    <div class="section-icon ic-lime">🎓</div>
+    <h2>תכנית חוץ-אקדמית</h2>
+  </div>
+
+  <div class="info-block">
+    <h3>קבצי עבודה — תכנית חוץ-אקדמית</h3>
+    <div class="link-grid">
+      <a href="https://docs.google.com/spreadsheets/d/1Y1zkTHKqIlUL_6gMkg0nVAsf_Nn1LFp0EzFmiQDF0yk" target="_blank" class="link-card">
+        <div class="link-icon li-lime">📊</div>
+        <div class="link-card-body">
+          <div class="link-card-title">גאנט עתידים לתעשייה ולהייטק</div>
+          <div class="link-card-desc">ציר הזמן השנתי המלא — כל הפעילויות לפי שנת לימוד ורבעון</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+      <a href="https://foratidim.sharepoint.com/:x:/s/crmteam/IQAteW8DX6BoToSDxYKgkPPbAVqLcVCExk-R9Ir60AauXUg?clickparams=eyAiWC1BcHBOYW1lIiA6ICJNaWNyb3NvZnQgT3V0bG9vayIsICJYLUFwcFZlcnNpb24iIDogIjE2LjAuMTkzMjguMjAyNDQiLCAiT1MiIDogIldpbmRvd3MiIH0%3D&CID=B03B4248-04F0-413E-9EED-13B80B68563B&wdLOR=c66005135-A9DD-43E2-BBFC-91A765B04D57" target="_blank" class="link-card">
+        <div class="link-icon li-cyan">📋</div>
+        <div class="link-card-body">
+          <div class="link-card-title">ניהול מפגשים וסיורים</div>
+          <div class="link-card-desc">לוז מפגשים שוטף — תאריכים, מרצים, מחזורים, הזמנות רכש, חשבוניות</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>גאנט בדיקות התנדבות + גליונות ציונים</h3>
+    <div class="gantt-wrap">
+      <table class="gantt-table">
+        <thead>
+          <tr>
+            <th>שנת לימוד</th>
+            <th>נובמבר</th>
+            <th>ינואר</th>
+            <th>מרץ</th>
+            <th>מאי</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">שנה א'</td>
+            <td><span class="gantt-dot">●</span><br><small>12/60 שעות</small></td>
+            <td><span class="gantt-dash">—</span></td>
+            <td><span class="gantt-dash">—</span></td>
+            <td><span class="gantt-dash">—</span></td>
+          </tr>
+          <tr>
+            <td class="label">שנה ב'</td>
+            <td><span class="gantt-dot">●</span><br><small>12/60 + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>40/60 + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>75 ממוצע + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>60/60</small></td>
+          </tr>
+          <tr>
+            <td class="label">שנה ג'</td>
+            <td><span class="gantt-dot">●</span><br><small>12/60 + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>40/60 + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>75 ממוצע + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>60/60</small></td>
+          </tr>
+          <tr>
+            <td class="label">שנה ד'</td>
+            <td><span class="gantt-dot">●</span><br><small>12/60 + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>40/60 + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>75 ממוצע + גליון ציונים</small></td>
+            <td><span class="gantt-dot">●</span><br><small>60/60</small></td>
+          </tr>
+          <tr>
+            <td class="label">מועסקים</td>
+            <td><span class="gantt-dash">—</span></td>
+            <td><span class="gantt-dash">—</span></td>
+            <td><span class="gantt-dot">●</span><br><small>75 ממוצע</small></td>
+            <td><span class="gantt-dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight orange" style="margin-top:12px">
+      ⚠️ 75 ממוצע = ממוצע קבוצתי, לא מינימום לכל אחד · מועסקים — לבחון per case · חריגות → ועדת חריגים חודשית
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 5. SCREENING ══ -->
+<section class="section" id="screening">
+  <div class="section-header">
+    <div class="section-icon ic-orange">🔍</div>
+    <h2>דרישות התכנית ותהליך המיון</h2>
+  </div>
+
+  <div class="info-block">
+    <h3>תמהיל מחזור — יעדים</h3>
+    <table class="eval-table" style="margin-top:8px">
+      <thead><tr><th>קטגוריה</th><th>יעד</th></tr></thead>
+      <tbody>
+        <tr><td>נשים</td><td>לפחות 50% מ-165 מתקבלים</td></tr>
+        <tr><td>יוצאי אתיופיה</td><td>10% — כ-17 משתתפים</td></tr>
+        <tr><td>בוגרי חינוך חרדי (מטרוטק)</td><td>כ-45 משתתפים</td></tr>
+        <tr><td>חיילים בודדים</td><td>10% — כ-17 משתתפים</td></tr>
+        <tr><td>בני העדה הדרוזית</td><td>6.5% — כ-15 משתתפים</td></tr>
+        <tr><td>קדם עתידים</td><td>לפחות 30</td></tr>
+        <tr><td>אוניברסיטאות</td><td>לפחות 90% מ-210 המתקבלים</td></tr>
+        <tr><td>סה"כ משפך גיוס</td><td>3,000 לידים → 900 → 400 → 210 פותחים</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>שלבי תהליך המיון — גאנט</h3>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><h4>מרץ — תשתיות</h4><p>גאנט מיון + מערכות מידע + שיווק + ציוד + ניהול תמהיל</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><h4>אפריל — הכנת מועמדים</h4><p>סרטון הסבר · עמוד נחיתה · ווטסאפ שו"ת · Booking — איפוס כל חמישי</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><h4>מאי — פתיחת הרשמה (12.5)</h4><p>מיון מועמדים במערכת · שיבוץ רכזות · תובנות לחברת פרסום</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-content"><h4>יוני–אוגוסט — ראיונות</h4><p>ועדות קבלה כל חמישי · ועדת חריגים · הסכמים</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-content"><h4>ספטמבר — שימור + פתיחה</h4><p>מיטאפ שימור · STEP UP תיאום אתי לוטן · 100% חיתום דיגיטלי עד הכנס</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 6. CAMPAIGN ══ -->
+<section class="section" id="campaign">
+  <div class="section-header">
+    <div class="section-icon ic-cyan">📣</div>
+    <h2>קמפיין גיוס ומסע המועמד</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>שלבי תכנון</h3>
+      <ul class="fancy-list">
+        <li><strong>ינואר–פברואר:</strong> מסרים, ניתוח שנה קודמת, גיוס סיירת שיווק</li>
+        <li><strong>מרץ–אפריל:</strong> ישיבה עם שלי + הדר + חברת פרסום (יונה)</li>
+        <li><strong>מאי:</strong> פתיחת הרשמה + תובנות שבועיות לפרסום</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>ממשקי קמפיין</h3>
+      <ul class="fancy-list">
+        <li><strong>שלי סוקולוב</strong> — אסטרטגיה ומעסיקים</li>
+        <li><strong>הדר מדמוני</strong> — סושיאל ומיקרו</li>
+        <li><strong>יונה</strong> — חברת פרסום חיצונית (קמפיין דיגיטלי)</li>
+        <li><strong>סיירת שיווק</strong> — 2 נציגות מטרוטק + סטודנטים</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="link-grid">
+    <a href="https://docs.google.com/spreadsheets/d/1Y1zkTHKqIlUL_6gMkg0nVAsf_Nn1LFp0EzFmiQDF0yk" target="_blank" class="link-card">
+      <div class="link-icon li-lime">📊</div>
+      <div class="link-card-body">
+        <div class="link-card-title">מאגר לידים — Google Sheets</div>
+        <div class="link-card-desc">בשבועיים הראשונים: מאיפה הגיעו, כמה עברו לטופס</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://bookings.cloud.microsoft/book/Bookings6@atidim.org.il/" target="_blank" class="link-card">
+      <div class="link-icon li-cyan">📅</div>
+      <div class="link-card-body">
+        <div class="link-card-title">Booking ראיונות מועמדים</div>
+        <div class="link-card-desc">Bookings6@atidim.org.il — לאפס כל יום חמישי</div>
+        <div class="link-card-note">⚠️ לבקש הרשאות ניהול</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 7. CONFERENCE ══ -->
+<section class="section" id="conference">
+  <div class="section-header">
+    <div class="section-icon ic-mag">🎉</div>
+    <h2>כנס פתיחת מחזור</h2>
+  </div>
+
+  <div class="info-block">
+    <h3>לו"ז — כנס מחזור כה (תבנית)</h3>
+    <table class="eval-table" style="margin-top:8px">
+      <thead><tr><th>שעה</th><th>תוכן</th><th>הערות</th></tr></thead>
+      <tbody>
+        <tr><td>12:00</td><td>הגעת צוות</td><td>העברת חומרים גרפיים למחשבים</td></tr>
+        <tr><td>12:30</td><td>הגעת סטודנטים מתנדבים להקמת אירוע</td><td>חולצה לבנה, חלוקה לתפקידים</td></tr>
+        <tr><td>12:30–15:30</td><td>הגעת סטודנטים — יחידות אזוריות</td><td>כיסאות בחצי מעגל, מצגת נבחרת על הלופ</td></tr>
+        <tr><td>15:30–16:00</td><td>יחידות נפרדות: מטרוטק + STEP UP</td><td>מתנות מטרוטק, תמונת מחזור</td></tr>
+        <tr><td>16:00–17:00</td><td>מינגלינג</td><td>חלוקת תגי שם, מוזיקה</td></tr>
+        <tr><td>17:00–17:30</td><td>התכנסות + ברכות</td><td>מנחים, מפעל הפיס, אני אבוטבול, לטם, הילה, בנק הפועלים</td></tr>
+        <tr><td>17:30–17:40</td><td>טקס מצטיינים</td><td>4 קטגוריות: תכניתית, אקדמית, תעסוקתית, התנדבותית</td></tr>
+        <tr><td>18:20–19:15</td><td>הרצאה ראשית</td><td>מצגת מלווה, מתנות על השולחן</td></tr>
+        <tr><td>19:30–20:00</td><td>יחידת תוכן רכזות + חלוקת מתנות</td><td>ברכות אישיות מהרכזות</td></tr>
+        <tr><td>20:00–22:00</td><td>קיפול + הרמת כוסית צוות</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>רשימת משימות מפתח</h3>
+    <div class="checklist-grid" id="conf-checklist">
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>סגירת אולם/מיקום (עד 1.9)</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>חתימת הסכם ספק מיקום → מורשי חתימה</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>הזמנת רכש + פתיחת ספקים חדשים</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>סגירת מנחים + הכנה בזום</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>תיאום שותפים (מפעל הפיס, בנק הפועלים)</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>תגי שם + צמידים לפי מוסד</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>הדפסות: שלטים, קאפות, שילוט</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>שריון מתנדבים + חלוקה לתפקידים</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>מצגת מלווה: נתונים, מצטיינים, דוברים</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>בחירת מצטיינים — 4 קטגוריות + שוברים</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>סיור מקדים + שרטוט מיקום</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>שליחת הוראות הגעה לספקים ושותפים</div>
+    </div>
+    <div class="highlight orange" style="margin-top:14px">
+      💰 תקציב כנס מחזור כה: כ-119,000 ₪ (תקציב מאושר: 120,000 ₪) · ספקים: מונייר, גריי מודיעין, דפוס לביא, דידה, יוסי גמזו (צלם)
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 8. CONTACTS ══ -->
+<section class="section" id="contacts">
+  <div class="section-header">
+    <div class="section-icon ic-navy">🤝</div>
+    <h2>ממשקים ואנשי קשר</h2>
+  </div>
+
+  <div class="info-block">
+    <h3>הנהלת היחידה</h3>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">מנהל היחידה</div>
+        <div class="contact-name">לטם קופליס</div>
+        <div class="contact-desc">פגישה שבועית קבועה. תכנית עבודה שנתית, תקציב, אישורים חריגים, ממשקים עם גורמי חוץ ופנים, התייעצויות מקצועיות.</div>
+        <div class="contact-tags"><span class="ctag">שבועי</span><span class="ctag">תקציב</span><span class="ctag">אישורים</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">מנהלת פדגוגית</div>
+        <div class="contact-name">אסתי מששה הייס</div>
+        <div class="contact-desc">כל בניית התוכן, הכנסים, הגאנט החוץ-אקדמי. פיתוח פדגוגי ופיילוטים.</div>
+        <div class="contact-tags"><span class="ctag">תוכן</span><span class="ctag">כנסים</span><span class="ctag">חוץ-אקדמי</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">מנהל תקציבים</div>
+        <div class="contact-name">עופר שמש</div>
+        <div class="contact-desc">כל המלגות לסטודנטים, ניהול תקציב התכנית, אישורי הזמנות רכש, חשבוניות.</div>
+        <div class="contact-tags"><span class="ctag">מלגות</span><span class="ctag">רכש</span><span class="ctag">תקציב</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>שיווק וקשרי מעסיקים</h3>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">מנהלת קשרי מעסיקים ושיווק</div>
+        <div class="contact-name">שלי סוקולוב</div>
+        <div class="contact-desc">מפגשים עם מעסיקים פוטנציאליים, בניית קמפיין שיווק, אסטרטגיית תחום.</div>
+        <div class="contact-tags"><span class="ctag">מעסיקים</span><span class="ctag">קמפיין</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">רכזת שיווק</div>
+        <div class="contact-name">הדר מדמוני</div>
+        <div class="contact-desc">כל הממשק סביב הסושיאל, הקמפיין במיקרו — פוסטים, גרפיקות, תזמון.</div>
+        <div class="contact-tags"><span class="ctag">סושיאל</span><span class="ctag">מיקרו</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">מנהלת קשרי תורמים</div>
+        <div class="contact-name">שי וינקלר</div>
+        <div class="contact-desc">עיתונים עם סיפורי סטודנטים, מפגשי סטודנט-תורם, אירועי נבחרת הנשים. הקשר לאתי לוטן — גייסת כספים פרילנסרית של העמותה.</div>
+        <div class="contact-tags"><span class="ctag">תורמים</span><span class="ctag">סיפורי סטודנטים</span><span class="ctag">נבחרת נשים</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>ארגון בוגרים</h3>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">מנהלת ארגון הבוגרים</div>
+        <div class="contact-name">כרמל</div>
+        <div class="contact-desc">ממשקי תכנית ובוגרים — אירועים, תכנים, מעבר הסטודנטים המסיימים לארגון הבוגרים.</div>
+        <div class="contact-tags"><span class="ctag">אירועים</span><span class="ctag">מעבר מסיימים</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">מנהלת קהילת הבוגרים</div>
+        <div class="contact-name">איילת</div>
+        <div class="contact-desc">פעילויות קהילתיות, אירועים ותכנים לבוגרים, חיבורים בוגרים-סטודנטים.</div>
+        <div class="contact-tags"><span class="ctag">קהילה</span><span class="ctag">אירועים</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">ליווי קריירה — בוגרים</div>
+        <div class="contact-name">איה גלזר</div>
+        <div class="contact-desc">כל החיבורים בין הבוגרים לסטודנטים סביב הנושא התעסוקתי. סימולציות, מנחים, השמות.</div>
+        <div class="contact-tags"><span class="ctag">תעסוקה</span><span class="ctag">סימולציות</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>תפעול ורכש</h3>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">רכזת תפעול ורכש</div>
+        <div class="contact-name">יעל וייטפילד</div>
+        <div class="contact-desc">כל הזמנות הרכש השוטפות, קבלות וחשבוניות. לתאם לפני כל הזמנה חדשה.</div>
+        <div class="contact-tags"><span class="ctag">רכש שוטף</span><span class="ctag">חשבוניות</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">מנהלת רכש ותפעול</div>
+        <div class="contact-name">קרן רוזנצוויג</div>
+        <div class="contact-desc">מחשבים, רכבים, הסכמים עם ספקים. פתיחת ספק חדש — תמיד דרך קרן.</div>
+        <div class="contact-tags"><span class="ctag">ספקים</span><span class="ctag">הסכמים</span><span class="ctag">ציוד</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>מערכות מידע ומיון</h3>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">מנהלת מערכות מידע</div>
+        <div class="contact-name">יפעת דוידסון</div>
+        <div class="contact-desc">כל הדשבורדים: מעסיקים, הרשמות, ימי הולדת. בקשות לדוחות ונתונים.</div>
+        <div class="contact-tags"><span class="ctag">דשבורדים</span><span class="ctag">נתונים</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">תמיכה טכנית</div>
+        <div class="contact-name">דוד כהן</div>
+        <div class="contact-desc">תקלות במערכת המידע, הכנת המערכת לפתיחת מחזור חדש.</div>
+        <div class="contact-tags"><span class="ctag">תמיכה</span><span class="ctag">פתיחת מחזור</span></div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-role">רכזת ליווי מועמדים</div>
+        <div class="contact-name">הדר הרנשטיין</div>
+        <div class="contact-desc">בתקופת המיון (מאי–אוגוסט) — מענה לשאלות מועמדים, שיבוצי ראיונות עם הרכזות.</div>
+        <div class="contact-tags"><span class="ctag">מועמדים</span><span class="ctag">שיבוצים</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>שותפים חיצוניים מרכזיים</h3>
+    <table class="eval-table" style="margin-top:8px">
+      <thead><tr><th>שותף</th><th>ממשק</th><th>איש קשר</th></tr></thead>
+      <tbody>
+        <tr><td>יוצאים לשינוי</td><td>מטרוטק — מיון, ועדות, כנס</td><td>אודליה אורון, דור בן דוד, נעמה צור</td></tr>
+        <tr><td>מפעל הפיס</td><td>שותף מממן — כנסים</td><td>ארז גרניט</td></tr>
+        <tr><td>בנק הפועלים</td><td>שותף — כנסים</td><td>נעמה הלוי פאר</td></tr>
+        <tr><td>אתי לוטן</td><td>נבחרת STEP UP + גיוס כספים פרילנסרי</td><td>עדכונים שבועיים בתקופת הראיונות</td></tr>
+        <tr><td>מגדלור</td><td>מנטורינג שנה ד'</td><td>לתאם לפני גיוס סטודנטים</td></tr>
+        <tr><td>עולים ביחד</td><td>יוצאי אתיופיה — חשיפות, שיווק</td><td>יסמין</td></tr>
+        <tr><td>JNF</td><td>3 דרומיות ב-BGU</td><td>מנכ"ל מגיע בתחילת מאי</td></tr>
+        <tr><td>הכרם</td><td>בנות דרוזיות לתכנית</td><td>הגר + הילה פרץ</td></tr>
+        <tr><td>צעירי עתידים</td><td>התנדבות סטודנטים בתכניות</td><td>יעל כרמי, תמר דה האן</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 9. BUDGET ══ -->
+<section class="section" id="budget">
+  <div class="section-header">
+    <div class="section-icon ic-lime">💰</div>
+    <h2>ניהול תקציב ורכש</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>תהליך עבודה עם ספק חדש</h3>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num" style="background:var(--lime)">1</div>
+          <div class="step-content"><p>לפנות לקרן רוזנצוויג / יעל וייטפילד עם פרטי הספק</p></div>
+        </div>
+        <div class="process-step">
+          <div class="step-num" style="background:var(--lime)">2</div>
+          <div class="step-content"><p>הספק חותם על מסמכים נדרשים</p></div>
+        </div>
+        <div class="process-step">
+          <div class="step-num" style="background:var(--lime)">3</div>
+          <div class="step-content"><p>פתיחת הזמנת רכש מול עופר שמש</p></div>
+        </div>
+        <div class="process-step">
+          <div class="step-num" style="background:var(--lime)">4</div>
+          <div class="step-content"><p>אחרי האירוע: לבקש חשבונית ולשלוח ל-hilaz@atidim.org.il</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="info-block">
+      <h3>תכנון תקציב שנתי</h3>
+      <ul class="fancy-list">
+        <li><strong>מועד:</strong> דצמבר — עם לטם ועופר</li>
+        <li>בסיס: תכנית עבודה + לקחים מהשנה</li>
+        <li>בדיקה רבעונית של עמידה בתקציב</li>
+        <li>חריגות → דיווח מיידי ללטם</li>
+        <li>אישור לפני כל הוצאה משמעותית חריגה</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>הזמנות רכש — קישורים</h3>
+    <div class="link-grid">
+      <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=p-cTmrAAiU6_hSN88CK-z-KNzr8amVVFpM7riUgBZl9UNUExRUtWWTE4SVFXWE5YVkFQWDZVNU9KQyQlQCN0PWcu" target="_blank" class="link-card">
+        <div class="link-icon li-orange">📝</div>
+        <div class="link-card-body">
+          <div class="link-card-title">טופס הזמנת עבודה עתידים</div>
+          <div class="link-card-desc">Microsoft Forms — מילוי לכל בקשת רכש חדשה</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+      <a href="https://foratidim.sharepoint.com/:x:/s/crmteam/IQAteW8DX6BoToSDxYKgkPPbAVqLcVCExk-R9Ir60AauXUg?clickparams=eyAiWC1BcHBOYW1lIiA6ICJNaWNyb3NvZnQgT3V0bG9vayIsICJYLUFwcFZlcnNpb24iIDogIjE2LjAuMTkzMjguMjAyNDQiLCAiT1MiIDogIldpbmRvd3MiIH0%3D&CID=B03B4248-04F0-413E-9EED-13B80B68563B&wdLOR=c66005135-A9DD-43E2-BBFC-91A765B04D57" target="_blank" class="link-card">
+        <div class="link-icon li-lime">📊</div>
+        <div class="link-card-body">
+          <div class="link-card-title">טופס הזמנת עבודה עתידים — Excel</div>
+          <div class="link-card-desc">SharePoint — מעקב הזמנות ומצב עיבוד</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+    </div>
+    <div class="highlight lime" style="margin-top:12px">
+      📋 לתעד כל הזמנה: שם ספק · סכום כולל מעמ"ח · תאריך · האם הספק פתוח · האם נשלחה חשבונית
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 10. RESEARCH ══ -->
+<section class="section" id="research">
+  <div class="section-header">
+    <div class="section-icon ic-navy">📊</div>
+    <h2>מחקר מלווה</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="info-block">
+      <h3>תפקיד המנהלת</h3>
+      <ul class="fancy-list">
+        <li>דיוק שאלות המחקר מול חברה חיצונית</li>
+        <li>הפצת שאלונים לסטודנטים — לפי לוח זמנים</li>
+        <li>מעקב מענה: יעד 95% פתיחה/סיום</li>
+        <li>שיחות חתך: 20 סטודנטים מייצגים לכל מחזור</li>
+        <li>קבלת דוחות רבעוניים</li>
+        <li>שיתוף ממצאים עם לטם ואסתי</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h3>לוח זמנים</h3>
+      <table class="eval-table" style="margin-top:4px">
+        <tbody>
+          <tr><td><strong>Q1 — ינואר</strong></td><td>קבלת דוחות שלושת התכניות</td></tr>
+          <tr><td><strong>סוף מרץ</strong></td><td>🔴 הפצת שאלון מחקר אמצע לסטודנטים</td></tr>
+          <tr><td><strong>Q2 — אפריל</strong></td><td>משוב אמצע — 95% מילוי</td></tr>
+          <tr><td><strong>סוף יולי</strong></td><td>🔴 הפצת שאלון מחקר סוף לסטודנטים</td></tr>
+          <tr><td><strong>Q3 — אוגוסט</strong></td><td>משוב סוף — 95% מילוי</td></tr>
+          <tr><td><strong>Q4</strong></td><td>שאלון בוגרים — 70% מענה</td></tr>
+          <tr><td><strong>דצמבר</strong></td><td>תכנון מחקר לשנה הבאה</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>קישורי מחקר</h3>
+    <div class="link-grid">
+      <a href="https://www.surveymonkey.com/r/RXDQLTM" target="_blank" class="link-card">
+        <div class="link-icon li-navy">📋</div>
+        <div class="link-card-body">
+          <div class="link-card-title">שאלון מחקר מלווה — SurveyMonkey</div>
+          <div class="link-card-desc">surveymonkey.com/r/RXDQLTM — להפיץ לסטודנטים בסוף מרץ ובסוף יולי</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+      <a href="https://datastudio.google.com/u/2/reporting/ebdd9b31-a09c-4deb-989b-b78c676bce39/page/1M" target="_blank" class="link-card">
+        <div class="link-icon li-cyan">📊</div>
+        <div class="link-card-body">
+          <div class="link-card-title">דשבורד מחקר מלווה — Looker Studio</div>
+          <div class="link-card-desc">Google Data Studio — נתוני המחקר בזמן אמת</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ 11. TOOLS ══ -->
+<section class="section" id="tools">
+  <div class="section-header">
+    <div class="section-icon ic-cyan">🔗</div>
+    <h2>כלים וקישורים</h2>
+  </div>
+
+  <div class="link-grid">
+    <a href="https://docs.google.com/spreadsheets/d/1Y1zkTHKqIlUL_6gMkg0nVAsf_Nn1LFp0EzFmiQDF0yk" target="_blank" class="link-card">
+      <div class="link-icon li-lime">📊</div>
+      <div class="link-card-body">
+        <div class="link-card-title">מאגר לידים — Google Sheets</div>
+        <div class="link-card-desc">מעקב לידים, הרשמות ותובנות לחברת הפרסום</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://bookings.cloud.microsoft/book/Bookings6@atidim.org.il/" target="_blank" class="link-card">
+      <div class="link-icon li-cyan">📅</div>
+      <div class="link-card-body">
+        <div class="link-card-title">Booking ראיונות מועמדים</div>
+        <div class="link-card-desc">Bookings6@atidim.org.il — לאפס כל יום חמישי</div>
+        <div class="link-card-note">⚠️ לבקש הרשאות ניהול</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://atidim-1.github.io/white-onboarding-atidim/" target="_blank" class="link-card">
+      <div class="link-icon li-navy">📖</div>
+      <div class="link-card-body">
+        <div class="link-card-title">מחברת חפיפה רכזות — גרסה בהירה</div>
+        <div class="link-card-desc">atidim-1.github.io/white-onboarding-atidim</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://atidim-1.github.io/-volunteering-platform1/" target="_blank" class="link-card">
+      <div class="link-icon li-mag">🤲</div>
+      <div class="link-card-body">
+        <div class="link-card-title">מאגר התנדבויות</div>
+        <div class="link-card-desc">atidim-1.github.io/-volunteering-platform1</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=p-cTmrAAiU6_hSN88CK-z-KNzr8amVVFpM7riUgBZl9UNUExRUtWWTE4SVFXWE5YVkFQWDZVNU9KQyQlQCN0PWcu" target="_blank" class="link-card">
+      <div class="link-icon li-orange">📝</div>
+      <div class="link-card-body">
+        <div class="link-card-title">טופס הזמנת עבודה / הרשמה לכנס</div>
+        <div class="link-card-desc">Microsoft Forms</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://www.surveymonkey.com/r/RXDQLTM" target="_blank" class="link-card">
+      <div class="link-icon li-navy">📋</div>
+      <div class="link-card-body">
+        <div class="link-card-title">שאלון מחקר מלווה</div>
+        <div class="link-card-desc">SurveyMonkey — להפיץ סוף מרץ + סוף יולי</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+    <a href="https://datastudio.google.com/u/2/reporting/ebdd9b31-a09c-4deb-989b-b78c676bce39/page/1M" target="_blank" class="link-card">
+      <div class="link-icon li-cyan">📊</div>
+      <div class="link-card-body">
+        <div class="link-card-title">דשבורד מחקר מלווה</div>
+        <div class="link-card-desc">Looker Studio — נתוני המחקר בזמן אמת</div>
+      </div>
+      <div class="link-card-arrow">←</div>
+    </a>
+  </div>
+
+  <div class="info-block" style="margin-top:16px">
+    <h3>קבוצות ווטסאפ — לבקש הרשאות ניהול</h3>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+      <a href="https://chat.whatsapp.com/J3XxUgZ3UM4HAwh6HpClPZ" target="_blank" class="link-card">
+        <div class="link-icon" style="background:#25D366;color:#fff;font-size:1.3rem">💬</div>
+        <div class="link-card-body">
+          <div class="link-card-title">קהילת הסטודנטים</div>
+          <div class="link-card-desc">קהילת הווטסאפ הראשית של סטודנטי עתידים לתעשייה ולהייטק</div>
+          <div class="link-card-note">⚠️ לבקש הרשאות ניהול</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+      <a href="https://chat.whatsapp.com/ItCs15Io5I76f5A88qKWgk" target="_blank" class="link-card">
+        <div class="link-icon" style="background:#25D366;color:#fff;font-size:1.3rem">🚀</div>
+        <div class="link-card-body">
+          <div class="link-card-title">קהילת קריירה</div>
+          <div class="link-card-desc">עתידים לתעשייה ולהייטק — קבוצת ליווי קריירה ותעסוקה</div>
+          <div class="link-card-note">⚠️ לבקש הרשאות ניהול</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+      <a href="https://chat.whatsapp.com/CYDiPYiBhHvLaMT0i6GfA1" target="_blank" class="link-card">
+        <div class="link-icon" style="background:#25D366;color:#fff;font-size:1.3rem">⭐</div>
+        <div class="link-card-body">
+          <div class="link-card-title">נבחרת STEP UP</div>
+          <div class="link-card-desc">קהילת נבחרת הסטודנטיות המצוינות — אירועים, תכנים ייחודיים</div>
+          <div class="link-card-note">⚠️ לבקש הרשאות ניהול</div>
+        </div>
+        <div class="link-card-arrow">←</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="info-block" style="margin-top:16px">
+    <h3>רשימת גישות — לקבל בתחילת החפיפה</h3>
+    <div class="checklist-grid" id="access-checklist">
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>גישה ל-CRM / מערכת מידע עתידים</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>גישה ל-SharePoint ותיקיות OneDrive</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>גישה ל-Booking (Bookings6@atidim.org.il)</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>גישה לטפסי Microsoft Forms</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>גישה לגוגל שיטס — מאגר לידים</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>קבוצות ווטסאפ: סטודנטים, קריירה, STEP UP</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>פרטי קשר: ספקים קיימים + רכזות</div>
+      <div class="checklist-box" onclick="toggle(this)"><span class="check-circle"></span>גישה לדשבורד מחקר — Looker Studio</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>מחברת חפיפה — מנהלת תכנית עתידים לתעשייה ולהייטק · 2026</p>
+  <p style="margin-top:6px">שאלות: <a href="mailto:hilaz@atidim.org.il">hilaz@atidim.org.il</a></p>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var d = document.documentElement;
+  var pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  var pb = document.getElementById('pgbar');
+  if (pb) pb.style.width = Math.min(pct, 100) + '%';
+  document.querySelectorAll('.section').forEach(function(s) {
+    var r = s.getBoundingClientRect();
+    if (r.top <= 120 && r.bottom >= 120) {
+      document.querySelectorAll('.toc-item').forEach(function(t) { t.classList.remove('active'); });
+      var a = document.querySelector('.toc-item[href="#' + s.id + '"]');
+      if (a) a.classList.add('active');
+    }
+  });
+});
+function toggle(el) {
+  el.classList.toggle('done');
+  el.querySelector('.check-circle').innerHTML = el.classList.contains('done') ? '✓' : '';
+}
+</script>
+</body>
+</html>
