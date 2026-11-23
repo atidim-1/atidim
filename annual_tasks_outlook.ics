@@ -1294,6 +1294,88 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t70@atidim.org.il
 DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271011
+DTEND;VALUE=DATE:20271012
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: לוח אקדמי: פתיחת שנה במוסדו
+ ת (11.10 עד 1.11)
+DESCRIPTION:בר אילן\, העברית ועזריאלי 11.10\; תל 
+ אביב\, אריאל\, HIT ובן גוריון 18.10\; הטכניון 
+ 28.10\; בראודה 1.11\nמתוך מחברת החפיפה של מנה
+ לת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:ליווי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t71@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270108
+DTEND;VALUE=DATE:20270109
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: לוח אקדמי: סיום סמסטר א' במו
+ סדות (8 עד 31.1)
+DESCRIPTION:אריאל 8.1\; בן גוריון והעברית 15.1\; HIT
+  ובר אילן 17.1\; תל אביב 18.1\; הטכניון 28.1\; בר
+ אודה 31.1. תקופת מבחנים: שיחות אישיות והכ
+ נה לבחינות\nמתוך מחברת החפיפה של מנהלת 
+ התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:ליווי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t72@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: לוח אקדמי: פתיחת סמסטר ב' במ
+ וסדות (21.2 עד 24.3)
+DESCRIPTION:HIT 21.2\; בן גוריון ועזריאלי 28.2\; ארי
+ אל ובר אילן 1.3\; העברית 7.3\; תל אביב 9.3\; בר
+ אודה 16.3\; הטכניון 24.3\nמתוך מחברת החפיפה 
+ של מנהלת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:ליווי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t73@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270603
+DTEND;VALUE=DATE:20270604
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: לוח אקדמי: סיום סמסטר ב' במו
+ סדות (3.6 עד 8.7)
+DESCRIPTION:אריאל 3.6\; HIT 4.6\; עזריאלי 22.6\; בר איל
+ ן ובן גוריון 25.6\; תל אביב 27.6\; העברית 29.6\; 
+ בראודה 28.6\; הטכניון 8.7\nמתוך מחברת החפיפ
+ ה של מנהלת התכנית. התאריך מדויק לפי השנ
+ ה.
+CATEGORIES:ליווי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t74@atidim.org.il
+DTSTAMP:20261110T000000Z
 DTSTART;VALUE=DATE:20270505
 DTEND;VALUE=DATE:20270506
 RRULE:FREQ=YEARLY
