@@ -1,0 +1,1312 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Atidim//Handover Notebook//HE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:משימות מנהלת התכנית - עתידים
+BEGIN:VEVENT
+UID:atidim-handover-t1@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271006
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: סימון שיוך מרום / מנהל סטודנ
+ טים במערכת
+DESCRIPTION:הם כבר לא מקוזזים אצלנו\, אבל חייב
+ ים שעות התנדבות\nמתוך מחברת החפיפה של מ
+ נהלת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t2@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: מענק הצטיידות 2\,500 ₪: עבודה 
+ מול הנהלת חשבונות
+DESCRIPTION:הסכמים\, אישורי ניהול חשבון בנק ו
+ ת"ז עם ספח\nמתוך מחברת החפיפה של מנהלת ה
+ תכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t3@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: כנס פתיחת מחזור
+DESCRIPTION:לעדכן את התאריך בפועל. לו"ז\, משימ
+ ות ומתנדבים בפרק כנס פתיחה\nמתוך מחברת 
+ החפיפה של מנהלת התכנית. התאריך מדויק לפ
+ י השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t4@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271020
+DTEND;VALUE=DATE:20271021
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: שיחות אישיות עם סטודנטי שני
+ ם א'-ג'
+DESCRIPTION:הרכזות מבצעות\, המנהלת מוודאת עקב
+ יות\nמתוך מחברת החפיפה של מנהלת התכנית. 
+ התאריך מדויק לפי השנה.
+CATEGORIES:ליווי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t5@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271025
+DTEND;VALUE=DATE:20271026
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: ועדת הארכות לימודים
+DESCRIPTION:דיון והחלטות לפי מפתח ההחלטות\nמת
+ וך מחברת החפיפה של מנהלת התכנית. התאריך
+  מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t6@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271028
+DTEND;VALUE=DATE:20271029
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פתיחת שנה: הפעלת סטודנטי המ
+ חזור החדש במערכת
+DESCRIPTION:אישור ניהול חשבון\, ת"ז תקינות\, חת
+ ימה על ההסכם בדוקסי\nמתוך מחברת החפיפה 
+ של מנהלת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t7@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: ביקורים במוסדות האקדמיים
+DESCRIPTION:שיחות עם אנשי קשר במוסדות וחיזוק 
+ קשרים\nמתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:ליווי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t8@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: איסוף נתוני השנה לקראת תכני
+ ת העבודה
+DESCRIPTION:בסיס לתכנית העבודה והתקציב בדצמב
+ ר\nמתוך מחברת החפיפה של מנהלת התכנית. הת
+ אריך מדויק לפי השנה.
+CATEGORIES:תכנון
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t9@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תכנית עבודה שנתית ותקציב: ע
+ בודה עם לטם ומיטל
+DESCRIPTION:תבנית היחידה\, על בסיס השנה שחלפה\
+ nמתוך מחברת החפיפה של מנהלת התכנית. התא
+ ריך מדויק לפי השנה.
+CATEGORIES:תכנון
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t10@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פגישת סטטוס ציונים והתנדבו
+ ת עם מיטל
+DESCRIPTION:חודש לפני פעימת ינואר\nמתוך מחברת
+  החפיפה של מנהלת התכנית. התאריך מדויק ל
+ פי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t11@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת התנדבות (12 שעות מתוך 60
+ ) ובדיקת ציונים סמסטר ב' הקודם
+DESCRIPTION:מול פעימת ינואר\nמתוך מחברת החפיפ
+ ה של מנהלת התכנית. התאריך מדויק לפי השנ
+ ה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t12@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: מפגשי נטוורקינג במוסדות (עם
+  מטרוטק)
+DESCRIPTION:פעילות משותפת עם הצוות של הדס\nמת
+ וך מחברת החפיפה של מנהלת התכנית. התאריך
+  מדויק לפי השנה.
+CATEGORIES:חוץ-אקדמי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t13@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: מפגש חנוכה לנבחרת STEP UP
+DESCRIPTION:תיאום מול אתי לוטן ואיילת כרם\nמת
+ וך מחברת החפיפה של מנהלת התכנית. התאריך
+  מדויק לפי השנה.
+CATEGORIES:חוץ-אקדמי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t14@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: עדכון מועסקים (סמסטר א')
+DESCRIPTION:תאריך העדכון שמשפיע על לוח התשלו
+ מים\nמתוך מחברת החפיפה של מנהלת התכנית. 
+ התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t15@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תשלום שני ל-GOOL
+DESCRIPTION:מתוך שתי הפעימות של ההצעה\nמתוך מ
+ חברת החפיפה של מנהלת התכנית. התאריך מדו
+ יק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t16@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פעימת תשלום ינואר: לוודא עמ
+ ידה בבדיקות
+DESCRIPTION:התנדבות 12/60 וציונים\nמתוך מחברת ה
+ חפיפה של מנהלת התכנית. התאריך מדויק לפי
+  השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t17@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תכנון קמפיין גיוס
+DESCRIPTION:מסרים\, ניתוח השנה הקודמת\, סיירת 
+ שיווק\nמתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:שיווק
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t18@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: משוב אמצע שנה לרכזות
+DESCRIPTION:טופס הערכה לרכזת וטופס הכנה לעוב
+ דת\nמתוך מחברת החפיפה של מנהלת התכנית. ה
+ תאריך מדויק לפי השנה.
+CATEGORIES:צוות
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t19@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270125
+DTEND;VALUE=DATE:20270126
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: גיבוש צוותי ועבודה על תשתיו
+ ת (חופשת סמסטר)
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:צוות
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t20@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: הכשרות צוות
+DESCRIPTION:ישיבות צוות בתדירות גבוהה יותר\nמ
+ תוך מחברת החפיפה של מנהלת התכנית. התארי
+ ך מדויק לפי השנה.
+CATEGORIES:צוות
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t21@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270215
+DTEND;VALUE=DATE:20270216
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: גיוס סיירת שיווק
+DESCRIPTION:2 נציגות מטרוטק + סטודנטים\nמתוך מ
+ חברת החפיפה של מנהלת התכנית. התאריך מדו
+ יק לפי השנה.
+CATEGORIES:שיווק
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t22@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270305
+DTEND;VALUE=DATE:20270306
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: סגירת קמפיין וגאנט מיון ותש
+ תיות
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t23@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270309
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פגישת סטטוס ציונים והתנדבו
+ ת עם מיטל
+DESCRIPTION:חודש לפני פעימת אפריל\nמתוך מחברת
+  החפיפה של מנהלת התכנית. התאריך מדויק ל
+ פי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t24@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270310
+DTEND;VALUE=DATE:20270311
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: ישיבות החלטה משותפות עם יוצ
+ אים לשינוי (מטרוטק)
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t25@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270313
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פגישה עם שלי\, הדר מדמוני וי
+ ונה (חברת הפרסום)
+DESCRIPTION:קבוע אחת לשבועיים בתקופת הקמפיין
+ \nמתוך מחברת החפיפה של מנהלת התכנית. התא
+ ריך מדויק לפי השנה.
+CATEGORIES:שיווק
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t26@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת התנדבות (40 שעות מתוך 60
+ )
+DESCRIPTION:מול פעימת אפריל\nמתוך מחברת החפיפ
+ ה של מנהלת התכנית. התאריך מדויק לפי השנ
+ ה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t27@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תשלום שכר לימוד סמסטר א'
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t28@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270325
+DTEND;VALUE=DATE:20270326
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: הפצת שאלון מחקר אמצע לסטודנ
+ טים
+DESCRIPTION:יעד: 95% מילוי\nמתוך מחברת החפיפה ש
+ ל מנהלת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:מחקר
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t29@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270405
+DTEND;VALUE=DATE:20270406
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: ניהול תמהיל מתקבלים
+DESCRIPTION:נשים\, חיילים בודדים\, יוצאי אתיופ
+ יה\, דרוזים\, מטרוטק\nמתוך מחברת החפיפה ש
+ ל מנהלת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t30@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פעימת תשלום אפריל
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t31@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: סיירת שיווק וימים פתוחים במ
+ וסדות
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:שיווק
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t32@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270420
+DTEND;VALUE=DATE:20270421
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: הכנת מועמדים: סרטון\, עמוד נ
+ חיתה\, ווטסאפ שו"ת\, Booking
+DESCRIPTION:איפוס Booking כל חמישי\nמתוך מחברת הח
+ פיפה של מנהלת התכנית. התאריך מדויק לפי 
+ השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t33@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פתיחת הרשמה לתכנית (תמיד סב
+ יב מאי)
+DESCRIPTION:ניתוב מועמדים בין עתידים ליוצאים
+  לשינוי. התאריך המדויק משתנה משנה לשנה\n
+ מתוך מחברת החפיפה של מנהלת התכנית. התאר
+ יך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t34@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תובנות שבועיות לפרסום
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:שיווק
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t35@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270531
+DTEND;VALUE=DATE:20270601
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: עדכון מועסקים (סמסטר ב')
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t36@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270608
+DTEND;VALUE=DATE:20270609
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פגישת סטטוס ציונים והתנדבו
+ ת עם מיטל
+DESCRIPTION:לפני פעימת יוני ויולי\nמתוך מחברת
+  החפיפה של מנהלת התכנית. התאריך מדויק ל
+ פי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t37@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת התנדבות (60/60) ובדיקת צ
+ יונים סמסטר א'
+DESCRIPTION:מול פעימת יוני (התנדבות) ופעימת י
+ ולי (ציונים)\nמתוך מחברת החפיפה של מנהלת
+  התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t38@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: ועדות קבלה וועדת חריגים
+DESCRIPTION:ועדת קבלה משותפת עם מטרוטק\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t39@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: מפגש ארגון בוגרים
+DESCRIPTION:חשיפה והצטרפות\nמתוך מחברת החפיפ
+ ה של מנהלת התכנית. התאריך מדויק לפי השנ
+ ה.
+CATEGORIES:חוץ-אקדמי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t40@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270625
+DTEND;VALUE=DATE:20270626
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פעימת תשלום יוני
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t41@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: משוב סוף שנה לרכזות
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:צוות
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t42@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270715
+DTEND;VALUE=DATE:20270716
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: פעימת תשלום יולי (ציונים)
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t43@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: הפצת שאלון מחקר סוף לסטודנט
+ ים
+DESCRIPTION:יעד: 95% מילוי\nמתוך מחברת החפיפה ש
+ ל מנהלת התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:מחקר
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t44@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270728
+DTEND;VALUE=DATE:20270729
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תשלום שכר לימוד סמסטר ב'
+DESCRIPTION:סוף יולי / תחילת אוגוסט\nמתוך מחבר
+ ת החפיפה של מנהלת התכנית. התאריך מדויק 
+ לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t45@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270811
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: שליחת טופס הארכות לימודים ל
+ מסיימים
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t46@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: הסכמים דיגיטליים למתקבלים
+DESCRIPTION:יעד: 100% חיתום עד הכנס\nמתוך מחברת 
+ החפיפה של מנהלת התכנית. התאריך מדויק לפ
+ י השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t47@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270816
+DTEND;VALUE=DATE:20270817
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: סגירת תוכן הגאנט החוץ-אקדמי
+  מול ספקים
+DESCRIPTION:מאמצע אוגוסט: מרצים\, נושאים\, תאר
+ יכים ומחזורים לשנה הבאה. הגאנט בפרק חוץ
+ -אקדמי\nמתוך מחברת החפיפה של מנהלת התכנ
+ ית. התאריך מדויק לפי השנה.
+CATEGORIES:חוץ-אקדמי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t48@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270820
+DTEND;VALUE=DATE:20270821
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: ממשק מטרוטק / יוצאים לשינוי:
+  העברת מועמדים
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t49@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270901
+DTEND;VALUE=DATE:20270902
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בקשת הצעת מחיר קופוני GOOL לש
+ נה הבאה
+DESCRIPTION:office@gool.co.il. ההצעה לשנה הנוכחית התק
+ בלה ב-23.9\nמתוך מחברת החפיפה של מנהלת התכ
+ נית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t50@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270905
+DTEND;VALUE=DATE:20270906
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: מיטאפ שימור מתקבלים
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t51@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270911
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תיאום STEP UP מול אתי לוטן
+DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
+ ת. התאריך מדויק לפי השנה.
+CATEGORIES:חוץ-אקדמי
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t52@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תחילת תזכורות להעלאת גליונ
+ ות ציונים סמסטר א'
+DESCRIPTION:הצוות שולח לסטודנטים. דנה מוציאה 
+ את פלט הציונים וההתנדבות\nמתוך מחברת הח
+ פיפה של מנהלת התכנית. התאריך מדויק לפי 
+ השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t53@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271001
+DTEND;VALUE=DATE:20271002
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תחילת תזכורות להעלאת גליונ
+ ות ציונים סמסטר ב'
+DESCRIPTION:הצוות שולח לסטודנטים. דנה מוציאה 
+ את פלט הציונים וההתנדבות\nמתוך מחברת הח
+ פיפה של מנהלת התכנית. התאריך מדויק לפי 
+ השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t54@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20271012
+DTEND;VALUE=DATE:20271013
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t55@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t56@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t57@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t58@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270213
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t59@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270312
+DTEND;VALUE=DATE:20270313
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t60@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270413
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t61@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270512
+DTEND;VALUE=DATE:20270513
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t62@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270613
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t63@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270712
+DTEND;VALUE=DATE:20270713
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t64@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270812
+DTEND;VALUE=DATE:20270813
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t65@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
+ ים מדנה
+DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
+  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
+ מחברת החפיפה של מנהלת התכנית. התאריך מד
+ ויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t66@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת סטטוס מוקפאים (רבעוני
+ ת)
+DESCRIPTION:מה מצבם\, האם חוזרים\, והאם כולם הו
+ קפאו במערכת\nמתוך מחברת החפיפה של מנהלת
+  התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t67@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת סטטוס מוקפאים (רבעוני
+ ת)
+DESCRIPTION:מה מצבם\, האם חוזרים\, והאם כולם הו
+ קפאו במערכת\nמתוך מחברת החפיפה של מנהלת
+  התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t68@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270620
+DTEND;VALUE=DATE:20270621
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת סטטוס מוקפאים (רבעוני
+ ת)
+DESCRIPTION:מה מצבם\, האם חוזרים\, והאם כולם הו
+ קפאו במערכת\nמתוך מחברת החפיפה של מנהלת
+  התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t69@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270920
+DTEND;VALUE=DATE:20270921
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: בדיקת סטטוס מוקפאים (רבעוני
+ ת)
+DESCRIPTION:מה מצבם\, האם חוזרים\, והאם כולם הו
+ קפאו במערכת\nמתוך מחברת החפיפה של מנהלת
+  התכנית. התאריך מדויק לפי השנה.
+CATEGORIES:כספים
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:atidim-handover-t70@atidim.org.il
+DTSTAMP:20261110T000000Z
+DTSTART;VALUE=DATE:20270505
+DTEND;VALUE=DATE:20270506
+RRULE:FREQ=YEARLY
+SUMMARY:עתידים: תחילת עבודה על כנס הפתיחה
+DESCRIPTION:קובץ ניהול הכנס בפרק כנס פתיחה\nמ
+ תוך מחברת החפיפה של מנהלת התכנית. התארי
+ ך מדויק לפי השנה.
+CATEGORIES:מחזור
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:תזכורת
+TRIGGER:-P1DT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
