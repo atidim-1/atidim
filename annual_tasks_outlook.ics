@@ -87,9 +87,12 @@ DTSTART;VALUE=DATE:20271025
 DTEND;VALUE=DATE:20271026
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: ועדת הארכות לימודים
-DESCRIPTION:דיון והחלטות לפי מפתח ההחלטות\nמת
- וך מחברת החפיפה של מנהלת התכנית. התאריך
-  מדויק לפי השנה.
+DESCRIPTION:דיון בבקשות עם הערות הרכזות\, בהש
+ תתפות מנהל היחידה\, מנהלת התקציבים והמנ
+ הלת\; בהמשך מנהל הכספים (אלירן חממי) ומנ
+ כ"ל העמותה (אורי ברוק)\nמתוך מחברת החפיפ
+ ה של מנהלת התכנית. התאריך מדויק לפי השנ
+ ה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -811,13 +814,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t45@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270810
-DTEND;VALUE=DATE:20270811
+DTSTART;VALUE=DATE:20270815
+DTEND;VALUE=DATE:20270816
 RRULE:FREQ=YEARLY
-SUMMARY:עתידים: שליחת טופס הארכות לימודים ל
- מסיימים
-DESCRIPTION:מתוך מחברת החפיפה של מנהלת התכני
- ת. התאריך מדויק לפי השנה.
+SUMMARY:עתידים: הפצת טופס הארכות לימודים (ש
+ אלון הארכת לימודים)
+DESCRIPTION:הטופס מופץ לסטודנטים במהלך אוגוס
+ ט. לינק: https://forms.cloud.microsoft/r/6f1myWMY9G\nמתוך מח
+ ברת החפיפה של מנהלת התכנית. התאריך מדוי
+ ק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -978,15 +983,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t54@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20271012
-DTEND;VALUE=DATE:20271013
+DTSTART;VALUE=DATE:20271010
+DTEND;VALUE=DATE:20271011
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -998,15 +1003,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t55@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20261112
-DTEND;VALUE=DATE:20261113
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1018,15 +1023,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t56@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261213
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1038,15 +1043,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t57@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270112
-DTEND;VALUE=DATE:20270113
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1058,15 +1063,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t58@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270212
-DTEND;VALUE=DATE:20270213
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1078,15 +1083,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t59@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270312
-DTEND;VALUE=DATE:20270313
+DTSTART;VALUE=DATE:20270310
+DTEND;VALUE=DATE:20270311
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1098,15 +1103,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t60@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270412
-DTEND;VALUE=DATE:20270413
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1118,15 +1123,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t61@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270512
-DTEND;VALUE=DATE:20270513
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270511
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1138,15 +1143,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t62@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270612
-DTEND;VALUE=DATE:20270613
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1158,15 +1163,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t63@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270712
-DTEND;VALUE=DATE:20270713
+DTSTART;VALUE=DATE:20270710
+DTEND;VALUE=DATE:20270711
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1178,15 +1183,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t64@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270812
-DTEND;VALUE=DATE:20270813
+DTSTART;VALUE=DATE:20270810
+DTEND;VALUE=DATE:20270811
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM
@@ -1198,15 +1203,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:atidim-handover-t65@atidim.org.il
 DTSTAMP:20261110T000000Z
-DTSTART;VALUE=DATE:20270912
-DTEND;VALUE=DATE:20270913
+DTSTART;VALUE=DATE:20270910
+DTEND;VALUE=DATE:20270911
 RRULE:FREQ=YEARLY
 SUMMARY:עתידים: בדיקת ממשק סיוע אקדמי וחריג
  ים מדנה
 DESCRIPTION:לוודא שכולם משנים א'-ב' ושכל חריגה
-  הוצדקה בוועדת חריגים. היום משוער\nמתוך 
- מחברת החפיפה של מנהלת התכנית. התאריך מד
- ויק לפי השנה.
+  הוצדקה בוועדת חריגים. הממשק יוצא בדרך 
+ כלל בעשירי לחודש\nמתוך מחברת החפיפה של 
+ מנהלת התכנית. התאריך מדויק לפי השנה.
 CATEGORIES:כספים
 TRANSP:TRANSPARENT
 BEGIN:VALARM

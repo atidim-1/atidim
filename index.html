@@ -224,6 +224,10 @@ ul.fancy-list li { padding: 7px 20px 7px 0; }
 
 
 
+
+
+
+
 /* ═════ calendar panel ═════ */
 .cal-help { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .cal-months { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 14px 0; }
@@ -310,6 +314,35 @@ html[data-theme="light"] .cal-tag.mag { color: #A8307F; background: #FCEBFE; }
 html[data-theme="light"] .cal-overdue summary { color: #A8307F; }
 html[data-theme="light"] a { color: #0F7DB8; }
 html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shadow: 0 4px 14px rgba(13,30,43,.18); }
+
+/* acc / steps / checklist / rail */
+details.acc{background:var(--card2,rgba(255,255,255,.04));border:1px solid var(--border,rgba(255,255,255,.12));border-radius:10px;margin:10px 0;overflow:hidden}
+details.acc>summary{cursor:pointer;padding:12px 16px;font-weight:700;font-size:15px;list-style:none;display:flex;align-items:center;gap:8px;color:var(--text)}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary::before{content:"◀";font-size:11px;color:var(--cyan);transition:transform .2s}
+details.acc[open]>summary::before{transform:rotate(-90deg)}
+details.acc[open]>summary{border-bottom:1px solid var(--border,rgba(255,255,255,.12))}
+.acc-body{padding:6px 16px 14px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:12px 0}
+.step-card{position:relative;background:var(--card2,rgba(255,255,255,.05));border:1px solid var(--border,rgba(255,255,255,.12));border-top:3px solid var(--cyan);border-radius:12px;padding:16px 14px 12px}
+.step-card:nth-child(2){border-top-color:var(--lime)}.step-card:nth-child(3){border-top-color:var(--magenta,#E733FA)}.step-card:nth-child(4){border-top-color:#FFB454}
+.step-n{position:absolute;top:-14px;right:12px;width:26px;height:26px;border-radius:50%;background:var(--cyan);color:#0D1E2B;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px}
+.step-card h4{margin:4px 0 8px;font-size:15px}.step-card ul{margin:0;padding-right:18px;font-size:13.5px;line-height:1.7}
+.chk-row{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:9px 4px;border-bottom:1px dashed var(--border,rgba(255,255,255,.12));cursor:pointer}
+.chk-row input{width:20px;height:20px;accent-color:var(--lime,#BBED3C);flex:none;align-self:center}
+.chk-t{flex:1 1 60%;font-size:14px}.chk-m{font-size:12px;color:var(--muted,#9ab);flex:1 1 100%;padding-right:30px}
+.chk-row.done .chk-t{text-decoration:line-through;opacity:.6}
+.chk-reset{margin-top:10px;background:none;border:1px solid var(--border,#456);color:var(--text);border-radius:8px;padding:6px 12px;cursor:pointer}
+.chk-count{font-weight:500;font-size:12px;color:var(--muted,#9ab)}
+#rail{position:fixed;top:90px;right:10px;width:172px;max-height:calc(100vh - 110px);overflow-y:auto;z-index:250;background:var(--card,#10202e);border:1px solid var(--border,rgba(255,255,255,.14));border-radius:12px;padding:8px;font-size:12.5px;display:none;scrollbar-width:thin}
+#rail a{display:block;padding:7px 9px;border-radius:7px;color:var(--muted,#9ab);text-decoration:none;line-height:1.3}
+#rail a:hover{background:rgba(51,182,250,.12);color:var(--text)}
+#rail a.on{background:var(--cyan);color:#0D1E2B;font-weight:700}
+#railBtn{position:fixed;bottom:18px;right:18px;z-index:300;height:46px;padding:0 16px;border-radius:23px;border:1px solid var(--cyan);background:var(--card,#10202e);color:var(--text);font-weight:700;cursor:pointer;display:none}
+@media(min-width:1280px){#rail{display:block}}
+@media(max-width:1279px){#railBtn{display:block}#rail.open{display:block;top:auto;bottom:74px;right:14px;max-height:60vh;width:min(260px,calc(100vw - 28px))}}
+html[data-theme="light"] #rail,html[data-theme="light"] #railBtn{background:#fff;color:#0D1E2B;box-shadow:0 4px 14px rgba(13,30,43,.15)}
+html[data-theme="light"] details.acc,html[data-theme="light"] .step-card{background:#F6FAFD}
 </style>
 </head>
 <body>
@@ -331,14 +364,11 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
 
 <nav class="toc-bar">
   <div class="toc-inner">
-    <a href="#role" class="toc-item">🎯 תפקיד</a>
-    <a href="#goals" class="toc-item">🎯 יעדים וקריירה</a>
+    <a href="#goals" class="toc-item">🎯 תפקיד, יעדים וקריירה</a>
     <a href="#calendar" class="toc-item">📅 לוח שנה</a>
     <a href="#gantt" class="toc-item">📊 גאנט שנתי</a>
     <a href="#team" class="toc-item">👥 שגרות צוות</a>
-    <a href="#lead" class="toc-item">🧭 צוות מוביל</a>
-    <a href="#assoc" class="toc-item">🏛️ ממשקי עמותה</a>
-    <a href="#contacts" class="toc-item">🤝 אנשי קשר</a>
+    <a href="#ifaces" class="toc-item">🤝 ממשקים ואנשי קשר</a>
     <a href="#opening" class="toc-item">🚀 פתיחת מחזור</a>
     <a href="#screening" class="toc-item">🔍 מיון</a>
     <a href="#campaign" class="toc-item">📣 קמפיין</a>
@@ -349,7 +379,6 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <a href="#leaver" class="toc-item">👋 עובד עוזב</a>
     <a href="#extracu" class="toc-item">🎓 חוץ-אקדמי</a>
     <a href="#extra2" class="toc-item">🎓 חוץ-אקדמי: ספקים</a>
-    <a href="#career" class="toc-item">💼 קריירה</a>
     <a href="#exceptions" class="toc-item">⚖️ חריגים</a>
     <a href="#extensions" class="toc-item">📚 הארכות</a>
     <a href="#yearopen" class="toc-item">🗓️ פתיחת שנה</a>
@@ -365,99 +394,66 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
 
 <main>
 
-<section class="section" id="role">
-  <div class="section-header">
-    <div class="section-icon ic-navy">🎯</div>
-    <h2>תפקיד ואחריות — מבט-על</h2>
-  </div>
-
-  <div class="info-block">
-    <h3>מהות התפקיד</h3>
-    <p style="font-size:14.5px;line-height:1.75">
-      מנהלת התכנית אחראית על ניהול מלא מקצה לקצה: מגיוס הסטודנטים ועד לסיום לימודיהם.
-      התפקיד משלב ניהול צוות רכזות, בניית תכנית פדגוגית חוץ-אקדמית שנתית, ניהול קמפיין גיוס,
-      עבודה מול 8 מוסדות אקדמיים, ניהול תקציב, ממשקים עם שותפים תעשייתיים ומחקר מלווה.
-    </p>
-  </div>
-
-  <div class="two-col">
-    <div class="info-block">
-      <h3>הצוות הישיר</h3>
-      <ul class="fancy-list">
-        <li><strong>מורן רוזנברג</strong> — רכזת ליווי — טכניון ובראודה</li>
-        <li><strong>מעיין גלס</strong> — רכזת מוסדות מרכז (ת"א, בר-אילן, אריאל, HIT)</li>
-        <li><strong>אוריה אפריים</strong> — רכזת מוסדות דרום וירושלים (העברית, בן גוריון)</li>
-        <li><strong>ליאן סלמה</strong> — רכזת ליווי קריירה תכניתית</li>
-      </ul>
-    </div>
-    <div class="info-block">
-      <h3>אחריות עיקרית</h3>
-      <ul class="fancy-list">
-        <li>ניהול ומשוב צוות הרכזות</li>
-        <li>בניית תכנית חוץ-אקדמית שנתית</li>
-        <li>קמפיין גיוס + תהליך מיון מועמדים</li>
-        <li>ניהול תמהיל מחזור ויעדים</li>
-        <li>תקציב, רכש ועבודה מול ספקים</li>
-        <li>ממשקים אקדמיים ותעשייתיים</li>
-        <li>מחקר מלווה ומדידת השמות</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <section class="section" id="goals">
   <div class="section-header">
     <div class="section-icon ic-lime">🎯</div>
-    <h2>מהות התפקיד: תכנית העבודה, יעדים וקריירה</h2>
+    <h2>מהות התפקיד, תכנית העבודה ותחום הקריירה</h2>
   </div>
   <div class="info-block">
-    <h3>תכנית העבודה השנתית</h3>
-    <p style="margin:8px 0">תכנית העבודה היא כלי הניהול המרכזי של מנהלת התכנית. היא נבנית בדצמבר מול לטם, בתבנית של היחידה ועל בסיס השנה שחלפה. לכל נושא בה יש יעד שנתי, אחראי ומדדי ביצוע לכל רבעון, וכן סטטוס והערות. התכנית לשנת 2027 נבנית כרגע על בסיס תכנית 2026.</p>
+    <h3>מהות התפקיד</h3>
+    <p style="margin:8px 0">מנהלת התכנית אחראית על ניהול מלא מקצה לקצה: מגיוס הסטודנטים ועד לסיום לימודיהם. התפקיד משלב ניהול צוות רכזות, בניית תכנית פדגוגית חוץ-אקדמית שנתית, ניהול קמפיין גיוס, עבודה מול 8 מוסדות אקדמיים, ניהול תקציב, ממשקים עם שותפים תעשייתיים ומחקר מלווה.</p>
+  </div>
+  <div class="info-block">
+    <h3>הצוות הישיר</h3>
     <ul class="fancy-list">
-      <li>בכל רבעון מעדכנים סטטוס לכל שורה (בוצע / בתהליך / טרם התחיל) ומוסיפים הערות</li>
-      <li>הפגישה השבועית עם לטם היא המקום לבדוק סטיות ולקבל החלטות</li>
-      <li>היעדים מתורגמים לעבודה של הרכזות: מי אחראית על מה, ומה נמדד</li>
-      <li>חלק מהיעדים נעשים יחד עם יחידות שותפות: שיווק, ארגון בוגרים, מערכות מידע, תפעול ורכש</li>
+      <li>מורן רוזנברג: רכזת ליווי, טכניון ובראודה</li>
+      <li>מעיין גלס: רכזת מוסדות מרכז (ת&quot;א, בר-אילן, אריאל, HIT)</li>
+      <li>אוריה אפריים: רכזת מוסדות דרום וירושלים (העברית, בן גוריון)</li>
+      <li>ליאן סלמה: רכזת ליווי קריירה תכניתית</li>
     </ul>
   </div>
   <div class="info-block">
-    <h3>יעדים מרכזיים (לפי תכנית 2026)</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תחום</th><th>יעדים ומדדים</th></tr></thead><tbody>
-<tr><td>פתיחת מחזור</td><td>משפך גיוס: 3,000 לידים, 900 נרשמים, 400 מתראיינים, 210 פותחים שנה, לפחות 90% באוניברסיטאות · 100% חיתום דיגיטלי עד הכנס · 100% הצטרפות לקהילות הווטסאפ · שימור מתקבלים: סדנת הכנה לאקדמיה (95% נוכחות) ומיטאפ חברת הייטק (50% נוכחות)</td></tr>
-<tr><td>תמהיל מתקבלים</td><td>50% נשים · 10% חיילים בודדים · 10% יוצאי אתיופיה · בני העדה הדרוזית: 6.5% (כ-15 משתתפים) · כ-45 בוגרי חינוך חרדי (מטרוטק)</td></tr>
-<tr><td>ליווי אישי</td><td>מודל מדורג: שנה א&#x27; שתי שיחות, שנה ב&#x27; ושנה ג&#x27; לפי המודל, שנה ד&#x27; לפי צורך · מפגשי לא מועסקים, אחד לכל מוסד, לשנים ג&#x27;-ד&#x27;</td></tr>
-<tr><td>מחקר מלווה</td><td>95% מילוי במשובי אמצע וסוף · שיחות חתך עם 20 סטודנטים מייצגים לכל מחזור · 70% מילוי שאלון בוגרים · שיפור של 10% במדדי המחקר</td></tr>
-<tr><td>חוץ-אקדמי</td><td>5 מפגשי נטוורקינג במוסדות המובילים · תמונת עתיד · סיורי חברות לאורך השנה · סדנאות: גיוס, חיפוש עבודה, לינקדאין, פורטפוליו, סטוריטלינג, התנהלות כלכלית · חשיפה והצטרפות לארגון הבוגרים · טקס סיום</td></tr>
-<tr><td>התנדבות</td><td>עדכון מאגר ההתנדבויות · 15 סטודנטים מתנדבים בתכניות צעירי עתידים · התנדבות משותפת ב-3 מוקדים ארציים לפני החגים</td></tr>
-<tr><td>תשתיות</td><td>ועדות חריגים חודשיות · מאגר ליווי פיננסי · שיפור פורטל הסטודנטים (90% שביעות רצון) · ביסוס נוכחות במוסדות (חדרים קבועים) · מעבר להסכמים דיגיטליים</td></tr>
-    </tbody></table>
-    <div class="todo">✏️ <strong>להשלים:</strong> יעדי 2027 עדיין לא נקבעו. אחרי שתכנית 2027 תיסגל בתבנית של היחידה, צריך לעדכן את הטבלה.</div>
+    <h3>אחריות עיקרית</h3>
+    <ul class="fancy-list">
+      <li>ניהול ומשוב צוות הרכזות</li>
+      <li>בניית תכנית חוץ-אקדמית שנתית</li>
+      <li>קמפיין גיוס ותהליך מיון מועמדים</li>
+      <li>ניהול תמהיל מחזור ויעדים</li>
+      <li>תקציב, רכש ועבודה מול ספקים</li>
+      <li>ממשקים אקדמיים ותעשייתיים</li>
+      <li>מחקר מלווה ומדידת השמות</li>
+    </ul>
   </div>
   <div class="info-block">
-    <h3>פיתוח תחום הקריירה וההשמות</h3>
-    <p style="margin:8px 0">המטרה בתחום הזה: להגדיל את מספר הסטודנטים המועסקים בעבודה בתחום כבר במהלך התואר, ולהגיע לשיעור השמה גבוה בסוף הלימודים. מנהלת התכנית מובילה את זה יחד עם ליאן (ליווי קריירה), שלי סוקולוב (קשרי מעסיקים) וארגון הבוגרים.</p>
+    <h3>תכנית העבודה השנתית</h3>
+    <p style="margin:8px 0">תכנית העבודה היא כלי הניהול המרכזי של מנהלת התכנית. היא נבנית בדצמבר מול לטם, בתבנית של היחידה, ובכל רבעון מעדכנים בה סטטוס והערות. הפגישה השבועית עם לטם היא המקום לבדוק סטיות ולקבל החלטות.</p>
+    <ul class="fancy-list">
+      <li><a href="https://foratidim.sharepoint.com/:x:/r/sites/AtidimFoundation/_layouts/15/Doc.aspx?sourcedoc=%7BC2A90D9A-41EF-418E-A412-378518C4761D%7D&file=%D7%99%D7%97%D7%99%D7%93%D7%AA%20%D7%A2%D7%AA%D7%99%D7%93%D7%99%D7%9D%20%D7%9C%D7%A7%D7%A8%D7%99%D7%99%D7%A8%D7%94%20%20-%20%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%A2%D7%91%D7%95%D7%93%D7%94%202027.xlsx&action=default&mobileredirect=true&wdslf=spodoclib-c&wdwpf=doclib-c" target="_blank" style="color:var(--cyan);font-weight:600">🔗 יחידת עתידים לקריירה - תוכנית עבודה 2027.xlsx</a></li>
+    </ul>
+  </div>
+  <div class="info-block">
+    <h3>תחום הקריירה וההשמות</h3>
+    <p style="margin:8px 0">המטרה: להגדיל את מספר הסטודנטים המועסקים בתחום כבר במהלך התואר, ולהגיע לשיעור השמה גבוה בסוף הלימודים. מנהלת התכנית מובילה זאת יחד עם ליאן סלמה (רכזת ליווי קריירה תכניתית), שלי סוקולוב (קשרי מעסיקים) וארגון הבוגרים (איה גלזר, שמחליפה כרגע את איילת בוניבידה).</p>
     <table class="eval-table" style="margin-top:8px"><thead><tr><th>נושא</th><th>יעד / מדד</th></tr></thead><tbody>
 <tr><td>מועסקים לפי שנתון</td><td>20% מועסקים בשנה ב&#x27; · גידול של 35% בשנה ג&#x27; · 70% מושמים במשרות סטודנט בסוף שנה ד&#x27; (וג&#x27; במדמ&quot;ח) · מדידה רבעונית לפי שנתון</td></tr>
 <tr><td>קורות חיים ולינקדאין</td><td>100% מסטודנטי שנה ב&#x27; עם קורות חיים ולינקדאין, ובדיקה ביולי</td></tr>
 <tr><td>סימולציות בוגרים</td><td>בנק אנשי מקצוע לראיונות טכניים · 10 סימולציות סטודנט-בוגר עד אמצע השנה ו-25 עד סופה · יעד: 75% מהמשתתפים מוצאים עבודה בתחום</td></tr>
-<tr><td>סטודנטים מועסקים כמענה</td><td>שאלון וקבוצת ווטסאפ למועסקים · 10 מועסקים שמשתתפים בחוץ-אקדמי · סיירת של 15 מועסקים ממסלולים ומוסדות שונים, שעוזרים בחיבורים למשרות ובסימולציות</td></tr>
-<tr><td>מפגשי לא מועסקים</td><td>8 מפגשים בשנה, אחד לכל מוסד, בהובלת רכזת המוסד ורכזת ליווי הקריירה, לשנים ג&#x27;-ד&#x27;</td></tr>
-<tr><td>מיטאפים וסיורי חברות</td><td>סיורי חברות לאורך השנה (למשל מובילאיי, אפל, מיקרוסופט, גוגל, אמזון, צ&#x27;ק פוינט) וחלקם עם בוגרים</td></tr>
-<tr><td>סדנאות תעסוקה</td><td>תהליכי גיוס, חיפוש עבודה, לינקדאין, פורטפוליו, סטוריטלינג, קורות חיים עם AI, הכנה לעולם התעסוקה</td></tr>
+<tr><td>סטודנטים מועסקים כמענה</td><td>שאלון וקבוצת ווטסאפ למועסקים · 10 מועסקים שמשתתפים בחוץ-אקדמי · סיירת של 15 מועסקים שעוזרים בחיבורים למשרות ובסימולציות</td></tr>
+<tr><td>מפגש לא מועסקים</td><td>מפגש אחד בשנה, בהובלת רכזת ליווי הקריירה</td></tr>
     </tbody></table>
   </div>
   <div class="info-block">
-    <h3>איך מקדמים את זה בפועל</h3>
+    <h3>איך עובדים בפועל</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>נושא</th><th>מה זה</th></tr></thead><tbody>
+<tr><td>השמות</td><td>השמת סטודנטים במשרות סטודנט וג&#x27;וניור. סטודנט שמתחיל להיות מועסק מקבל שכר לימוד מלא בלבד, ללא דמי קיום, ולכן מעדכנים את סטטוס ההעסקה שלו במערכת</td></tr>
+<tr><td>קבוצת ווטסאפ עם ליאן</td><td>קבוצה משותפת לליאן ולמנהלת: מעדכנות בה מי הושם, איפה ובאיזה תאריך מתחיל, כדי לעדכן במערכת את סטטוס ההעסקה. משם זה עובר גם לבדיקות התשלום מול מיטל</td></tr>
+<tr><td>לוח השמות</td><td>מעקב מרוכז של מי הושם, איפה ומתי. מקור הנתונים לבדיקה רבעונית של היעדים</td></tr>
+<tr><td>גיוסים</td><td>חברות שמגייסות סטודנטים, בתיאום עם שלי סוקולוב</td></tr>
+<tr><td>מיטאפים וסיורי חברות</td><td>סיורי חברות לאורך השנה, חלקם עם בוגרים (פירוט בגאנט החוץ-אקדמי)</td></tr>
+    </tbody></table>
     <ul class="fancy-list">
-      <li>פגישה שבועית עם ליאן: השמות, מועסקים, עדכוני מערכת ותוכן</li>
-      <li>שלי סוקולוב: חברות שמגייסות סטודנטים והזדמנויות חדשות</li>
-      <li>ארגון הבוגרים: בנק אנשי מקצוע, סימולציות וחיבורים בין בוגרים לסטודנטים (איה גלזר)</li>
-      <li>לוח ההשמות הוא מקור הנתונים לבדיקה רבעונית של היעדים</li>
-      <li>הנתונים נבדקים מול הצוות ומשמשים לקביעת העדיפויות בתכנית העבודה</li>
+      <li><a href="https://chat.whatsapp.com/ItCs15Io5I76f5A88qKWgk" target="_blank" style="color:var(--cyan);font-weight:600">🔗 קהילת קריירה (ווטסאפ)</a></li>
     </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> יעדי הקריירה וההשמות ל-2027, והקישור ללוח ההשמות.</div>
   </div>
 </section>
 
@@ -487,6 +483,8 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <p class="cal-help" style="margin-top:10px">איך מוסיפים לאאוטלוק: לוחצים פעמיים על קובץ ה-ics שהורד ובוחרים "שמירה ויומן". באאוטלוק באינטרנט: יומן, הוספת יומן, העלאה מקובץ. כל משימה נכנסת כאירוע ליום שלם עם תזכורת יומיים לפני, וחוזרת מדי שנה. התאריכים בתוך החודש הם תאריכי ברירת מחדל, וכדאי להזיז לפי הצורך.</p>
   </div>
   <!--/CALPANEL-->
+
+  <details class="acc" id="calq"><summary>לוח שנתי לפי רבעונים (פירוט, נפתח ונסגר)</summary><div class="acc-body">
 
   <div class="info-block">
     <h3>Q1 | אוקטובר – דצמבר</h3>
@@ -559,6 +557,7 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
       </div>
     </div>
   </div>
+</div></details>
 </section>
 
 <div class="divider"></div>
@@ -638,7 +637,6 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
   <div class="info-block">
     <h3>פ&quot;ע</h3>
     <p style="margin:8px 0">אחת לשבועיים עם כל רכזת, במהלך הסמסטר.</p>
-    <div class="todo">✏️ <strong>להשלים:</strong> איפה מתעדים את הפ&quot;ע ומה הנושאים הקבועים.</div>
   </div>
   <div class="info-block">
     <h3>גיבוש</h3>
@@ -647,232 +645,113 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
       <li>2 מפגשי קפה חיבור ברבעון</li>
     </ul>
     <p style="margin:8px 0">הגיבוש הצוותי מתקיים בחופשת הסמסטר, יחד עם העבודה המשותפת על התשתיות.</p>
-    <div class="todo">✏️ <strong>להשלים:</strong> תקציב, מועד וספק לגיבוש.</div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="section" id="lead">
+<section class="section" id="ifaces">
   <div class="section-header">
-    <div class="section-icon ic-navy">🧭</div>
-    <h2>ממשקים מול הצוות המוביל</h2>
+    <div class="section-icon ic-navy">🤝</div>
+    <h2>ממשקים ואנשי קשר</h2>
   </div>
   <div class="info-block">
+    <p style="margin:8px 0">כל ממשק מופיע יחד עם אנשי הקשר שלו.</p>
+  </div>
+  <div class="info-block">
+    <h3>הנהלת היחידה והצוות המוביל</h3>
     <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>על מה עובדים ביחד</th></tr></thead><tbody>
 <tr><td>מנהל היחידה</td><td>לטם קופליס</td><td>פגישה שבועית קבועה · תכנית עבודה שנתית · ייעוץ שוטף · תקציבים · אישורים חריגים · ממשקי חוץ ופנים</td></tr>
 <tr><td>מנהלת תחום פדגוגיה</td><td>אסתי מששה הייס</td><td>בניית התוכן והכנסים · הגאנט החוץ-אקדמי · פיתוח פדגוגי</td></tr>
 <tr><td>מנהלת תכנית עתידאים</td><td>מרינה פלג</td><td>תכנית ההנדסאים. ממשק על מיון, תמהיל וקליטה</td></tr>
 <tr><td>מנהלת לוחמים להייטק</td><td>שולי שיר</td><td>ממשק על תמהיל, פתיחת מחזור ואירועים משותפים</td></tr>
-<tr><td>מנהלת התקציבים</td><td>מיטל סגל</td><td>פ.ע אחת לשבועיים · כל המלגות לסטודנטים · בניית לוחות תשלומים לסטודנטים · תקציב התכנית · אישורי רכש וחשבוניות</td></tr>
-<tr><td>רכזת תפעול, צוות התקציבים</td><td>דנה ברעם</td><td>טיפול שוטף בתשלומים ותלושי שכר. עובדת תחת מיטל. סביב פתיחת מחזור עובדים איתה ועם מיטל</td></tr>
+<tr><td>מנהלת התקציבים</td><td>מיטל סגל</td><td>פ.ע אחת לשבועיים · כל המלגות · בניית לוחות תשלומים · תקציב התכנית · אישורי רכש וחשבוניות</td></tr>
+<tr><td>רכזת תפעול, צוות התקציבים</td><td>דנה ברעם</td><td>תשלומים ותלושי שכר. עובדת תחת מיטל. סביב פתיחת מחזור עובדים איתה ועם מיטל</td></tr>
     </tbody></table>
-  </div>
-  <div class="info-block">
-    <h3>איך מנהלים את הממשק</h3>
     <ul class="fancy-list">
       <li>עם לטם: פגישה שבועית. מביאים רשימת נושאים מראש, החלטות שדורשות אישור, וחריגות תקציב</li>
-      <li>עם אסתי: תיאום סביב הכנס (בנייה משותפת), הגאנט החוץ-אקדמי והמפגשים השנתיים</li>
-      <li>עם מיטל: פ.ע אחת לשבועיים. לפני כל הוצאה משמעותית, וסביב פעימות התשלום ובדיקות הציונים וההתנדבות. מיטל בונה את לוחות התשלומים לסטודנטים</li>
+      <li>עם אסתי: תיאום סביב הכנס, הגאנט החוץ-אקדמי והמפגשים השנתיים</li>
+      <li>עם מיטל: פ.ע אחת לשבועיים, לפני כל הוצאה משמעותית, וסביב פעימות התשלום ובדיקות הציונים וההתנדבות</li>
       <li>עם מיטל ודנה סביב פתיחת מחזור: משויכי גרוס ופיס, מקום ומינהל סטודנטים</li>
-      <li>עם מנהלות עתידאים ולוחמים להייטק: סביב פתיחת מחזור ותמהיל</li>
     </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> תדירות הפגישות איתן, וכל חלוקת אחריות מיוחדת ביניכן.</div>
   </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="section" id="assoc">
-  <div class="section-header">
-    <div class="section-icon ic-mag">🏛️</div>
-    <h2>ממשקים מול צוותי העמותה</h2>
+  <div class="info-block">
+    <h3>שיווק וקשרי מעסיקים</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>ממשק</th></tr></thead><tbody>
+<tr><td>מנהלת קשרי מעסיקים ושיווק</td><td>שלי סוקולוב</td><td>מפגשי מעסיקים, בניית קמפיין, אסטרטגיה</td></tr>
+<tr><td>רכזת שיווק</td><td>הדר מדמוני</td><td>סושיאל וקמפיין מיקרו: פוסטים, גרפיקות, תזמון</td></tr>
+<tr><td>חברת פרסום</td><td>יונה</td><td>קמפיין דיגיטלי</td></tr>
+    </tbody></table>
+    <ul class="fancy-list">
+      <li>עיקר העבודה: פתיחת מחזור חדש וכנס הפתיחה</li>
+      <li>פגישה אחת לשבועיים בתקופת הקמפיין</li>
+    </ul>
+  </div>
+  <div class="info-block">
+    <h3>מיון מועמדים</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>ממשק</th></tr></thead><tbody>
+<tr><td>רכזת מיון המועמדים</td><td>הדר הרנשטיין</td><td>מענה לשאלות מועמדים ושיבוצי ראיונות</td></tr>
+    </tbody></table>
+    <ul class="fancy-list">
+      <li>לפני פתיחת המחזור: הכנת התשתיות (טפסים, בוקינג, מדריך מענה, תבניות מייל)</li>
+      <li>בתקופת פתיחת המחזור (מאי-אוקטובר): עבודה צמודה על קבלת פניות, שיבוץ ראיונות וסטטוסים</li>
+      <li>בסיום: סיכום התהליך והפקת לקחים לשנה הבאה</li>
+    </ul>
   </div>
   <div class="info-block">
     <h3>ארגון הבוגרים</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>ממשק</th></tr></thead><tbody>
+<tr><td>מנהלת ארגון הבוגרים</td><td>כרמל כהן (בחל&quot;ד, מוחלפת ע&quot;י יערית פלטו)</td><td>ממשקי תכנית-בוגרים, אירועים, מעבר מסיימים</td></tr>
+<tr><td>מנהלת קהילת הבוגרים</td><td>איילת בוניבידה (בחל&quot;ד, מוחלפת ע&quot;י איה גלזר)</td><td>פעילויות קהילתיות וחיבורי בוגרים-סטודנטים</td></tr>
+<tr><td>ליווי קריירה, בוגרים</td><td>איה גלזר</td><td>סימולציות, מנחים, השמות</td></tr>
+    </tbody></table>
     <ul class="fancy-list">
-      <li>תמונת עתיד: תיאום והכנת הסטודנטים לקראת התמונה</li>
-      <li>אירוע סיום למסיימי עתידים לתעשייה ולהייטק</li>
-      <li>סימולציות בוגרים: בוגרים מתנדבים לסימולציות ראיונות לסטודנטים</li>
+      <li>תמונת עתיד: תיאום והכנת הסטודנטים</li>
+      <li>אירוע סיום למסיימים</li>
+      <li>סימולציות בוגרים: בוגרים מתנדבים לסימולציות ראיונות</li>
     </ul>
   </div>
   <div class="info-block">
-    <h3>צוות מערכות מידע</h3>
+    <h3>מערכות מידע</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>ממשק</th></tr></thead><tbody>
+<tr><td>מנהלת מערכות מידע</td><td>יפעת דוידסון</td><td>דשבורדים: מעסיקים, הרשמות, ימי הולדת. פיתוח וייעול, בקשות לדוחות</td></tr>
+<tr><td>איש הקשר הישיר</td><td>דוד כהן</td><td>תקלות שוטפות והכנת המערכת לפתיחת מחזור</td></tr>
+    </tbody></table>
     <ul class="fancy-list">
-      <li>תקלות שוטפות: פנייה ישירה לדוד כהן, איש הקשר שלנו במערכות המידע</li>
-      <li>פיתוח וייעול העבודה (דשבורדים, דוחות): פנייה ליפעת דוידסון</li>
       <li>עיקר העבודה המשותפת סביב פתיחת מחזור: הכנת המערכת, הרשמות, שיבוצי ראיונות</li>
     </ul>
   </div>
   <div class="info-block">
-    <h3>צוות תפעול ורכש</h3>
+    <h3>תפעול ורכש</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>ממשק</th></tr></thead><tbody>
+<tr><td>רכזת תפעול ורכש</td><td>יעל וייטפילד (בחל&quot;ד, מוחלפת ע&quot;י מורן כהן, רכזת התפעול)</td><td>הזמנות רכש שוטפות, קבלות וחשבוניות. לתאם לפני כל הזמנה חדשה</td></tr>
+<tr><td>מנהלת רכש ותפעול</td><td>קרן רוזנצוויג</td><td>מחשבים, רכבים, הסכמי ספקים. פתיחת ספק חדש תמיד דרך קרן</td></tr>
+    </tbody></table>
     <ul class="fancy-list">
       <li>דרישות רכש: טופס הזמנת עבודה (קישורים בפרק תקציב ורכש)</li>
-      <li>העברת חשבוניות למייל הייעודי</li>
-      <li>מעקב אחרי תשלומים והעברת קבלות</li>
+      <li>העברת חשבוניות למייל הייעודי ומעקב אחרי תשלומים</li>
     </ul>
   </div>
   <div class="info-block">
-    <h3>צוות קשרי תורמים</h3>
+    <h3>קשרי תורמים</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תפקיד</th><th>שם</th><th>ממשק</th></tr></thead><tbody>
+<tr><td>מנהלת קשרי תורמים</td><td>איילת כרם</td><td>עיתונים עם סיפורי סטודנטים, מפגשי סטודנט-תורם, נבחרת STEP UP. הקשר לאתי לוטן, גייסת כספים פרילנסרית</td></tr>
+    </tbody></table>
     <ul class="fancy-list">
-      <li>עיקר העבודה: מפגשי תורמים, עיתונים, מכתבים וראיונות</li>
       <li>שיוכי תורמים לסטודנטים בתחילת שנה</li>
-      <li>אירועי נבחרת STEP UP</li>
       <li>הפירוט המלא בפרק שיוכי תורמים</li>
     </ul>
   </div>
   <div class="info-block">
-    <h3>צוות השיווק</h3>
-    <ul class="fancy-list">
-      <li>עיקר העבודה: פתיחת מחזור חדש וכנס הפתיחה</li>
-      <li>פגישה אחת לשבועיים עם הדר מדמוני, שלי סוקולוב ויונה (חברת הפרסום) בתקופת הקמפיין</li>
-    </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> מי איש הקשר הקבוע בכל צוות (בעיקר בצוות התפעול והתורמים), ומה זמן התגובה המקובל.</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="section" id="contacts">
-  <div class="section-header">
-    <div class="section-icon ic-navy">🤝</div>
-    <h2>ממשקים ואנשי קשר</h2>
-  </div>
-
-  <div class="info-block">
-    <h3>הנהלת היחידה</h3>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-role">מנהל היחידה</div>
-        <div class="contact-name">לטם קופליס</div>
-        <div class="contact-desc">פגישה שבועית קבועה. תכנית עבודה שנתית, תקציב, אישורים חריגים, ממשקים עם גורמי חוץ ופנים, התייעצויות מקצועיות.</div>
-        <div class="contact-tags"><span class="ctag">שבועי</span><span class="ctag">תקציב</span><span class="ctag">אישורים</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">מנהלת פדגוגית</div>
-        <div class="contact-name">אסתי מששה הייס</div>
-        <div class="contact-desc">כל בניית התוכן, הכנסים, הגאנט החוץ-אקדמי. פיתוח פדגוגי ופיילוטים.</div>
-        <div class="contact-tags"><span class="ctag">תוכן</span><span class="ctag">כנסים</span><span class="ctag">חוץ-אקדמי</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">מנהלת תקציבים</div>
-        <div class="contact-name">מיטל סגל </div>
-        <div class="contact-desc">כל המלגות לסטודנטים, ניהול תקציב התכנית, אישורי הזמנות רכש, חשבוניות.</div>
-        <div class="contact-tags"><span class="ctag">מלגות</span><span class="ctag">רכש</span><span class="ctag">תקציב</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">רכזת תפעול, צוות התקציבים</div>
-        <div class="contact-name">דנה ברעם</div>
-        <div class="contact-desc">טיפול שוטף בתשלומים, תלושי שכר וקבלות. עובדת תחת מיטל.</div>
-        <div class="contact-tags"><span class="ctag">תשלומים</span><span class="ctag">תלושי שכר</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>שיווק וקשרי מעסיקים</h3>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-role">מנהלת קשרי מעסיקים ושיווק</div>
-        <div class="contact-name">שלי סוקולוב</div>
-        <div class="contact-desc">מפגשים עם מעסיקים פוטנציאליים, בניית קמפיין שיווק, אסטרטגיית תחום.</div>
-        <div class="contact-tags"><span class="ctag">מעסיקים</span><span class="ctag">קמפיין</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">רכזת שיווק</div>
-        <div class="contact-name">הדר מדמוני</div>
-        <div class="contact-desc">כל הממשק סביב הסושיאל, הקמפיין במיקרו — פוסטים, גרפיקות, תזמון.</div>
-        <div class="contact-tags"><span class="ctag">סושיאל</span><span class="ctag">מיקרו</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">מנהלת קשרי תורמים</div>
-        <div class="contact-name">איילת כרם</div>
-        <div class="contact-desc">עיתונים עם סיפורי סטודנטים, מפגשי סטודנט-תורם, אירועי נבחרת הנשים. הקשר לאתי לוטן — גייסת כספים פרילנסרית של העמותה.</div>
-        <div class="contact-tags"><span class="ctag">תורמים</span><span class="ctag">סיפורי סטודנטים</span><span class="ctag">נבחרת נשים</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>ארגון בוגרים</h3>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-role">מנהלת ארגון הבוגרים</div>
-        <div class="contact-name">כרמל כהן <small>(בחל"ד, מוחלפת ע"י יערית פלטו)</small></div>
-        <div class="contact-desc">ממשקי תכנית ובוגרים — אירועים, תכנים, מעבר הסטודנטים המסיימים לארגון הבוגרים.</div>
-        <div class="contact-tags"><span class="ctag">אירועים</span><span class="ctag">מעבר מסיימים</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">מנהלת קהילת הבוגרים</div>
-        <div class="contact-name">איילת בוניבידה <small>(בחל"ד, מוחלפת ע"י איה גלזר)</small></div>
-        <div class="contact-desc">פעילויות קהילתיות, אירועים ותכנים לבוגרים, חיבורים בוגרים-סטודנטים.</div>
-        <div class="contact-tags"><span class="ctag">קהילה</span><span class="ctag">אירועים</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">ליווי קריירה — בוגרים</div>
-        <div class="contact-name">איה גלזר</div>
-        <div class="contact-desc">כל החיבורים בין הבוגרים לסטודנטים סביב הנושא התעסוקתי. סימולציות, מנחים, השמות.</div>
-        <div class="contact-tags"><span class="ctag">תעסוקה</span><span class="ctag">סימולציות</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>תפעול ורכש</h3>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-role">רכזת תפעול ורכש</div>
-        <div class="contact-name">יעל וייטפילד <small>(בחל"ד, מוחלפת ע"י מורן כהן, רכזת התפעול)</small></div>
-        <div class="contact-desc">כל הזמנות הרכש השוטפות, קבלות וחשבוניות. לתאם לפני כל הזמנה חדשה.</div>
-        <div class="contact-tags"><span class="ctag">רכש שוטף</span><span class="ctag">חשבוניות</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">מנהלת רכש ותפעול</div>
-        <div class="contact-name">קרן רוזנצוויג</div>
-        <div class="contact-desc">מחשבים, רכבים, הסכמים עם ספקים. פתיחת ספק חדש — תמיד דרך קרן.</div>
-        <div class="contact-tags"><span class="ctag">ספקים</span><span class="ctag">הסכמים</span><span class="ctag">ציוד</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>מערכות מידע ומיון</h3>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-role">מנהלת מערכות מידע</div>
-        <div class="contact-name">יפעת דוידסון</div>
-        <div class="contact-desc">כל הדשבורדים: מעסיקים, הרשמות, ימי הולדת. בקשות לדוחות ונתונים.</div>
-        <div class="contact-tags"><span class="ctag">דשבורדים</span><span class="ctag">נתונים</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">איש הקשר הישיר למערכות המידע</div>
-        <div class="contact-name">דוד כהן</div>
-        <div class="contact-desc">תקלות במערכת המידע, הכנת המערכת לפתיחת מחזור חדש.</div>
-        <div class="contact-tags"><span class="ctag">תמיכה</span><span class="ctag">פתיחת מחזור</span></div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-role">רכזת ליווי מועמדים</div>
-        <div class="contact-name">הדר הרנשטיין</div>
-        <div class="contact-desc">בתקופת המיון (מאי–אוגוסט) — מענה לשאלות מועמדים, שיבוצי ראיונות עם הרכזות.</div>
-        <div class="contact-tags"><span class="ctag">מועמדים</span><span class="ctag">שיבוצים</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>שותפים חיצוניים מרכזיים</h3>
-    <table class="eval-table" style="margin-top:8px">
-      <thead><tr><th>שותף</th><th>ממשק</th><th>איש קשר</th></tr></thead>
-      <tbody>
-        <tr><td>יוצאים לשינוי</td><td>מטרוטק — מיון, ועדות, כנס</td><td>אודליה אורון, דור בן דוד, נעמה צור</td></tr>
-        <tr><td>מפעל הפיס</td><td>שותף מממן — כנסים</td><td>ארז גרניט</td></tr>
-        <tr><td>בנק הפועלים</td><td>שותף — כנסים</td><td>נעמה הלוי פאר</td></tr>
-        <tr><td>אתי לוטן</td><td>נבחרת STEP UP + גיוס כספים פרילנסרי</td><td>עדכונים שבועיים בתקופת הראיונות</td></tr>
-        <tr><td>עולים ביחד</td><td>יוצאי אתיופיה — חשיפות, שיווק</td><td>יסמין</td></tr>
-        <tr><td>הכרם</td><td>בנות דרוזיות לתכנית</td><td>הילה פרץ 052-4454445 · הגר אהרון 054-3565565</td></tr>
-        <tr><td>צעירי עתידים</td><td>התנדבות סטודנטים בתכניות</td><td>יעל כרמי, תמר דה האן</td></tr>
-      </tbody>
-    </table>
+    <h3>שותפים חיצוניים</h3>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>שותף</th><th>ממשק</th><th>איש קשר</th></tr></thead><tbody>
+<tr><td>יוצאים לשינוי (מטרוטק)</td><td>מיון, ועדות, כנס</td><td>אודליה אורון, דור בן דוד, נעמה צור</td></tr>
+<tr><td>מפעל הפיס</td><td>שותף מממן, כנסים</td><td>ארז גרניט</td></tr>
+<tr><td>אתי לוטן</td><td>נבחרת STEP UP + גיוס כספים</td><td>עדכונים שבועיים בתקופת הראיונות</td></tr>
+<tr><td>עולים ביחד</td><td>יוצאי אתיופיה, חשיפות ושיווק</td><td>יסמין</td></tr>
+<tr><td>הכרם</td><td>בנות דרוזיות לתכנית</td><td>הילה פרץ 052-4454445 · הגר אהרון 054-3565565</td></tr>
+<tr><td>צעירי עתידים</td><td>התנדבות סטודנטים בתכניות</td><td>יעל כרמי, תמר דה האן</td></tr>
+    </tbody></table>
   </div>
 </section>
 
@@ -884,57 +763,85 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <h2>תהליך פתיחת מחזור חדש בתכנית</h2>
   </div>
   <div class="info-block">
-    <p style="margin:8px 0">תהליך שנתי שנגמר בכנס הפתיחה באוקטובר. ההרשמה לתכנית נפתחת תמיד סביב מאי. הפרק מרכז את כל התמונה: מבט על לפי חודשים, 26 שלבי התהליך, מסע המועמד, צ&#x27;קליסט ההכנות לפני פתיחת ההרשמה וכל הקישורים.</p>
+    <p style="margin:8px 0">תהליך שנתי שנגמר בכנס הפתיחה באוקטובר. ההרשמה לתכנית נפתחת תמיד סביב מאי. הפרק מאחד את המבט לפי חודשים ואת שלבי התהליך: כל תקופה נפתחת ונסגרת, ובתוכה מה קורה, מי אחראי ומה השלבים.</p>
   </div>
   <div class="info-block">
-    <h3>מבט על לפי חודשים</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>חודש</th><th>מה קורה</th><th>תוצר / אבן דרך</th><th>אחריות</th></tr></thead><tbody>
-<tr><td>כל השנה</td><td>הרשמה מוקדמת פתוחה בעמוד הנחיתה, מיילים תקופתיים לנרשמים</td><td>מאגר לידים חם לקראת מאי</td><td>שיווק + מנהלת</td></tr>
-<tr><td>ינואר–פברואר</td><td>סיכום המחזור הקודם, הפקת לקחים ותכנון הקמפיין הבא (חופשת סמסטר)</td><td>מסמך לקחים + טיוטת מסרים</td><td>מנהלת</td></tr>
-<tr><td>מרץ</td><td>ישיבות הכנה עם כל הגורמים, גאנט מיון, תשתיות מערכות מידע ושיווק</td><td>גאנט מיון מאושר, תבניות מייל מעודכנות</td><td>מנהלת + ממשקים</td></tr>
-<tr><td>אפריל (עד פסח)</td><td>סיום הכנות טכניות, ציוד, קובץ תמהיל, תשתית בוקינג, הרשמה פיקטיבית לבדיקה</td><td>מערכת עובדת מקצה לקצה</td><td>מנהלת + מערכות מידע</td></tr>
-<tr><td>שבוע לפני הפתיחה</td><td>שבוע &#x27;חבר מביא חבר&#x27; + פתיחת קבוצת ווטסאפ שו&quot;ת (חודש לפני)</td><td>לינק ייעודי לסטודנטים בתכנית</td><td>מנהלת + רכזות</td></tr>
-<tr><td>מאי</td><td>פתיחת הרשמה רשמית, מעבר יומי על טפסים, תובנות לחברת הפרסום בשבועיים הראשונים</td><td>הרשמה פתוחה, דו&quot;ח תובנות</td><td>מנהלת + צוות ממיין</td></tr>
-<tr><td>יוני–אוגוסט</td><td>ראיונות, ועדות קבלה (חמישי, אחת לשבועיים), מעקב תמהיל, סיווג השתייכות מיוחדת</td><td>החלטות קבלה/דחייה שוטפות</td><td>רכזות + מנהלת</td></tr>
-<tr><td>אוגוסט–ספטמבר</td><td>הסכמים דיגיטליים, מעקב הצהרות, שימור מתקבלים, נבחרת STEP UP</td><td>מתקבלים חתומים</td><td>מנהלת + רכזות</td></tr>
-<tr><td>אמצע ספטמבר</td><td>ישיבת סגירת תמהיל מחזור</td><td>רשימת מחזור סופית</td><td>מנהלת + הנהלה</td></tr>
-<tr><td>אוקטובר</td><td>כנס פתיחה, סגירת הרשמה עם תחילת שנה&quot;ל</td><td>מחזור פתוח רשמית</td><td>מנהלת + מנהלת פדגוגית</td></tr>
-<tr><td>נובמבר–דצמבר</td><td>מעקב נשירה מוקדמת, מפגשי נטוורקינג בחנוכה, עדכון הקובץ הזה</td><td>מחזור יציב + קובץ מעודכן לשנה הבאה</td><td>מנהלת + רכזות</td></tr>
+    <h3>התהליך לפי חודשים ושלבים</h3>
+    <p style="margin:8px 0">מעבר שנתי קבוע: הרשמה מוקדמת פתוחה בעמוד הנחיתה כל השנה, עם מיילים תקופתיים לנרשמים.</p>
+    <details class="acc"><summary>אוקטובר–פברואר: סיכום ותכנון</summary><div class="acc-body">
+    <p style="margin:8px 0">כל השנה: הרשמה מוקדמת פתוחה בעמוד הנחיתה, מיילים תקופתיים לנרשמים. תוצר: מאגר לידים חם לקראת מאי. אחריות: שיווק + מנהלת.</p>
+    <p style="margin:8px 0">ינואר–פברואר: סיכום המחזור הקודם, הפקת לקחים ותכנון הקמפיין הבא (חופשת סמסטר). תוצר: מסמך לקחים + טיוטת מסרים. אחריות: מנהלת.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>1</td><td>הרשמה מוקדמת</td><td>טופס פרטים בסיסיים בעמוד הנחיתה · מיילים עם מידע אחת לכמה זמן · חודש לפני ההרשמה הרשמית: לינק לקבוצת ווטסאפ שו&quot;ת</td><td>שיווק</td></tr>
+<tr><td>2</td><td>סיכום מחזור קודם ותכנון</td><td>ישיבת הפקת לקחים על מחזור קודם (שיווק, מיון, ראיונות, כנס) · ניתוח נתוני השנה: כמה נרשמו, מאיפה הגיעו, יחס המרה, עמידה בתמהיל · טיוטת מסרים ויעדים לקמפיין הבא · דגש: זמן רגוע יחסית בחופשת הסמסטר – לנצל אותו</td><td>מנהלת, מנהלת שיווק</td></tr>
     </tbody></table>
-  </div>
-  <div class="info-block">
-    <h3>26 שלבי התהליך</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>מתי</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
-<tr><td>1</td><td>כל השנה</td><td>הרשמה מוקדמת</td><td>טופס פרטים בסיסיים בעמוד הנחיתה · מיילים עם מידע אחת לכמה זמן · חודש לפני ההרשמה הרשמית: לינק לקבוצת ווטסאפ שו&quot;ת</td><td>שיווק</td></tr>
-<tr><td>2</td><td>אוקטובר-דצמבר</td><td>סיכום מחזור קודם ותכנון</td><td>ישיבת הפקת לקחים על מחזור קודם (שיווק, מיון, ראיונות, כנס) · ניתוח נתוני השנה: כמה נרשמו, מאיפה הגיעו, יחס המרה, עמידה בתמהיל · טיוטת מסרים ויעדים לקמפיין הבא · דגש: זמן רגוע יחסית בחופשת הסמסטר – לנצל אותו</td><td>מנהלת, מנהלת שיווק</td></tr>
-<tr><td>3</td><td>מרץ</td><td>ישיבות הכנה עם כל הגורמים</td><td>שיווק: מסרים, חומרים, לו&quot;ז טיזרים, עלייה וירידה של הקמפיין, שגרת עדכונים · מיון: ממשקים, שגרת פגישות, פלטפורמות עדכון, גאנט משותף, מי מול מי · מטרוטק: סנכרון מסרים ברשתות, הזנת מועמדים שעוברים למטרוטק · מערכות מידע: תשתית, בדיקות, תקלות, תבניות מייל, דשבורד · הנהלה: משפך שיווק, תמהיל מתקבלים, יעדים · סיירת שיווק: חלוקת תפקידים בימים פתוחים, מענה בקבוצת המועמדים · דגש: להציג לרכזות את מדריך המיון כבר בישיבה הזו</td><td>שיווק (הדר, יונה, שלי), מיון (הדר), רכזות, מטרוטק, מערכות מידע (דוד, יפעת), הנהלה (לטם, בורד), סיירת שיווק</td></tr>
-<tr><td>4</td><td>מרץ</td><td>גאנט מיון</td><td>גאנט עם החלקים המרכזיים: תשתיות → מיון במערכת → ראיונות → ישיבות החלטה → כנס פתיחה. מוצג לצוות הממיין בתחילת התהליך · דגש: ועדות קבלה: חמישי, אחת לשבועיים. לסמן מראש מתי פרונטלי ומתי זום</td><td>מנהלת</td></tr>
-<tr><td>5</td><td>מרץ–אפריל</td><td>תשתיות מערכות מידע</td><td>דשבורד עם כל הסטטוסים (יפעת) · תבניות מייל, מיתוג, אוטומציות · פתיחת הרשמה במערכת והרצת בדיקות · הסכמים מקוונים בדוקסי (דוד) · דגש: לעבור על צ&#x27;קליסט ההכנות (לשונית נפרדת)</td><td>מערכות מידע: דוד, יפעת</td></tr>
-<tr><td>6</td><td>מרץ–אפריל</td><td>הרשמה פיקטיבית ובדיקת קצה-לקצה</td><td>כל רכזת עושה הרשמה פיקטיבית מלאה: טופס → מייל אישור → העלאת מסמכים → שינוי סטטוסים → מייל קבלה. ההרשמה משמשת אחר כך לבדיקת תהליכים · דגש: בעבר מועמד שלא סיים את הטופס &#x27;בבת אחת&#x27; נאלץ להתחיל מחדש – לבדוק אם תוקן</td><td>רכזות, מערכות מידע</td></tr>
-<tr><td>7</td><td>מרץ</td><td>תשתיות שיווק</td><td>תהליך השיווק כולו: שותפים, מסרים, עמוד נחיתה. יצירת קשר עם ארגוני שטח ואקדמיה להפצה – זו האחריות הבלעדית שלנו · דגש: לשלוח למרכזי הצעירים בפריפריה ולאנשי הקשר במוסדות האקדמיים</td><td>מנהלת, שיווק</td></tr>
-<tr><td>8</td><td>אפריל</td><td>הזמנת ציוד</td><td>ציוד לסיירת השיווק ולצוות התכנית לגיוס מועמדים · דגש: פליירים עם QR לעמוד הנחיתה. להזמין דרך הזמנת רכש מוקדם</td><td>מנהלת, תפעול</td></tr>
-<tr><td>9</td><td>אפריל</td><td>קובץ תמהיל</td><td>קובץ שמנוהל ע&quot;י המנהלת לפי היעדים והתמהיל שקבעה ההנהלה. מתעדכן בישיבות החלטות צוות. ממנו גוזרים נתונים לאורך התקופה ומדייקים זימונים לקראת סגירת המחזור · דגש: מעקב לפי: כמות כללית, ראיונות, מוסדות, מגדר, אוכלוסיות</td><td>מנהלת, הנהלה</td></tr>
-<tr><td>10</td><td>אפריל</td><td>תשתית למגע עם המועמד</td><td>לינק בוקינג לראיונות · מצגת / מפגש חשיפה (זום או הקלטה) · ערוץ פנייה למועמדים (מייל כללי infotaasiya + נייד) · דגש: איפוס הבוקינג בכל יום חמישי. בשלבים הראשונים המועמד לא בקשר אישי עם רכזת – כדי לא להעמיס</td><td>מנהלת, רכזת</td></tr>
-<tr><td>11</td><td>שבוע לפני הפתיחה</td><td>חבר מביא חבר</td><td>לינק הרשמה ייעודי שסטודנטים מהתכנית שולחים לחברים · דגש: להכין מראש הודעה מוכנה לסטודנטים להעברה</td><td>מנהלת, רכזות</td></tr>
-<tr><td>12</td><td>מאי</td><td>פתיחת ההרשמה + שבועיים ראשונים</td><td>פתיחה רשמית · מעבר על ההרשמות החדשות בשבועיים הראשונים · תובנות לחברת הפרסום: פרופיל, מוסדות, אוכלוסיות, מקורות הגעה · דגש: לבדוק הרשמות &#x27;תקועות&#x27; בדשבורד (הרשמות בתהליך)</td><td>מנהלת, חברת פרסום</td></tr>
-<tr><td>13</td><td>מאי</td><td>שיבוצי צוות</td><td>מי עוברת על הרשמות של איזה מוסד, ומי בציוותי הראיונות</td><td>מנהלת</td></tr>
-<tr><td>14</td><td>מאי ואילך</td><td>מיון מועמדים במערכת</td><td>מעבר יומי על טפסים ומסמכים. סינון לפי: מוסד ופקולטה → מקום מגורים בתיכון (יישוב עתידים א/ב) → אוכלוסיות מיוחדות. החלטה: לקדם / להמתין / לשלול · דגש: מבנה אחיד להערות רכזת. דגשים לסינון הראשוני במדריך המיון. יישוב פנימייה ≠ יישוב מגורים – לוודא מול המועמד</td><td>רכזות</td></tr>
-<tr><td>15</td><td>מאי–אוגוסט</td><td>מפגש חשיפה</td><td>מועמד שעבר סינון מוזמן למפגש הסבר בזום או מקבל הקלטה. לוודא שצפה לפני הראיון · דגש: השלב חסר במסע המועמד בקובץ המקורי</td><td>רכזות</td></tr>
-<tr><td>16</td><td>יוני–אוגוסט</td><td>ראיונות</td><td>ציוותים (שתי נשות צוות: מראיינת + מתעדת, 25–30 דק&#x27;) · עד 7 ראיונות ביום, בעיקר בבוקר · הודעה כל ערב למתראיינים של מחר · דגש: איחור/חיסור – הזדמנות נוספת אחת. סיום ראיונות: סוף אוגוסט (הארכה עד החגים למסיימי מכינות ול&#x27;יהלומים&#x27;)</td><td>רכזות, מנהלת</td></tr>
-<tr><td>17</td><td>יוני–אוגוסט</td><td>ועדות קבלה והחלטות</td><td>ועדה משותפת לכל הגורמים, חמישי אחת לשבועיים · מוסדות עם מכסה מוגבלת: השוואה &#x27;ראש בראש&#x27; בסוף · מקרים חריגים לוועדת חריגים · דגש: סטטוסים: &#x27;נדחה&#x27; (סינון ראשוני), &#x27;נדחה חוסר התאמה&#x27; (אחרי ראיון), &#x27;וויתר&#x27; (לא &#x27;פרש&#x27;!) + תיעוד סיבה</td><td>רכזות, מנהלת, מנהל יחידה במקרים מורכבים</td></tr>
-<tr><td>18</td><td>אוגוסט</td><td>סיווג השתייכות מיוחדת</td><td>סימון מתקבלים לפי מסגרות: הכרם, נבחרת, מנהל סטודנטים, מרום</td><td>מנהלת</td></tr>
-<tr><td>19</td><td>שוטף אחרי קבלה</td><td>מעקב הצהרות</td><td>מעבר על מי שנשאר בסטטוס &#x27;התקבל&#x27; ולא עבר ל&#x27;התקבל ומילא את ההצהרות&#x27;. תזכורת במייל ואז בווטסאפ. בדיקה שהצטרפו לקבוצת המחזור · דגש: מי שנתקע – אולי לא קיבל את המייל, פספס הוראות, או מתלבט. שווה שיחה</td><td>רכזות</td></tr>
-<tr><td>20</td><td>אוגוסט–ספטמבר</td><td>הסכמים</td><td>שליחת הסכמים דיגיטליים מחייבים למתקבלים (דוקסי) · דגש: לעדכן תאריכים/שנים בחוזה לפני השליחה הראשונה. אפשרות לחתום בכנס</td><td>מנהלת, מערכות מידע</td></tr>
-<tr><td>21</td><td>ספטמבר</td><td>נבחרת STEP UP</td><td>שיחת תיאום ציפיות עם אתי לוטן כבר בתחילת הראיונות · עדכון שבועי על מתקבלות · בספטמבר (אחרי פרישות): איסוף תמונות, צירוף לקבוצה, סיפורים אישיים · לקח: אירוע נבחרת בספטמבר עם צילומים – מדבקת שם בתמונה הראשונה</td><td>מנהלת, אתי לוטן</td></tr>
-<tr><td>22</td><td>ספטמבר</td><td>שימור מתקבלים</td><td>צעדים שנותנים &#x27;טעימה&#x27; רחבה יותר מהתכנית לפני הכנס</td><td>מנהלת, רכזות</td></tr>
-<tr><td>23</td><td>אמצע ספטמבר</td><td>ישיבת סגירת תמהיל</td><td>סגירת רשימת המחזור מול התמהיל והיעדים</td><td>מנהלת, הנהלה</td></tr>
-<tr><td>24</td><td>אוקטובר</td><td>כנס פתיחה</td><td>אירוע פתיחת מחזור בסימן חיבור לתכנית ולמשתתפים · דגש: מאי – מקום ותוכן | יוני – מיתוג, אווירה, מוזיקה, אוכל | יולי – מתנדבים, מנחים, הזמנה | אוגוסט – מצגת, הצגה לבורד, בחירת מצטיינים, הפתעה לרכזות | ספטמבר – פרחים, ביום מצטיינים, מערכת צ&#x27;ק-אין</td><td>מנהלת, מנהלת פדגוגית</td></tr>
-<tr><td>25</td><td>תחילת שנה&quot;ל</td><td>סגירת ההרשמה</td><td>סגירת טופס ההרשמה במערכת ועדכון עמוד הנחיתה להרשמה מוקדמת לשנה הבאה</td><td>מנהלת, מערכות מידע</td></tr>
-<tr><td>26</td><td>נובמבר–דצמבר</td><td>אחרי הכנס</td><td>מעקב נשירה מוקדמת בשבועות הראשונים · מפגשי נטוורקינג בחנוכה בקבוצות קטנות · עדכון הקובץ הזה עם הלקחים</td><td>מנהלת, רכזות</td></tr>
+    </div></details>
+    <details class="acc"><summary>מרץ: ישיבות הכנה ותשתיות</summary><div class="acc-body">
+    <p style="margin:8px 0">מרץ: ישיבות הכנה עם כל הגורמים, גאנט מיון, תשתיות מערכות מידע ושיווק. תוצר: גאנט מיון מאושר, תבניות מייל מעודכנות. אחריות: מנהלת + ממשקים.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>3</td><td>ישיבות הכנה עם כל הגורמים</td><td>שיווק: מסרים, חומרים, לו&quot;ז טיזרים, עלייה וירידה של הקמפיין, שגרת עדכונים · מיון: ממשקים, שגרת פגישות, פלטפורמות עדכון, גאנט משותף, מי מול מי · מטרוטק: סנכרון מסרים ברשתות, הזנת מועמדים שעוברים למטרוטק · מערכות מידע: תשתית, בדיקות, תקלות, תבניות מייל, דשבורד · הנהלה: משפך שיווק, תמהיל מתקבלים, יעדים · סיירת שיווק: חלוקת תפקידים בימים פתוחים, מענה בקבוצת המועמדים · דגש: להציג לרכזות את מדריך המיון כבר בישיבה הזו</td><td>שיווק (הדר, יונה, שלי), מיון (הדר), רכזות, מטרוטק, מערכות מידע (דוד, יפעת), הנהלה (לטם, בורד), סיירת שיווק</td></tr>
+<tr><td>4</td><td>גאנט מיון</td><td>גאנט עם החלקים המרכזיים: תשתיות → מיון במערכת → ראיונות → ישיבות החלטה → כנס פתיחה. מוצג לצוות הממיין בתחילת התהליך · דגש: ועדות קבלה: חמישי, אחת לשבועיים. לסמן מראש מתי פרונטלי ומתי זום</td><td>מנהלת</td></tr>
+<tr><td>5</td><td>תשתיות מערכות מידע</td><td>דשבורד עם כל הסטטוסים (יפעת) · תבניות מייל, מיתוג, אוטומציות · פתיחת הרשמה במערכת והרצת בדיקות · הסכמים מקוונים בדוקסי (דוד) · דגש: לעבור על צ&#x27;קליסט ההכנות (לשונית נפרדת)</td><td>מערכות מידע: דוד, יפעת</td></tr>
+<tr><td>6</td><td>הרשמה פיקטיבית ובדיקת קצה-לקצה</td><td>כל רכזת עושה הרשמה פיקטיבית מלאה: טופס → מייל אישור → העלאת מסמכים → שינוי סטטוסים → מייל קבלה. ההרשמה משמשת אחר כך לבדיקת תהליכים · דגש: בעבר מועמד שלא סיים את הטופס &#x27;בבת אחת&#x27; נאלץ להתחיל מחדש – לבדוק אם תוקן</td><td>רכזות, מערכות מידע</td></tr>
+<tr><td>7</td><td>תשתיות שיווק</td><td>תהליך השיווק כולו: שותפים, מסרים, עמוד נחיתה. יצירת קשר עם ארגוני שטח ואקדמיה להפצה – זו האחריות הבלעדית שלנו · דגש: לשלוח למרכזי הצעירים בפריפריה ולאנשי הקשר במוסדות האקדמיים</td><td>מנהלת, שיווק</td></tr>
     </tbody></table>
-  </div>
-  <div class="info-block">
-    <h3>מסע המועמד</h3>
+    </div></details>
+    <details class="acc"><summary>אפריל (עד פסח): הכנות אחרונות</summary><div class="acc-body">
+    <p style="margin:8px 0">אפריל (עד פסח): סיום הכנות טכניות, ציוד, קובץ תמהיל, תשתית בוקינג, הרשמה פיקטיבית לבדיקה. תוצר: מערכת עובדת מקצה לקצה. אחריות: מנהלת + מערכות מידע.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>8</td><td>הזמנת ציוד</td><td>ציוד לסיירת השיווק ולצוות התכנית לגיוס מועמדים · דגש: פליירים עם QR לעמוד הנחיתה. להזמין דרך הזמנת רכש מוקדם</td><td>מנהלת, תפעול</td></tr>
+<tr><td>9</td><td>קובץ תמהיל</td><td>קובץ שמנוהל ע&quot;י המנהלת לפי היעדים והתמהיל שקבעה ההנהלה. מתעדכן בישיבות החלטות צוות. ממנו גוזרים נתונים לאורך התקופה ומדייקים זימונים לקראת סגירת המחזור · דגש: מעקב לפי: כמות כללית, ראיונות, מוסדות, מגדר, אוכלוסיות</td><td>מנהלת, הנהלה</td></tr>
+<tr><td>10</td><td>תשתית למגע עם המועמד</td><td>לינק בוקינג לראיונות · מצגת / מפגש חשיפה (זום או הקלטה) · ערוץ פנייה למועמדים (מייל כללי infotaasiya + נייד) · דגש: איפוס הבוקינג בכל יום חמישי. בשלבים הראשונים המועמד לא בקשר אישי עם רכזת – כדי לא להעמיס</td><td>מנהלת, רכזת</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>שבוע לפני הפתיחה</summary><div class="acc-body">
+    <p style="margin:8px 0">שבוע לפני הפתיחה: שבוע &#x27;חבר מביא חבר&#x27; + פתיחת קבוצת ווטסאפ שו&quot;ת (חודש לפני). תוצר: לינק ייעודי לסטודנטים בתכנית. אחריות: מנהלת + רכזות.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>11</td><td>חבר מביא חבר</td><td>לינק הרשמה ייעודי שסטודנטים מהתכנית שולחים לחברים · דגש: להכין מראש הודעה מוכנה לסטודנטים להעברה</td><td>מנהלת, רכזות</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>מאי: פתיחת ההרשמה</summary><div class="acc-body">
+    <p style="margin:8px 0">מאי: פתיחת הרשמה רשמית, מעבר יומי על טפסים, תובנות לחברת הפרסום בשבועיים הראשונים. תוצר: הרשמה פתוחה, דו&quot;ח תובנות. אחריות: מנהלת + צוות ממיין.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>12</td><td>פתיחת ההרשמה + שבועיים ראשונים</td><td>פתיחה רשמית · מעבר על ההרשמות החדשות בשבועיים הראשונים · תובנות לחברת הפרסום: פרופיל, מוסדות, אוכלוסיות, מקורות הגעה · דגש: לבדוק הרשמות &#x27;תקועות&#x27; בדשבורד (הרשמות בתהליך)</td><td>מנהלת, חברת פרסום</td></tr>
+<tr><td>13</td><td>שיבוצי צוות</td><td>מי עוברת על הרשמות של איזה מוסד, ומי בציוותי הראיונות</td><td>מנהלת</td></tr>
+<tr><td>14</td><td>מיון מועמדים במערכת</td><td>מעבר יומי על טפסים ומסמכים. סינון לפי: מוסד ופקולטה → מקום מגורים בתיכון (יישוב עתידים א/ב) → אוכלוסיות מיוחדות. החלטה: לקדם / להמתין / לשלול · דגש: מבנה אחיד להערות רכזת. דגשים לסינון הראשוני במדריך המיון. יישוב פנימייה ≠ יישוב מגורים – לוודא מול המועמד</td><td>רכזות</td></tr>
+<tr><td>15</td><td>מפגש חשיפה</td><td>מועמד שעבר סינון מוזמן למפגש הסבר בזום או מקבל הקלטה. לוודא שצפה לפני הראיון · דגש: השלב חסר במסע המועמד בקובץ המקורי</td><td>רכזות</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>יוני–אוגוסט: ראיונות וועדות</summary><div class="acc-body">
+    <p style="margin:8px 0">יוני–אוגוסט: ראיונות, ועדות קבלה (חמישי, אחת לשבועיים), מעקב תמהיל, סיווג השתייכות מיוחדת. תוצר: החלטות קבלה/דחייה שוטפות. אחריות: רכזות + מנהלת.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>16</td><td>ראיונות</td><td>ציוותים (שתי נשות צוות: מראיינת + מתעדת, 25–30 דק&#x27;) · עד 7 ראיונות ביום, בעיקר בבוקר · הודעה כל ערב למתראיינים של מחר · דגש: איחור/חיסור – הזדמנות נוספת אחת. סיום ראיונות: סוף אוגוסט (הארכה עד החגים למסיימי מכינות ול&#x27;יהלומים&#x27;)</td><td>רכזות, מנהלת</td></tr>
+<tr><td>17</td><td>ועדות קבלה והחלטות</td><td>ועדה משותפת לכל הגורמים, חמישי אחת לשבועיים · מוסדות עם מכסה מוגבלת: השוואה &#x27;ראש בראש&#x27; בסוף · מקרים חריגים לוועדת חריגים · דגש: סטטוסים: &#x27;נדחה&#x27; (סינון ראשוני), &#x27;נדחה חוסר התאמה&#x27; (אחרי ראיון), &#x27;וויתר&#x27; (לא &#x27;פרש&#x27;!) + תיעוד סיבה</td><td>רכזות, מנהלת, מנהל יחידה במקרים מורכבים</td></tr>
+<tr><td>18</td><td>סיווג השתייכות מיוחדת</td><td>סימון מתקבלים לפי מסגרות: הכרם, נבחרת, מנהל סטודנטים, מרום</td><td>מנהלת</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>אוגוסט–ספטמבר: הסכמים ושימור</summary><div class="acc-body">
+    <p style="margin:8px 0">אוגוסט–ספטמבר: הסכמים דיגיטליים, מעקב הצהרות, שימור מתקבלים, נבחרת STEP UP. תוצר: מתקבלים חתומים. אחריות: מנהלת + רכזות.</p>
+    <p style="margin:8px 0">אמצע ספטמבר: ישיבת סגירת תמהיל מחזור. תוצר: רשימת מחזור סופית. אחריות: מנהלת + הנהלה.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>19</td><td>מעקב הצהרות</td><td>מעבר על מי שנשאר בסטטוס &#x27;התקבל&#x27; ולא עבר ל&#x27;התקבל ומילא את ההצהרות&#x27;. תזכורת במייל ואז בווטסאפ. בדיקה שהצטרפו לקבוצת המחזור · דגש: מי שנתקע – אולי לא קיבל את המייל, פספס הוראות, או מתלבט. שווה שיחה</td><td>רכזות</td></tr>
+<tr><td>20</td><td>הסכמים</td><td>שליחת הסכמים דיגיטליים מחייבים למתקבלים (דוקסי) · דגש: לעדכן תאריכים/שנים בחוזה לפני השליחה הראשונה. אפשרות לחתום בכנס</td><td>מנהלת, מערכות מידע</td></tr>
+<tr><td>21</td><td>נבחרת STEP UP</td><td>שיחת תיאום ציפיות עם אתי לוטן כבר בתחילת הראיונות · עדכון שבועי על מתקבלות · בספטמבר (אחרי פרישות): איסוף תמונות, צירוף לקבוצה, סיפורים אישיים · לקח: אירוע נבחרת בספטמבר עם צילומים – מדבקת שם בתמונה הראשונה</td><td>מנהלת, אתי לוטן</td></tr>
+<tr><td>22</td><td>שימור מתקבלים</td><td>צעדים שנותנים &#x27;טעימה&#x27; רחבה יותר מהתכנית לפני הכנס</td><td>מנהלת, רכזות</td></tr>
+<tr><td>23</td><td>ישיבת סגירת תמהיל</td><td>סגירת רשימת המחזור מול התמהיל והיעדים</td><td>מנהלת, הנהלה</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>אוקטובר: כנס פתיחה</summary><div class="acc-body">
+    <p style="margin:8px 0">אוקטובר: כנס פתיחה, סגירת הרשמה עם תחילת שנה&quot;ל. תוצר: מחזור פתוח רשמית. אחריות: מנהלת + מנהלת פדגוגית.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>24</td><td>כנס פתיחה</td><td>אירוע פתיחת מחזור בסימן חיבור לתכנית ולמשתתפים · דגש: מאי – מקום ותוכן | יוני – מיתוג, אווירה, מוזיקה, אוכל | יולי – מתנדבים, מנחים, הזמנה | אוגוסט – מצגת, הצגה לבורד, בחירת מצטיינים, הפתעה לרכזות | ספטמבר – פרחים, ביום מצטיינים, מערכת צ&#x27;ק-אין</td><td>מנהלת, מנהלת פדגוגית</td></tr>
+<tr><td>25</td><td>סגירת ההרשמה</td><td>סגירת טופס ההרשמה במערכת ועדכון עמוד הנחיתה להרשמה מוקדמת לשנה הבאה</td><td>מנהלת, מערכות מידע</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>נובמבר–דצמבר: אחרי הכנס</summary><div class="acc-body">
+    <p style="margin:8px 0">נובמבר–דצמבר: מעקב נשירה מוקדמת, מפגשי נטוורקינג בחנוכה, עדכון הקובץ הזה. תוצר: מחזור יציב + קובץ מעודכן לשנה הבאה. אחריות: מנהלת + רכזות.</p>
+    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>שלב</th><th>מה עושים</th><th>מי</th></tr></thead><tbody>
+<tr><td>26</td><td>אחרי הכנס</td><td>מעקב נשירה מוקדמת בשבועות הראשונים · מפגשי נטוורקינג בחנוכה בקבוצות קטנות · עדכון הקובץ הזה עם הלקחים</td><td>מנהלת, רכזות</td></tr>
+    </tbody></table>
+    </div></details>
+    <details class="acc"><summary>מסע המועמד</summary><div class="acc-body">
     <p style="margin:8px 0">שלושה מסלולי כניסה שמתאחדים בטופס ההרשמה: הרשמה מוקדמת, חבר מביא חבר (שבוע לפני הפתיחה, בלינק ייעודי) והרשמה רגילה.</p>
     <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>מה המועמד עושה</th><th>מה הצוות עושה במקביל</th><th>הערה</th></tr></thead><tbody>
 <tr><td>1</td><td>נחשף לתכנית: חברים, רשתות, קבוצות ווטסאפ, מוסדות אקדמיים</td><td>שיווק, סיירת שיווק, פנייה לארגוני שטח ואקדמיה</td><td></td></tr>
@@ -953,30 +860,32 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
 <tr><td>14</td><td>חותם על הסכם מקוון עד הכנס</td><td>שליחת הסכם דיגיטלי</td><td></td></tr>
 <tr><td>15</td><td>מגיע לכנס הפתיחה</td><td></td><td></td></tr>
     </tbody></table>
+    </div></details>
   </div>
   <div class="info-block">
     <h3>צ&#x27;קליסט הכנות לפני פתיחת ההרשמה (יעד: הכל מוכן עד פסח)</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>#</th><th>משימה</th><th>מול מי</th><th>יעד</th></tr></thead><tbody>
-<tr><td>1</td><td>עדכון עמוד הנחיתה וטופס ההרשמה (בעיקר תאריכים ושנת מחזור)</td><td>שיווק, מערכות מידע</td><td>מרץ</td></tr>
-<tr><td>2</td><td>עדכון נוסח המיילים האוטומטיים לאורך התהליך</td><td>מערכות מידע</td><td>מרץ</td></tr>
-<tr><td>3</td><td>עדכון מסמכים שמצורפים למייל הקבלה: אודות התכנית, נוהל התנדבות, תיאום ציפיות</td><td>מנהלת</td><td>מרץ</td></tr>
-<tr><td>4</td><td>עדכון תאריכים ושנים בחוזה בדוקסי</td><td>דוד</td><td>אפריל</td></tr>
-<tr><td>5</td><td>עדכון טבלת ההתנדבויות (מקומות ואנשי קשר)</td><td>מנהלת</td><td>אפריל</td></tr>
-<tr><td>6</td><td>עדכון מצגת החשיפה / הקלטה חדשה</td><td>מנהלת</td><td>אפריל</td></tr>
-<tr><td>7</td><td>דשבורד סטטוסים מעודכן למחזור החדש</td><td>יפעת</td><td>אפריל</td></tr>
-<tr><td>8</td><td>הרשמה פיקטיבית מלאה ובדיקת כל המיילים והסטטוסים</td><td>רכזות</td><td>אפריל</td></tr>
-<tr><td>9</td><td>לינק בוקינג לראיונות</td><td>רכזת</td><td>אפריל</td></tr>
-<tr><td>10</td><td>קובץ תמהיל חדש עם יעדי ההנהלה</td><td>מנהלת</td><td>אפריל</td></tr>
-<tr><td>11</td><td>קובץ פניות ימי ראיונות חדש</td><td>מנהלת</td><td>מאי</td></tr>
-<tr><td>12</td><td>לינק &#x27;חבר מביא חבר&#x27; + הודעה מוכנה לסטודנטים</td><td>מנהלת, מערכות מידע</td><td>אפריל</td></tr>
-<tr><td>13</td><td>קבוצת ווטסאפ שו&quot;ת למועמדים</td><td>מנהלת</td><td>אפריל</td></tr>
-<tr><td>14</td><td>פליירים עם QR והזמנת ציוד</td><td>תפעול</td><td>אפריל</td></tr>
-<tr><td>15</td><td>החלטה מי מחזיקה את ערוץ הפנייה למועמדים (מייל infotaasiya + נייד)</td><td>מנהלת</td><td>אפריל</td></tr>
-<tr><td>16</td><td>ריענון מדריך המיון והצגתו לרכזות</td><td>מנהלת</td><td>מרץ</td></tr>
-    </tbody></table>
+    <details class="acc"><summary>צ'קליסט אינטראקטיבי <span class="chk-count" data-for="open_prep"></span></summary><div class="acc-body"><div class="chk" data-id="open_prep">
+      <label class="chk-row"><input type="checkbox" data-i="0"><span class="chk-t">עדכון עמוד הנחיתה וטופס ההרשמה (בעיקר תאריכים ושנת מחזור)</span><span class="chk-m">שיווק, מערכות מידע · מרץ</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="1"><span class="chk-t">עדכון נוסח המיילים האוטומטיים לאורך התהליך</span><span class="chk-m">מערכות מידע · מרץ</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="2"><span class="chk-t">עדכון מסמכים שמצורפים למייל הקבלה: אודות התכנית, נוהל התנדבות, תיאום ציפיות</span><span class="chk-m">מנהלת · מרץ</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="3"><span class="chk-t">עדכון תאריכים ושנים בחוזה בדוקסי</span><span class="chk-m">דוד · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="4"><span class="chk-t">עדכון טבלת ההתנדבויות (מקומות ואנשי קשר)</span><span class="chk-m">מנהלת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="5"><span class="chk-t">עדכון מצגת החשיפה / הקלטה חדשה</span><span class="chk-m">מנהלת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="6"><span class="chk-t">דשבורד סטטוסים מעודכן למחזור החדש</span><span class="chk-m">יפעת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="7"><span class="chk-t">הרשמה פיקטיבית מלאה ובדיקת כל המיילים והסטטוסים</span><span class="chk-m">רכזות · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="8"><span class="chk-t">לינק בוקינג לראיונות</span><span class="chk-m">רכזת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="9"><span class="chk-t">קובץ תמהיל חדש עם יעדי ההנהלה</span><span class="chk-m">מנהלת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="10"><span class="chk-t">קובץ פניות ימי ראיונות חדש</span><span class="chk-m">מנהלת · מאי</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="11"><span class="chk-t">לינק &#x27;חבר מביא חבר&#x27; + הודעה מוכנה לסטודנטים</span><span class="chk-m">מנהלת, מערכות מידע · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="12"><span class="chk-t">קבוצת ווטסאפ שו&quot;ת למועמדים</span><span class="chk-m">מנהלת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="13"><span class="chk-t">פליירים עם QR והזמנת ציוד</span><span class="chk-m">תפעול · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="14"><span class="chk-t">החלטה מי מחזיקה את ערוץ הפנייה למועמדים (מייל infotaasiya + נייד)</span><span class="chk-m">מנהלת · אפריל</span></label>
+      <label class="chk-row"><input type="checkbox" data-i="15"><span class="chk-t">ריענון מדריך המיון והצגתו לרכזות</span><span class="chk-m">מנהלת · מרץ</span></label>
+    </div><button type="button" class="chk-reset" data-for="open_prep">איפוס</button></div></details>
   </div>
   <div class="info-block">
-    <h3>קישורים וקבצי עבודה</h3>
+    <h3>קבצים וקישורים</h3>
+    <p style="margin:10px 0"><a href="mix_summary.xlsx" download style="color:var(--cyan);font-weight:700">📎 קובץ תמהיל מעודכן (סיכום יעדים ומצב, ללא נתוני מועמדים)</a></p>
     <p style="margin:8px 0">מייל כללי למועמדים: infotaasiya@atidim.org.il</p>
     <ul class="fancy-list">
       <li><a href="https://atidim-1.github.io/atidim/miyun/" target="_blank" style="color:var(--cyan);font-weight:600">🔗 מדריך מענה למועמדים: לרכזת מיון המועמדים בתקופת פתיחת המחזור (מאי-אוקטובר)</a></li>
@@ -1022,29 +931,9 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
   </div>
 
   <div class="info-block">
-    <h3>שלבי תהליך המיון — גאנט</h3>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-num">1</div>
-        <div class="step-content"><h4>מרץ — תשתיות</h4><p>גאנט מיון + מערכות מידע + שיווק + ציוד + ניהול תמהיל</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">2</div>
-        <div class="step-content"><h4>אפריל — הכנת מועמדים</h4><p>סרטון הסבר · עמוד נחיתה · ווטסאפ שו"ת · Booking — איפוס כל חמישי</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">3</div>
-        <div class="step-content"><h4>מאי: פתיחת הרשמה (תמיד סביב מאי)</h4><p>מיון מועמדים במערכת · שיבוץ רכזות · תובנות לחברת פרסום</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">4</div>
-        <div class="step-content"><h4>יוני–אוגוסט — ראיונות</h4><p>ועדות קבלה כל חמישי · ועדת חריגים · הסכמים</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">5</div>
-        <div class="step-content"><h4>ספטמבר — שימור + פתיחה</h4><p>מיטאפ שימור · STEP UP תיאום אתי לוטן · 100% חיתום דיגיטלי עד הכנס</p></div>
-      </div>
-    </div>
+    <h3>שלבי המיון בקצרה</h3>
+    <p style="margin:8px 0">מרץ–אפריל: תשתיות והכנת מועמדים · מאי: פתיחת הרשמה · יוני–אוגוסט: ראיונות וועדות קבלה · ספטמבר: הסכמים ושימור. הפירוט המלא של כל שלב בפרק <a href="#opening" style="color:var(--cyan);font-weight:700">פתיחת מחזור</a>.</p>
+    <p style="margin:10px 0"><a href="mix_summary.xlsx" download style="color:var(--cyan);font-weight:700">📎 קובץ תמהיל מעודכן (סיכום ללא נתוני מועמדים)</a></p>
   </div>
 </section>
 
@@ -1120,7 +1009,6 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <h2>כספים: מלגות, תשלומים ובדיקות עמידה בתנאים</h2>
   </div>
   <div class="info-block">
-    <p style="margin:8px 0">הפרק מבוסס על סיכום פגישת החפיפה מול מיטל סגל (מנהלת התקציבים).</p>
     <div class="todo">✏️ <strong>להשלים:</strong> יש מודל תשלומים חדש שיעודכן בהמשך. עד אז, מה שכתוב כאן הוא המודל הנוכחי.</div>
   </div>
   <div class="info-block">
@@ -1214,13 +1102,13 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
       <li>אבחון: החזר של עד 800 ₪ לשנים א&#x27;-ב&#x27;</li>
       <li>הנתונים נגזרים ממערכת דיינמיקס</li>
     </ul>
-    <p style="margin:8px 0">אחת לחודש דנה שולחת ממשק לתשלום של הסיוע האקדמי והחריגים. תפקיד מנהלת התכנית לוודא, לפני האישור:</p>
+    <p style="margin:8px 0">בדרך כלל ב-10 לחודש דנה שולחת ממשק לתשלום של הסיוע האקדמי והחריגים. תפקיד מנהלת התכנית לוודא, לפני האישור:</p>
     <ul class="fancy-list">
       <li>שכל הנכללים בממשק הם סטודנטים משנים א&#x27; וב&#x27;</li>
       <li>שלמי שיש חריגה (שנה אחרת, חריגה מהסכום וכו&#x27;) היא הוצדקה בוועדת חריגים</li>
       <li>שיש הצדקה מתועדת לכל חריג, למשל החלטת ועדה או אישור מיוחד</li>
     </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> באיזה יום בחודש מגיע הממשק, ולמי מחזירים את האישור (דנה / מיטל).</div>
+    <div class="todo">✏️ <strong>להשלים:</strong> למי מחזירים את האישור אחרי הבדיקה (דנה / מיטל).</div>
   </div>
   <div class="info-block">
     <h3>לוח התשלומים של הסטודנט</h3>
@@ -1232,18 +1120,6 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     </ul>
     <div class="todo">✏️ <strong>להשלים:</strong> קובץ לוח התשלומים לדוגמה (פיס/גרוס).</div>
   </div>
-  <div class="info-block">
-    <h3>משימות מהחפיפה עם מיטל</h3>
-    <ol style="padding-right:22px;line-height:1.9;font-size:14px">
-      <li>לסדר את היומן: לנעוץ מראש פעולות קבועות לשנה הקרובה</li>
-      <li>לקבוע מול מיטל זמנים קבועים לפגישות סטטוס ציונים, חודש לפני כל ממשק תשלום</li>
-      <li>ליצור רשימת מקרים קבועה: אוכלוסיות ייחודיות, מועסקים עם ממוצע נמוך</li>
-      <li>לשבת עם לטם ולעשות סדר בנוהל בדיקת ההתנדבות והציונים</li>
-      <li>לבדוק ולהסדיר את תדירות תהליך הסיוע האקדמי</li>
-      <li>לעדכן את תאריכי עדכון המועסקים: 30.12 ו-31.5</li>
-      <li>להכין לוח תשלומים נגיש יותר שמסמן באיזה חודש יופיע איזה סכום בבנק</li>
-    </ol>
-  </div>
 </section>
 
 <div class="divider"></div>
@@ -1254,24 +1130,18 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <h2>תהליך הליווי</h2>
   </div>
   <div class="info-block">
-    <p style="margin:8px 0">הליווי הוא העבודה המרכזית של הרכזות מול הסטודנטים. תפקיד המנהלת: לוודא שהמודל ברור, שיש לרכזות כלים, ושהן עקביות.</p>
-  </div>
-  <div class="info-block">
-    <h3>שיחה אישית</h3>
+    <p style="margin:8px 0">הליווי הוא העבודה המרכזית של הרכזות מול הסטודנטים. תפקיד המנהלת: לוודא שהמודל ברור, שיש לרכזות כלים, ושהן עקביות. המודל המעודכן נלקח מהגאנט החוץ-אקדמי המופץ לסטודנטים.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-n">1</div><h4>שנה א&#x27; (כה)</h4><ul><li>שיחת סמסטר א&#x27;: היכרות ומיפוי צרכים</li><li>שיחת תקופת מבחנים</li><li>שיחת סמסטר ב&#x27;</li></ul></div>
+      <div class="step-card"><div class="step-n">2</div><h4>שנה ב&#x27; (כד)</h4><ul><li>שיחת סמסטר א&#x27;: מעקב אקדמי והתקדמות</li><li>שיחת תקופת מבחנים</li><li>שיחת סמסטר ב&#x27;: כולל חיפוש תעסוקה</li></ul></div>
+      <div class="step-card"><div class="step-n">3</div><h4>שנה ג&#x27; (כג)</h4><ul><li>שיחת סמסטר א&#x27;</li><li>מפגש קבוצתי: מועסקים / לא מועסקים</li><li>שיחות אישיות לפי צורך (אין שיחת סמסטר ב&#x27; קבועה)</li></ul></div>
+      <div class="step-card"><div class="step-n">4</div><h4>שנה ד&#x27; (כב)</h4><ul><li>שיחת סמסטר א&#x27; לפי צורך</li><li>מפגש קבוצתי לקראת סיום</li><li>שיחת סמסטר ב&#x27; לפי צורך</li></ul></div>
+      <div class="step-card"><div class="step-n">5</div><h4>מועסקים</h4><ul><li>מעקב תקופתי מותאם אישית מול הרכזת</li></ul></div>
+    </div>
+    <p style="margin:8px 0">שיחות אישיות לשנים א&#x27;-ג&#x27; מתקיימות באוקטובר. השיחה נעשית פרטנית עם כל סטודנט ומתועדת במערכת. המקור המעודכן תמיד באתר הגאנט.</p>
     <ul class="fancy-list">
-      <li>שיחות אישיות לשנים א&#x27;–ג&#x27; מתקיימות באוקטובר</li>
-      <li>השיחה נעשית פרטנית עם כל סטודנט ומתועדת במערכת</li>
+      <li><a href="https://atidim-1.github.io/Academic/" target="_blank" style="color:var(--cyan);font-weight:600">🔗 הגאנט החוץ-אקדמי (מודל הליווי לפי שנה)</a></li>
     </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> ממה מורכבת שיחה אישית: נושאים קבועים, שאלות מנחות, ומה מתעדים אחריה.</div>
-  </div>
-  <div class="info-block">
-    <h3>מודל הליווי החדש</h3>
-    <div class="todo">✏️ <strong>להשלים:</strong> תיאור המודל החדש: מה השתנה, מה תדירות המפגשים לפי שנה, ומתי נכנס לתוקף.</div>
-  </div>
-  <div class="info-block">
-    <h3>מאגר מענים לרכזות</h3>
-    <p style="margin:8px 0">מאגר שבו רכזות מוצאות מענה אחיד לשאלות נפוצות של סטודנטים, כדי שכולן יענו אותו דבר.</p>
-    <div class="todo">✏️ <strong>להשלים:</strong> קישור למאגר המענים, ומי אחראי לעדכן אותו.</div>
   </div>
 </section>
 
@@ -1457,56 +1327,17 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
       <li><a href="https://atidim-1.github.io/Academic/" target="_blank" style="color:var(--cyan);font-weight:600">🔗 הגאנט השנתי המופץ לסטודנטים (אתר)</a></li>
     </ul>
     <p style="margin:8px 0">המחזורים מול השנתונים: כה = שנה א&#x27;, כד = שנה ב&#x27;, כג = שנה ג&#x27;, כב = שנה ד&#x27;.</p>
-  </div>
-  <div class="info-block">
-    <h3>סדנאות ומפגשים לאורך השנה (תשפ&quot;ז)</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>תאריך</th><th>נושא</th><th>מעביר/ה או מיקום</th><th>מחזורים</th><th>שעות והערות</th></tr></thead><tbody>
-<tr><td>2.9.26</td><td>סיום תמונת עתיד</td><td>חברת אמזון</td><td>ללא מחזור</td><td>רק למשתתפי תכנית המנטורינג</td></tr>
-<tr><td>22.9.26</td><td>מפגש סיום</td><td>אפלייד מטריאלס</td><td>ללא מחזור</td><td>עם ארגון הבוגרים</td></tr>
-<tr><td>24.9.26</td><td>סדנת הכנה לעולם האקדמיה</td><td>חן הררי</td><td>כה</td><td>18:00–20:00</td></tr>
-<tr><td>13.10.26</td><td>כנס הפתיחה של התכנית</td><td>מועדון הגריי, מודיעין</td><td>כה</td><td>16:00–20:00</td></tr>
-<tr><td>16.11.26</td><td>סדנת הכנה לעולם העבודה</td><td>ליאן סלמה</td><td>כד</td><td>20:30–21:30 · סבב א׳</td></tr>
-<tr><td>1.12.26</td><td>סדנת ניהול פיננסי</td><td>אלרואי מלכא</td><td>כה</td><td>18:30–20:00</td></tr>
-<tr><td>2.12–28.12.26</td><td>מפגשי נטוורקינג מוסדיים</td><td></td><td>כב, כג, כד, כה</td><td>טכניון 2.12 · בן גוריון 14.12 · בר אילן 15.12 · אריאל 23.12 · תל אביב 28.12 · העברית (התאריך יעודכן)</td></tr>
-<tr><td>21.12.26</td><td>סדנת לינקדאין</td><td>גלי דור בלייר</td><td>כד</td><td>17:00–19:30 · סבב א׳</td></tr>
-<tr><td>4.1.27</td><td>סדנת הכנה לתקופת מבחנים</td><td>חן הררי</td><td>כה</td><td>18:00–20:00</td></tr>
-<tr><td>6.1.27</td><td>סדנת סטוריטלינג</td><td>אתי אביטל</td><td>כב, כג</td><td>18:00–20:00</td></tr>
-<tr><td>8.4.27</td><td>סדנת עבודה נכונה עם בינה מלאכותית</td><td>חן הררי</td><td>כה</td><td>18:30–20:00</td></tr>
-<tr><td>15.4.27</td><td>סדנת הכנה לעולם העבודה</td><td>ליאן סלמה</td><td>כד</td><td>20:30–21:30 · סבב ב׳</td></tr>
-<tr><td>4.5.27</td><td>סדנת הכה את המומחה</td><td>בוגרים מועסקים וליאן סלמה</td><td>כב, כג</td><td>20:30–21:30</td></tr>
-<tr><td>10.5.27</td><td>סדנת סליחה על השאלה</td><td>סטודנטים מועסקים וליאן סלמה</td><td>כה</td><td>20:30–21:30</td></tr>
-<tr><td>24.5.27</td><td>סדנת לינקדאין</td><td>גלי דור בלייר</td><td>כד</td><td>17:00–19:30 · סבב ב׳</td></tr>
-<tr><td>5/27</td><td>מפגש מסיימי תואר עתידים</td><td></td><td>כב, כג</td><td>מחזור כג — רק מדעי המחשב תלת שנתי · התאריך והמיקום ייקבעו בהמשך</td></tr>
-<tr><td>1.6.27</td><td>מפגשי נטוורקינג</td><td></td><td>כב, כג, כד, כה</td><td>התאריך המדויק יתפרסם בקבוצות המוסדיות</td></tr>
-<tr><td>7.6.27</td><td>סדנת לינקדאין מעשית לקריירה ועסקים</td><td>תאיר מלכא, בוגר עתידים</td><td>כב, כג</td><td>17:00–20:30 · כולל חשיפה לארגון הבוגרים</td></tr>
-    </tbody></table>
-    <p style="margin:8px 0">מפגשי STEP UP (נפרדים מלוח המחזורים): 8.9.26 בצ&#x27;ק פוינט תל אביב (מחזורים כד וכה), ו-10.12.26 ב-WIX (מחזורים כב וכג, פרטים בהמשך).</p>
-  </div>
-  <div class="info-block">
-    <h3>ספקים ומעבירי תוכן</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>מעביר/ה</th><th>נושא</th><th>מחזורים</th></tr></thead><tbody>
-<tr><td>חן הררי</td><td>הכנה לעולם האקדמיה (ספט&#x27;), הכנה לתקופת מבחנים (ינו&#x27;), עבודה נכונה עם בינה מלאכותית (אפר&#x27;)</td><td>כה</td></tr>
-<tr><td>אלרואי מלכא</td><td>ניהול פיננסי (דצמ&#x27;)</td><td>כה</td></tr>
-<tr><td>גלי דור בלייר</td><td>סדנת לינקדאין, שני סבבים (דצמ&#x27; ומאי)</td><td>כד</td></tr>
-<tr><td>אתי אביטל</td><td>סטוריטלינג (ינו&#x27;)</td><td>כב, כג</td></tr>
-<tr><td>תאיר מלכא, בוגר עתידים</td><td>לינקדאין מעשי לקריירה ועסקים (יוני), כולל חשיפה לארגון הבוגרים</td><td>כב, כג</td></tr>
-<tr><td>ליאן סלמה (עתידים)</td><td>הכנה לעולם העבודה, שני סבבים (נוב&#x27; ואפר&#x27;). בנוסף &#x27;הכה את המומחה&#x27; ו&#x27;סליחה על השאלה&#x27;</td><td>כד, כב, כג, כה</td></tr>
-<tr><td>בוגרים וסטודנטים מועסקים</td><td>משתתפים בסדנאות &#x27;הכה את המומחה&#x27; (בוגרים) ו&#x27;סליחה על השאלה&#x27; (סטודנטים)</td><td>כב, כג, כה</td></tr>
-<tr><td>אמזון, אפלייד מטריאלס</td><td>אירועי סיום תמונת עתיד (ספט&#x27;), מארחות</td><td>משתתפי המנטורינג</td></tr>
-    </tbody></table>
-    <div class="todo">✏️ <strong>להשלים:</strong> פרטי קשר, תעריפים והסכמים של כל ספק מעביר תוכן, ולוג של ההזמנות והחשבוניות שלהם.</div>
-    <div class="todo">✏️ <strong>להשלים:</strong> מי מעביר את מפגשי הנטוורקינג והמיטאפים בחברות, ואיך נקבעים.</div>
+    <p style="margin:8px 0">פירוט כל הסדנאות, המרצים והתאריכים נמצא בלינק של הגאנט, ולכן לא מועתק לכאן.</p>
   </div>
   <div class="info-block">
     <h3>המסע של הסטודנט לפי שנתון</h3>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>שנתון</th><th>מיקוד</th><th>בדיקות סף</th><th>שיחות ליווי</th></tr></thead><tbody>
-<tr><td>שנה א&#x27; (כה)</td><td>תוכן אקדמי</td><td>התנדבות: 12/60 (ינו&#x27;), 40/60 (מרץ), 60/60 (יוני). גליון ציונים (מרץ)</td><td>שיחת סמסטר א&#x27;, שיחת תקופת מבחנים, שיחת סמסטר ב&#x27;</td></tr>
-<tr><td>שנה ב&#x27; (כד)</td><td>תשתיות ליציאה לתעסוקה וחשיפה</td><td>ממוצע 75 (דצמ&#x27;, מאי). התנדבות 12/40/60. קורות חיים ולינקדאין (יולי)</td><td>שיחת סמסטר א&#x27;, מבחנים, סמסטר ב&#x27; (כולל חיפוש תעסוקה)</td></tr>
-<tr><td>שנה ג&#x27; (כג)</td><td>פורום לא מועסקים ועליית שלב: סטוריטלינג ולינקדאין מתקדם</td><td>ממוצע 75 (דצמ&#x27;, מאי). התנדבות 12/40/60</td><td>שיחת סמסטר א&#x27;, מפגש קבוצתי מועסקים / לא מועסקים, שיחות לפי צורך</td></tr>
-<tr><td>שנה ד&#x27; (כב)</td><td>מעבר לארגון הבוגרים וסיום</td><td>ממוצע 75 (דצמ&#x27;, מאי). התנדבות 12/40/60</td><td>לפי צורך, מפגש קבוצתי לקראת סיום</td></tr>
-<tr><td>מועסקים</td><td></td><td>ממוצע 75 (דצמ&#x27;, מאי)</td><td>מעקב תקופתי לפי צורך</td></tr>
-    </tbody></table>
-    <p style="margin:8px 0">לכל השנתונים: שאלון אמצע שנה (מרץ) ושאלון סוף שנה (יולי).</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-n">1</div><h4>שנה א&#x27;</h4><ul><li>מיקוד: תוכן אקדמי</li><li>התנדבות 12/40/60 · גליון ציונים במרץ</li></ul></div>
+      <div class="step-card"><div class="step-n">2</div><h4>שנה ב&#x27;</h4><ul><li>מיקוד: תשתיות ליציאה לתעסוקה</li><li>קו&quot;ח ולינקדאין עד יולי · ממוצע 75</li></ul></div>
+      <div class="step-card"><div class="step-n">3</div><h4>שנה ג&#x27;</h4><ul><li>מיקוד: פורום לא מועסקים ועליית שלב</li><li>סטוריטלינג ולינקדאין מתקדם</li></ul></div>
+      <div class="step-card"><div class="step-n">4</div><h4>שנה ד&#x27;</h4><ul><li>מיקוד: מעבר לארגון הבוגרים וסיום</li><li>מפגש קבוצתי לקראת סיום</li></ul></div>
+    </div>
+    <p style="margin:8px 0">לכל השנתונים: שאלון אמצע שנה (מרץ) ושאלון סוף שנה (יולי). הפירוט המלא של בדיקות הסף נמצא בגאנט.</p>
   </div>
   <div class="info-block">
     <h3>מה המנהלת עושה בגאנט</h3>
@@ -1526,34 +1357,6 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
       <li>מיטל: אישורי תקציב</li>
       <li>ארגון הבוגרים (איה גלזר): אירועי סיום, מפגש מסיימי תואר וחשיפה לבוגרים</li>
     </ul>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="section" id="career">
-  <div class="section-header">
-    <div class="section-icon ic-cyan">💼</div>
-    <h2>תחום הקריירה</h2>
-  </div>
-  <div class="info-block">
-    <p style="margin:8px 0">תחום הקריירה מנוהל מול ליאן סלמה (רכזת ליווי קריירה תכניתית) ומול ארגון הבוגרים (איה גלזר, שמחליפה כרגע את איילת בוניבידה, חיבורי בוגרים-סטודנטים).</p>
-    <table class="eval-table" style="margin-top:8px"><thead><tr><th>נושא</th><th>מה זה</th></tr></thead><tbody>
-<tr><td>מיטאפים</td><td>מפגשי קריירה לסטודנטים עם חברות ובוגרים</td></tr>
-<tr><td>השמות</td><td>השמת סטודנטים במשרות סטודנט וג&#x27;וניור. סטודנט שמתחיל להיות מועסק מקבל שכר לימוד מלא בלבד, ללא דמי קיום, ולכן מעדכנים את סטטוס ההעסקה שלו במערכת</td></tr>
-<tr><td>לוח השמות</td><td>מעקב מרוכז של מי הושם, איפה ומתי</td></tr>
-<tr><td>קבוצת ווטסאפ עם ליאן</td><td>קבוצה משותפת לליאן ולמנהלת: מעדכנות בה מי הושם, איפה ובאיזה תאריך מתחיל, כדי לעדכן במערכת את סטטוס ההעסקה. משם זה עובר גם לבדיקות התשלום מול מיטל</td></tr>
-<tr><td>מדריך קריירה</td><td>חומר מקצועי לסטודנטים: קו&quot;ח, ראיונות, חיפוש עבודה</td></tr>
-<tr><td>גיוסים</td><td>חברות שמגייסות סטודנטים, בתיאום עם שלי סוקולוב (קשרי מעסיקים)</td></tr>
-<tr><td>חוץ-אקדמי קריירה</td><td>מפגשי קריירה שהם חלק מהתכנית החוץ-אקדמית</td></tr>
-    </tbody></table>
-    <ul class="fancy-list">
-      <li><a href="https://chat.whatsapp.com/ItCs15Io5I76f5A88qKWgk" target="_blank" style="color:var(--cyan);font-weight:600">🔗 קהילת קריירה (ווטסאפ)</a></li>
-    </ul>
-    <ul class="fancy-list">
-      <li>פגישה שבועית עם ליאן: השמות, מועסקים, עדכוני מערכת ותוכן</li>
-    </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> קישור ללוח ההשמות, למדריך הקריירה, וללוח המיטאפים של השנה.</div>
   </div>
 </section>
 
@@ -1597,7 +1400,7 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <p style="margin:8px 0">מה עושים בכל מקרה של הקפאה:</p>
     <ol style="padding-right:22px;line-height:1.9;font-size:14px">
       <li>מקפיאים מיידית במערכת המידע, כדי שהסטודנט לא יקבל תשלומים</li>
-      <li>הרכזת שולחת מייל מסודר למיטל, למנהלת התכנית ולאיילת מקשרי תורמים, שבוצעה הקפאה</li>
+      <li>הרכזת שולחת מייל מסודר, בכתב, עם העתק לאיילת מקשרי תורמים, למיטל סגל ולמנהלת התכנית, על ההקפאה או על החזרה מהקפאה, לפי אי עמידה או עמידה בתנאי התכנית</li>
       <li>במקביל הרכזת מדברת עם הסטודנט</li>
     </ol>
     <p style="margin:8px 0">מצב אידיאלי: אחת לרבעון המנהלת בודקת סטטוס מוקפאים: מה מצבם, האם הם חוזרים, והאם כולם אכן הוקפאו במערכת.</p>
@@ -1606,7 +1409,11 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
   <div class="info-block">
     <h3>להבגיר סטודנטים שסיימו</h3>
     <p style="margin:8px 0">בסיום הלימודים מעבירים את הסטודנט למעמד בוגר במערכת ומחברים אותו לארגון הבוגרים.</p>
-    <div class="todo">✏️ <strong>להשלים:</strong> מתי עושים את זה בשנה, ומי מבצע (התכנית או מערכות מידע).</div>
+    <ul class="fancy-list">
+      <li>משך התואר: מדעי המחשב שלוש שנים, הנדסה ארבע שנים</li>
+      <li>סטודנטים שהתחילו אצלנו בשנה ב&#x27;: לשים לב לסיום התואר שלהם, שאינו בהכרח מסונכרן לסיום המחזור שאליו הם משתייכים</li>
+      <li>דנה ברעם מבגרת את הסטודנטים במערכת. גם למנהלת התכנית יש הרשאה לבצע זאת</li>
+    </ul>
   </div>
 </section>
 
@@ -1618,21 +1425,26 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <h2>הארכות לימודים</h2>
   </div>
   <div class="info-block">
-    <p style="margin:8px 0">סטודנטים שמאריכים את לימודיהם מעבר למסלול הרגיל יכולים לקבל תמיכה כספית, לפי החלטה שנתית של מנהלת התכנית.</p>
+    <p style="margin:8px 0">סטודנטים שמאריכים את לימודיהם מעבר למסלול הרגיל יכולים לקבל תמיכה כספית, לפי החלטה שנתית.</p>
     <table class="eval-table" style="margin-top:8px"><thead><tr><th>מתי</th><th>מה</th></tr></thead><tbody>
-<tr><td>סביב אוגוסט</td><td>שליחת טופס למסיימים שמבקשים להאריך</td></tr>
-<tr><td>בדרך כלל באוקטובר</td><td>ועדה מיוחדת להארכות לימודים: דיון וקבלת החלטות</td></tr>
+<tr><td>אמצע אוגוסט</td><td>הטופס מופץ לסטודנטים שמבקשים להאריך (זימון קבוע ביומן המנהלת)</td></tr>
+<tr><td>בדרך כלל באוקטובר</td><td>דיון בבקשות, עם הערות הרכזות על כל בקשה שהסטודנטים העלו</td></tr>
 <tr><td>אחרי ההחלטה</td><td>עדכון הסטודנטים והעברת הנתונים לתשלום</td></tr>
     </tbody></table>
+    <ul class="fancy-list">
+      <li><a href="https://forms.cloud.microsoft/r/6f1myWMY9G" target="_blank" style="color:var(--cyan);font-weight:600">🔗 שאלון הארכת לימודים תשפ&quot;ז (טופס לדוגמה)</a></li>
+    </ul>
   </div>
   <div class="info-block">
-    <h3>איך מחליטים</h3>
+    <h3>הדיון</h3>
     <ul class="fancy-list">
+      <li>משתתפים: מנהל היחידה, מנהלת התקציבים ומנהלת התכנית. בהמשך מצטרפים מנהל הכספים בעמותה (אלירן חממי) ומנכ&quot;ל העמותה (אורי ברוק)</li>
+      <li>הרכזות מעבירות הערות על כל אחת מהבקשות</li>
       <li>ההחלטות מתבססות על החלטות השנה הקודמת</li>
       <li>כל שנה מוקצב תקציב ייעודי להארכות לימודים. ב-2026 הוא עמד על 50,000 ₪</li>
       <li>סטודנטים שמסומנים באדום ברשימת הבקשות לא מקבלים תמיכה</li>
     </ul>
-    <div class="todo">✏️ <strong>להשלים:</strong> קישור לטופס, דוגמה לקובץ עם מפתח ההחלטות, ותאריך הדיון הקבוע.</div>
+    <p style="margin:10px 0"><a href="extensions_decision_key.xlsx" download style="color:var(--cyan);font-weight:700">📎 קובץ הארכות הלימודים של השנה: מפתח ההחלטות (ללא נתוני סטודנטים)</a></p>
   </div>
 </section>
 
@@ -1707,7 +1519,7 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
   <div class="info-block">
     <h3>אנשי קשר: מטרוטק</h3>
     <table class="eval-table" style="margin-top:8px"><thead><tr><th>צד</th><th>שם</th><th>תפקיד / ממשק</th></tr></thead><tbody>
-<tr><td>עתידים</td><td>הדס גנוט (052-3682864)</td><td>ראש תחום ליווי ופדגוגיה במטרוטק; תחתיה שתי רכזות</td></tr>
+<tr><td>עתידים</td><td>הדס גנוט</td><td>ראש תחום ליווי ופדגוגיה במטרוטק; תחתיה שתי רכזות</td></tr>
 <tr><td>עתידים</td><td>ימית רייזמן</td><td>רכזת ליווי מוסדות: HIT, העברית, בן גוריון, תל אביב, בר אילן</td></tr>
 <tr><td>עתידים</td><td>שלומית יצחקי</td><td>מנהלת תחום בוגרי חינוך חרדי בעמותה</td></tr>
 <tr><td>יוצאים לשינוי</td><td>אודליה אורון</td><td>רכזת ליווי מוסדות: אריאל, טכניון, בראודה</td></tr>
@@ -2091,6 +1903,8 @@ html[data-theme="light"] #themeBtn { background: #fff; color: #0D1E2B; box-shado
     <p style="margin:10px 0"><a href="handover_notebook.docx" download style="color:var(--cyan);font-weight:700">📎 מחברת החפיפה המלאה (וורד)</a></p>
     <p style="margin:10px 0"><a href="annual_tasks_outlook.ics" download style="color:var(--cyan);font-weight:700">📎 משימות שנתיות ליומן אאוטלוק (ics)</a></p>
     <p style="margin:10px 0"><a href="conference_management.xlsx" download style="color:var(--cyan);font-weight:700">📎 קובץ ניהול כנס הפתיחה, מחזור כ&quot;ה (אקסל)</a></p>
+    <p style="margin:10px 0"><a href="mix_summary.xlsx" download style="color:var(--cyan);font-weight:700">📎 קובץ תמהיל מעודכן, מחזור כה (סיכום ללא נתוני מועמדים)</a></p>
+    <p style="margin:10px 0"><a href="extensions_decision_key.xlsx" download style="color:var(--cyan);font-weight:700">📎 מפתח החלטות להארכות לימודים (ללא נתוני סטודנטים)</a></p>
     <p style="margin:10px 0"><a href="leaver_handover_template.docx" download style="color:var(--cyan);font-weight:700">📎 תבנית חפיפה לרכזת עוזבת (וורד למילוי)</a></p>
     <p style="margin:10px 0"><a href="gool_codes_tracker_template.xlsx" download style="color:var(--cyan);font-weight:700">📎 ניהול קודי GOOL: תבנית מעקב שליחה ומימוש (אקסל)</a></p>
     <p style="margin:10px 0"><a href="budget_items_for_purchase_orders.xlsx" download style="color:var(--cyan);font-weight:700">📎 סעיפים תקציביים להזנה בדרישות רכש (אקסל)</a></p>
@@ -2139,7 +1953,7 @@ function toggle(el) {
 </script>
 <script id="calscript">
 (function(){
-var TASKS=[{"id":"t1","m":10,"d":5,"t":"סימון שיוך מרום / מנהל סטודנטים במערכת","c":"כספים","n":"הם כבר לא מקוזזים אצלנו, אבל חייבים שעות התנדבות"},{"id":"t2","m":10,"d":10,"t":"מענק הצטיידות 2,500 ₪: עבודה מול הנהלת חשבונות","c":"כספים","n":"הסכמים, אישורי ניהול חשבון בנק ות\"ז עם ספח"},{"id":"t3","m":10,"d":15,"t":"כנס פתיחת מחזור","c":"מחזור","n":"לעדכן את התאריך בפועל. לו\"ז, משימות ומתנדבים בפרק כנס פתיחה"},{"id":"t4","m":10,"d":20,"t":"שיחות אישיות עם סטודנטי שנים א'-ג'","c":"ליווי","n":"הרכזות מבצעות, המנהלת מוודאת עקביות"},{"id":"t5","m":10,"d":25,"t":"ועדת הארכות לימודים","c":"כספים","n":"דיון והחלטות לפי מפתח ההחלטות"},{"id":"t6","m":10,"d":28,"t":"פתיחת שנה: הפעלת סטודנטי המחזור החדש במערכת","c":"מחזור","n":"אישור ניהול חשבון, ת\"ז תקינות, חתימה על ההסכם בדוקסי"},{"id":"t7","m":11,"d":10,"t":"ביקורים במוסדות האקדמיים","c":"ליווי","n":"שיחות עם אנשי קשר במוסדות וחיזוק קשרים"},{"id":"t8","m":11,"d":20,"t":"איסוף נתוני השנה לקראת תכנית העבודה","c":"תכנון","n":"בסיס לתכנית העבודה והתקציב בדצמבר"},{"id":"t9","m":12,"d":5,"t":"תכנית עבודה שנתית ותקציב: עבודה עם לטם ומיטל","c":"תכנון","n":"תבנית היחידה, על בסיס השנה שחלפה"},{"id":"t10","m":12,"d":8,"t":"פגישת סטטוס ציונים והתנדבות עם מיטל","c":"כספים","n":"חודש לפני פעימת ינואר"},{"id":"t11","m":12,"d":15,"t":"בדיקת התנדבות (12 שעות מתוך 60) ובדיקת ציונים סמסטר ב' הקודם","c":"כספים","n":"מול פעימת ינואר"},{"id":"t12","m":12,"d":18,"t":"מפגשי נטוורקינג במוסדות (עם מטרוטק)","c":"חוץ-אקדמי","n":"פעילות משותפת עם הצוות של הדס"},{"id":"t13","m":12,"d":20,"t":"מפגש חנוכה לנבחרת STEP UP","c":"חוץ-אקדמי","n":"תיאום מול אתי לוטן ואיילת כרם"},{"id":"t14","m":12,"d":30,"t":"עדכון מועסקים (סמסטר א')","c":"כספים","n":"תאריך העדכון שמשפיע על לוח התשלומים"},{"id":"t15","m":1,"d":5,"t":"תשלום שני ל-GOOL","c":"כספים","n":"מתוך שתי הפעימות של ההצעה"},{"id":"t16","m":1,"d":10,"t":"פעימת תשלום ינואר: לוודא עמידה בבדיקות","c":"כספים","n":"התנדבות 12/60 וציונים"},{"id":"t17","m":1,"d":15,"t":"תכנון קמפיין גיוס","c":"שיווק","n":"מסרים, ניתוח השנה הקודמת, סיירת שיווק"},{"id":"t18","m":1,"d":20,"t":"משוב אמצע שנה לרכזות","c":"צוות","n":"טופס הערכה לרכזת וטופס הכנה לעובדת"},{"id":"t19","m":1,"d":25,"t":"גיבוש צוותי ועבודה על תשתיות (חופשת סמסטר)","c":"צוות","n":""},{"id":"t20","m":2,"d":10,"t":"הכשרות צוות","c":"צוות","n":"ישיבות צוות בתדירות גבוהה יותר"},{"id":"t21","m":2,"d":15,"t":"גיוס סיירת שיווק","c":"שיווק","n":"2 נציגות מטרוטק + סטודנטים"},{"id":"t22","m":3,"d":5,"t":"סגירת קמפיין וגאנט מיון ותשתיות","c":"מחזור","n":""},{"id":"t23","m":3,"d":8,"t":"פגישת סטטוס ציונים והתנדבות עם מיטל","c":"כספים","n":"חודש לפני פעימת אפריל"},{"id":"t24","m":3,"d":10,"t":"ישיבות החלטה משותפות עם יוצאים לשינוי (מטרוטק)","c":"מחזור","n":""},{"id":"t25","m":3,"d":12,"t":"פגישה עם שלי, הדר מדמוני ויונה (חברת הפרסום)","c":"שיווק","n":"קבוע אחת לשבועיים בתקופת הקמפיין"},{"id":"t26","m":3,"d":15,"t":"בדיקת התנדבות (40 שעות מתוך 60)","c":"כספים","n":"מול פעימת אפריל"},{"id":"t27","m":3,"d":20,"t":"תשלום שכר לימוד סמסטר א'","c":"כספים","n":""},{"id":"t28","m":3,"d":25,"t":"הפצת שאלון מחקר אמצע לסטודנטים","c":"מחקר","n":"יעד: 95% מילוי"},{"id":"t29","m":4,"d":5,"t":"ניהול תמהיל מתקבלים","c":"מחזור","n":"נשים, חיילים בודדים, יוצאי אתיופיה, דרוזים, מטרוטק"},{"id":"t30","m":4,"d":10,"t":"פעימת תשלום אפריל","c":"כספים","n":""},{"id":"t31","m":4,"d":15,"t":"סיירת שיווק וימים פתוחים במוסדות","c":"שיווק","n":""},{"id":"t32","m":4,"d":20,"t":"הכנת מועמדים: סרטון, עמוד נחיתה, ווטסאפ שו\"ת, Booking","c":"מחזור","n":"איפוס Booking כל חמישי"},{"id":"t33","m":5,"d":1,"t":"פתיחת הרשמה לתכנית (תמיד סביב מאי)","c":"מחזור","n":"ניתוב מועמדים בין עתידים ליוצאים לשינוי. התאריך המדויק משתנה משנה לשנה"},{"id":"t34","m":5,"d":20,"t":"תובנות שבועיות לפרסום","c":"שיווק","n":""},{"id":"t35","m":5,"d":31,"t":"עדכון מועסקים (סמסטר ב')","c":"כספים","n":""},{"id":"t36","m":6,"d":8,"t":"פגישת סטטוס ציונים והתנדבות עם מיטל","c":"כספים","n":"לפני פעימת יוני ויולי"},{"id":"t37","m":6,"d":15,"t":"בדיקת התנדבות (60/60) ובדיקת ציונים סמסטר א'","c":"כספים","n":"מול פעימת יוני (התנדבות) ופעימת יולי (ציונים)"},{"id":"t38","m":6,"d":15,"t":"ועדות קבלה וועדת חריגים","c":"מחזור","n":"ועדת קבלה משותפת עם מטרוטק"},{"id":"t39","m":6,"d":20,"t":"מפגש ארגון בוגרים","c":"חוץ-אקדמי","n":"חשיפה והצטרפות"},{"id":"t40","m":6,"d":25,"t":"פעימת תשלום יוני","c":"כספים","n":""},{"id":"t41","m":7,"d":10,"t":"משוב סוף שנה לרכזות","c":"צוות","n":""},{"id":"t42","m":7,"d":15,"t":"פעימת תשלום יולי (ציונים)","c":"כספים","n":""},{"id":"t43","m":7,"d":25,"t":"הפצת שאלון מחקר סוף לסטודנטים","c":"מחקר","n":"יעד: 95% מילוי"},{"id":"t44","m":7,"d":28,"t":"תשלום שכר לימוד סמסטר ב'","c":"כספים","n":"סוף יולי / תחילת אוגוסט"},{"id":"t45","m":8,"d":10,"t":"שליחת טופס הארכות לימודים למסיימים","c":"כספים","n":""},{"id":"t46","m":8,"d":15,"t":"הסכמים דיגיטליים למתקבלים","c":"מחזור","n":"יעד: 100% חיתום עד הכנס"},{"id":"t47","m":8,"d":16,"t":"סגירת תוכן הגאנט החוץ-אקדמי מול ספקים","c":"חוץ-אקדמי","n":"מאמצע אוגוסט: מרצים, נושאים, תאריכים ומחזורים לשנה הבאה. הגאנט בפרק חוץ-אקדמי"},{"id":"t48","m":8,"d":20,"t":"ממשק מטרוטק / יוצאים לשינוי: העברת מועמדים","c":"מחזור","n":""},{"id":"t49","m":9,"d":1,"t":"בקשת הצעת מחיר קופוני GOOL לשנה הבאה","c":"כספים","n":"office@gool.co.il. ההצעה לשנה הנוכחית התקבלה ב-23.9"},{"id":"t50","m":9,"d":5,"t":"מיטאפ שימור מתקבלים","c":"מחזור","n":""},{"id":"t51","m":9,"d":10,"t":"תיאום STEP UP מול אתי לוטן","c":"חוץ-אקדמי","n":""},{"id":"t52","m":3,"d":15,"t":"תחילת תזכורות להעלאת גליונות ציונים סמסטר א'","c":"כספים","n":"הצוות שולח לסטודנטים. דנה מוציאה את פלט הציונים וההתנדבות"},{"id":"t53","m":10,"d":1,"t":"תחילת תזכורות להעלאת גליונות ציונים סמסטר ב'","c":"כספים","n":"הצוות שולח לסטודנטים. דנה מוציאה את פלט הציונים וההתנדבות"},{"id":"t54","m":10,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t55","m":11,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t56","m":12,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t57","m":1,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t58","m":2,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t59","m":3,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t60","m":4,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t61","m":5,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t62","m":6,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t63","m":7,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t64","m":8,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t65","m":9,"d":12,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. היום משוער"},{"id":"t66","m":12,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t67","m":3,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t68","m":6,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t69","m":9,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t70","m":10,"d":11,"t":"לוח אקדמי: פתיחת שנה במוסדות (11.10 עד 1.11)","c":"ליווי","n":"בר אילן, העברית ועזריאלי 11.10; תל אביב, אריאל, HIT ובן גוריון 18.10; הטכניון 28.10; בראודה 1.11"},{"id":"t71","m":1,"d":8,"t":"לוח אקדמי: סיום סמסטר א' במוסדות (8 עד 31.1)","c":"ליווי","n":"אריאל 8.1; בן גוריון והעברית 15.1; HIT ובר אילן 17.1; תל אביב 18.1; הטכניון 28.1; בראודה 31.1. תקופת מבחנים: שיחות אישיות והכנה לבחינות"},{"id":"t72","m":2,"d":21,"t":"לוח אקדמי: פתיחת סמסטר ב' במוסדות (21.2 עד 24.3)","c":"ליווי","n":"HIT 21.2; בן גוריון ועזריאלי 28.2; אריאל ובר אילן 1.3; העברית 7.3; תל אביב 9.3; בראודה 16.3; הטכניון 24.3"},{"id":"t73","m":6,"d":3,"t":"לוח אקדמי: סיום סמסטר ב' במוסדות (3.6 עד 8.7)","c":"ליווי","n":"אריאל 3.6; HIT 4.6; עזריאלי 22.6; בר אילן ובן גוריון 25.6; תל אביב 27.6; העברית 29.6; בראודה 28.6; הטכניון 8.7"},{"id":"t74","m":5,"d":5,"t":"תחילת עבודה על כנס הפתיחה","c":"מחזור","n":"קובץ ניהול הכנס בפרק כנס פתיחה"}];
+var TASKS=[{"id":"t1","m":10,"d":5,"t":"סימון שיוך מרום / מנהל סטודנטים במערכת","c":"כספים","n":"הם כבר לא מקוזזים אצלנו, אבל חייבים שעות התנדבות"},{"id":"t2","m":10,"d":10,"t":"מענק הצטיידות 2,500 ₪: עבודה מול הנהלת חשבונות","c":"כספים","n":"הסכמים, אישורי ניהול חשבון בנק ות\"ז עם ספח"},{"id":"t3","m":10,"d":15,"t":"כנס פתיחת מחזור","c":"מחזור","n":"לעדכן את התאריך בפועל. לו\"ז, משימות ומתנדבים בפרק כנס פתיחה"},{"id":"t4","m":10,"d":20,"t":"שיחות אישיות עם סטודנטי שנים א'-ג'","c":"ליווי","n":"הרכזות מבצעות, המנהלת מוודאת עקביות"},{"id":"t5","m":10,"d":25,"t":"ועדת הארכות לימודים","c":"כספים","n":"דיון בבקשות עם הערות הרכזות, בהשתתפות מנהל היחידה, מנהלת התקציבים והמנהלת; בהמשך מנהל הכספים (אלירן חממי) ומנכ\"ל העמותה (אורי ברוק)"},{"id":"t6","m":10,"d":28,"t":"פתיחת שנה: הפעלת סטודנטי המחזור החדש במערכת","c":"מחזור","n":"אישור ניהול חשבון, ת\"ז תקינות, חתימה על ההסכם בדוקסי"},{"id":"t7","m":11,"d":10,"t":"ביקורים במוסדות האקדמיים","c":"ליווי","n":"שיחות עם אנשי קשר במוסדות וחיזוק קשרים"},{"id":"t8","m":11,"d":20,"t":"איסוף נתוני השנה לקראת תכנית העבודה","c":"תכנון","n":"בסיס לתכנית העבודה והתקציב בדצמבר"},{"id":"t9","m":12,"d":5,"t":"תכנית עבודה שנתית ותקציב: עבודה עם לטם ומיטל","c":"תכנון","n":"תבנית היחידה, על בסיס השנה שחלפה"},{"id":"t10","m":12,"d":8,"t":"פגישת סטטוס ציונים והתנדבות עם מיטל","c":"כספים","n":"חודש לפני פעימת ינואר"},{"id":"t11","m":12,"d":15,"t":"בדיקת התנדבות (12 שעות מתוך 60) ובדיקת ציונים סמסטר ב' הקודם","c":"כספים","n":"מול פעימת ינואר"},{"id":"t12","m":12,"d":18,"t":"מפגשי נטוורקינג במוסדות (עם מטרוטק)","c":"חוץ-אקדמי","n":"פעילות משותפת עם הצוות של הדס"},{"id":"t13","m":12,"d":20,"t":"מפגש חנוכה לנבחרת STEP UP","c":"חוץ-אקדמי","n":"תיאום מול אתי לוטן ואיילת כרם"},{"id":"t14","m":12,"d":30,"t":"עדכון מועסקים (סמסטר א')","c":"כספים","n":"תאריך העדכון שמשפיע על לוח התשלומים"},{"id":"t15","m":1,"d":5,"t":"תשלום שני ל-GOOL","c":"כספים","n":"מתוך שתי הפעימות של ההצעה"},{"id":"t16","m":1,"d":10,"t":"פעימת תשלום ינואר: לוודא עמידה בבדיקות","c":"כספים","n":"התנדבות 12/60 וציונים"},{"id":"t17","m":1,"d":15,"t":"תכנון קמפיין גיוס","c":"שיווק","n":"מסרים, ניתוח השנה הקודמת, סיירת שיווק"},{"id":"t18","m":1,"d":20,"t":"משוב אמצע שנה לרכזות","c":"צוות","n":"טופס הערכה לרכזת וטופס הכנה לעובדת"},{"id":"t19","m":1,"d":25,"t":"גיבוש צוותי ועבודה על תשתיות (חופשת סמסטר)","c":"צוות","n":""},{"id":"t20","m":2,"d":10,"t":"הכשרות צוות","c":"צוות","n":"ישיבות צוות בתדירות גבוהה יותר"},{"id":"t21","m":2,"d":15,"t":"גיוס סיירת שיווק","c":"שיווק","n":"2 נציגות מטרוטק + סטודנטים"},{"id":"t22","m":3,"d":5,"t":"סגירת קמפיין וגאנט מיון ותשתיות","c":"מחזור","n":""},{"id":"t23","m":3,"d":8,"t":"פגישת סטטוס ציונים והתנדבות עם מיטל","c":"כספים","n":"חודש לפני פעימת אפריל"},{"id":"t24","m":3,"d":10,"t":"ישיבות החלטה משותפות עם יוצאים לשינוי (מטרוטק)","c":"מחזור","n":""},{"id":"t25","m":3,"d":12,"t":"פגישה עם שלי, הדר מדמוני ויונה (חברת הפרסום)","c":"שיווק","n":"קבוע אחת לשבועיים בתקופת הקמפיין"},{"id":"t26","m":3,"d":15,"t":"בדיקת התנדבות (40 שעות מתוך 60)","c":"כספים","n":"מול פעימת אפריל"},{"id":"t27","m":3,"d":20,"t":"תשלום שכר לימוד סמסטר א'","c":"כספים","n":""},{"id":"t28","m":3,"d":25,"t":"הפצת שאלון מחקר אמצע לסטודנטים","c":"מחקר","n":"יעד: 95% מילוי"},{"id":"t29","m":4,"d":5,"t":"ניהול תמהיל מתקבלים","c":"מחזור","n":"נשים, חיילים בודדים, יוצאי אתיופיה, דרוזים, מטרוטק"},{"id":"t30","m":4,"d":10,"t":"פעימת תשלום אפריל","c":"כספים","n":""},{"id":"t31","m":4,"d":15,"t":"סיירת שיווק וימים פתוחים במוסדות","c":"שיווק","n":""},{"id":"t32","m":4,"d":20,"t":"הכנת מועמדים: סרטון, עמוד נחיתה, ווטסאפ שו\"ת, Booking","c":"מחזור","n":"איפוס Booking כל חמישי"},{"id":"t33","m":5,"d":1,"t":"פתיחת הרשמה לתכנית (תמיד סביב מאי)","c":"מחזור","n":"ניתוב מועמדים בין עתידים ליוצאים לשינוי. התאריך המדויק משתנה משנה לשנה"},{"id":"t34","m":5,"d":20,"t":"תובנות שבועיות לפרסום","c":"שיווק","n":""},{"id":"t35","m":5,"d":31,"t":"עדכון מועסקים (סמסטר ב')","c":"כספים","n":""},{"id":"t36","m":6,"d":8,"t":"פגישת סטטוס ציונים והתנדבות עם מיטל","c":"כספים","n":"לפני פעימת יוני ויולי"},{"id":"t37","m":6,"d":15,"t":"בדיקת התנדבות (60/60) ובדיקת ציונים סמסטר א'","c":"כספים","n":"מול פעימת יוני (התנדבות) ופעימת יולי (ציונים)"},{"id":"t38","m":6,"d":15,"t":"ועדות קבלה וועדת חריגים","c":"מחזור","n":"ועדת קבלה משותפת עם מטרוטק"},{"id":"t39","m":6,"d":20,"t":"מפגש ארגון בוגרים","c":"חוץ-אקדמי","n":"חשיפה והצטרפות"},{"id":"t40","m":6,"d":25,"t":"פעימת תשלום יוני","c":"כספים","n":""},{"id":"t41","m":7,"d":10,"t":"משוב סוף שנה לרכזות","c":"צוות","n":""},{"id":"t42","m":7,"d":15,"t":"פעימת תשלום יולי (ציונים)","c":"כספים","n":""},{"id":"t43","m":7,"d":25,"t":"הפצת שאלון מחקר סוף לסטודנטים","c":"מחקר","n":"יעד: 95% מילוי"},{"id":"t44","m":7,"d":28,"t":"תשלום שכר לימוד סמסטר ב'","c":"כספים","n":"סוף יולי / תחילת אוגוסט"},{"id":"t45","m":8,"d":15,"t":"הפצת טופס הארכות לימודים (שאלון הארכת לימודים)","c":"כספים","n":"הטופס מופץ לסטודנטים במהלך אוגוסט. לינק: https://forms.cloud.microsoft/r/6f1myWMY9G"},{"id":"t46","m":8,"d":15,"t":"הסכמים דיגיטליים למתקבלים","c":"מחזור","n":"יעד: 100% חיתום עד הכנס"},{"id":"t47","m":8,"d":16,"t":"סגירת תוכן הגאנט החוץ-אקדמי מול ספקים","c":"חוץ-אקדמי","n":"מאמצע אוגוסט: מרצים, נושאים, תאריכים ומחזורים לשנה הבאה. הגאנט בפרק חוץ-אקדמי"},{"id":"t48","m":8,"d":20,"t":"ממשק מטרוטק / יוצאים לשינוי: העברת מועמדים","c":"מחזור","n":""},{"id":"t49","m":9,"d":1,"t":"בקשת הצעת מחיר קופוני GOOL לשנה הבאה","c":"כספים","n":"office@gool.co.il. ההצעה לשנה הנוכחית התקבלה ב-23.9"},{"id":"t50","m":9,"d":5,"t":"מיטאפ שימור מתקבלים","c":"מחזור","n":""},{"id":"t51","m":9,"d":10,"t":"תיאום STEP UP מול אתי לוטן","c":"חוץ-אקדמי","n":""},{"id":"t52","m":3,"d":15,"t":"תחילת תזכורות להעלאת גליונות ציונים סמסטר א'","c":"כספים","n":"הצוות שולח לסטודנטים. דנה מוציאה את פלט הציונים וההתנדבות"},{"id":"t53","m":10,"d":1,"t":"תחילת תזכורות להעלאת גליונות ציונים סמסטר ב'","c":"כספים","n":"הצוות שולח לסטודנטים. דנה מוציאה את פלט הציונים וההתנדבות"},{"id":"t54","m":10,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t55","m":11,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t56","m":12,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t57","m":1,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t58","m":2,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t59","m":3,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t60","m":4,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t61","m":5,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t62","m":6,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t63","m":7,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t64","m":8,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t65","m":9,"d":10,"t":"בדיקת ממשק סיוע אקדמי וחריגים מדנה","c":"כספים","n":"לוודא שכולם משנים א'-ב' ושכל חריגה הוצדקה בוועדת חריגים. הממשק יוצא בדרך כלל בעשירי לחודש"},{"id":"t66","m":12,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t67","m":3,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t68","m":6,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t69","m":9,"d":20,"t":"בדיקת סטטוס מוקפאים (רבעונית)","c":"כספים","n":"מה מצבם, האם חוזרים, והאם כולם הוקפאו במערכת"},{"id":"t70","m":10,"d":11,"t":"לוח אקדמי: פתיחת שנה במוסדות (11.10 עד 1.11)","c":"ליווי","n":"בר אילן, העברית ועזריאלי 11.10; תל אביב, אריאל, HIT ובן גוריון 18.10; הטכניון 28.10; בראודה 1.11"},{"id":"t71","m":1,"d":8,"t":"לוח אקדמי: סיום סמסטר א' במוסדות (8 עד 31.1)","c":"ליווי","n":"אריאל 8.1; בן גוריון והעברית 15.1; HIT ובר אילן 17.1; תל אביב 18.1; הטכניון 28.1; בראודה 31.1. תקופת מבחנים: שיחות אישיות והכנה לבחינות"},{"id":"t72","m":2,"d":21,"t":"לוח אקדמי: פתיחת סמסטר ב' במוסדות (21.2 עד 24.3)","c":"ליווי","n":"HIT 21.2; בן גוריון ועזריאלי 28.2; אריאל ובר אילן 1.3; העברית 7.3; תל אביב 9.3; בראודה 16.3; הטכניון 24.3"},{"id":"t73","m":6,"d":3,"t":"לוח אקדמי: סיום סמסטר ב' במוסדות (3.6 עד 8.7)","c":"ליווי","n":"אריאל 3.6; HIT 4.6; עזריאלי 22.6; בר אילן ובן גוריון 25.6; תל אביב 27.6; העברית 29.6; בראודה 28.6; הטכניון 8.7"},{"id":"t74","m":5,"d":5,"t":"תחילת עבודה על כנס הפתיחה","c":"מחזור","n":"קובץ ניהול הכנס בפרק כנס פתיחה"}];
 var MN={1:"ינואר",2:"פברואר",3:"מרץ",4:"אפריל",5:"מאי",6:"יוני",7:"יולי",8:"אוגוסט",9:"ספטמבר",10:"אוקטובר",11:"נובמבר",12:"דצמבר"};
 var ORDER=[10,11,12,1,2,3,4,5,6,7,8,9];
 var CAT={"כספים":"mag","מחזור":"cyan","ליווי":"lime","צוות":"lime","חוץ-אקדמי":"cyan","שיווק":"mag","מחקר":"lime","תכנון":"cyan"};
@@ -2228,6 +2042,26 @@ render();
     var w=document.createElement("div"); w.className="tbl-wrap";
     var cols=t.rows.length?t.rows[0].cells.length:0; if(cols>3) w.className+=" wide";
     t.parentNode.insertBefore(w,t); w.appendChild(t);
+  });
+  (function(){
+    var secs=Array.prototype.slice.call(document.querySelectorAll("main .section[id], .section[id]"));
+    var rail=document.createElement("nav"); rail.id="rail"; rail.setAttribute("aria-label","ניווט בין פרקים");
+    var items=document.querySelectorAll(".toc-item"), map={};
+    Array.prototype.forEach.call(items,function(it){var a=document.createElement("a"); a.href=it.getAttribute("href"); a.textContent=it.textContent; rail.appendChild(a); map[a.getAttribute("href").slice(1)]=a;
+      a.addEventListener("click",function(){ if(window.innerWidth<1280) rail.classList.remove("open"); });});
+    document.body.appendChild(rail);
+    var rb=document.createElement("button"); rb.id="railBtn"; rb.type="button"; rb.textContent="☰ פרקים"; rb.onclick=function(){rail.classList.toggle("open");}; document.body.appendChild(rb);
+    function spy(){var cur=null,y=window.scrollY+140; secs.forEach(function(s){if(s.offsetTop<=y) cur=s.id;}); Object.keys(map).forEach(function(k){map[k].classList.toggle("on",k===cur);}); if(cur&&map[cur]&&rail.scrollHeight>rail.clientHeight){var a=map[cur]; rail.scrollTop=a.offsetTop-rail.clientHeight/2;}}
+    window.addEventListener("scroll",spy,{passive:true}); spy();
+  })();
+  Array.prototype.forEach.call(document.querySelectorAll(".chk"),function(box){
+    var id="atidim_chk_"+box.getAttribute("data-id"), rows=box.querySelectorAll("input"), st={};
+    try{st=JSON.parse(localStorage.getItem(id)||"{}");}catch(e){}
+    var cnt=document.querySelector('.chk-count[data-for="'+box.getAttribute("data-id")+'"]');
+    function upd(){var n=0; Array.prototype.forEach.call(rows,function(r){var on=!!st[r.getAttribute("data-i")]; r.checked=on; r.parentNode.classList.toggle("done",on); if(on)n++;}); if(cnt) cnt.textContent="("+n+"/"+rows.length+")"; try{localStorage.setItem(id,JSON.stringify(st));}catch(e){}}
+    Array.prototype.forEach.call(rows,function(r){r.addEventListener("change",function(){st[r.getAttribute("data-i")]=r.checked; upd();});});
+    var rs=box.parentNode.querySelector(".chk-reset"); if(rs) rs.onclick=function(){st={}; upd();};
+    upd();
   });
 })();
 </script>
