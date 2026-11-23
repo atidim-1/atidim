@@ -49,6 +49,12 @@ nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid
 .status small,.access small{display:block;color:var(--mute);font-size:14px;margin-top:8px}
 .access{margin:14px 0 0;background:var(--panel);border-radius:14px;padding:16px 18px}
 .access ul{margin:0;padding-inline-start:22px}
+.team{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;margin:20px 0 0;background:#128c4a;color:#fff;text-decoration:none;border-radius:14px;padding:18px 20px}
+.team-t{font:700 22px/1.2 Rubik,sans-serif}
+.team-s{grid-column:1;font-size:16px;opacity:.95}
+.team-b{grid-column:2;grid-row:1/3;background:#fff;color:#0d5c31;font-weight:700;border-radius:10px;padding:10px 18px;min-height:44px;display:flex;align-items:center;white-space:nowrap}
+.team:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(max-width:600px){.team{grid-template-columns:1fr}.team-b{grid-column:1;grid-row:auto;justify-content:center;margin-top:8px}}
 .wa{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:#fff;color:#111a2b;font-weight:700;text-decoration:none;border-radius:10px;padding:10px 16px;min-height:44px}
 .wa:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .rules{margin:14px 0 0;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
@@ -101,11 +107,15 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:20px 0 40px;font
    <input id="s" type="search" placeholder="חיפוש: שומת מס, אפקה, קוד SMS, ערעור…" aria-label="חיפוש שאלה">
    <label class="sig">חתימה:<input id="sig" value="הדר" aria-label="שם לחתימה"></label>
   </div>
-  <a class="wa" href="https://chat.whatsapp.com/BAKtJpRYbCKCXt6iM0INDG" target="_blank" rel="noopener">שאלה שאין לה תשובה כאן? לקבוצת הווטסאפ של הצוות ←</a>
  </div>
 </header>
 <nav><div class="wrap"><div class="chips" id="chips"></div></div></nav>
 
+<div class="wrap"><a class="team" href="https://chat.whatsapp.com/BAKtJpRYbCKCXt6iM0INDG" target="_blank" rel="noopener">
+ <span class="team-t">קבוצת הווטסאפ של צוות התכנית</span>
+ <span class="team-s">לכל שאלה שוטפת ולמענה מהיר – כל מה שלא מופיע במדריך, או שלא ברור איך לענות עליו.</span>
+ <span class="team-b">כניסה לקבוצה ←</span>
+</a></div>
 <div class="wrap" id="top">
  <section class="status" aria-labelledby="st">
   <h2 id="st">מצב ההרשמה – חייב להיות מעודכן תמיד</h2>
@@ -149,9 +159,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:20px 0 40px;font
   <thead><tr><th>סוג הפנייה</th><th>למי</th></tr></thead>
   <tbody>
    <tr><td>מועמד/ת מרקע חרדי (יוצאים לשינוי, מטרוטק, דח"ש, בלי שירות צבאי)</td><td>הדס – מטרוטק</td></tr>
-   <tr><td>סטודנטים לפני גיוס, ומלגות אחרות של עתידים</td><td>מדור מלגות: melagot@atidim.org</td></tr>
    <tr><td>לימודים לא אקדמיים (שיווק דיגיטלי, קורסים) ופניות של לוחמים להייטק</td><td>לוחמים להייטק</td></tr>
-   <tr><td>סטודנטים שכבר בתכנית (תשלומים, ממוצע, הקפאה, אישור מלגה)</td><td>הרכזת המלווה שמופיעה במייל הקבלה</td></tr>
    <tr><td>תקלה במערכת שאינה קשורה לדחייה</td><td>דוד כהן, מערכות מידע – עם צילום מסך ות"ז</td></tr>
    <tr><td>מייל דיוור או SMS שלא הגיע גם אחרי שליחת התבנית</td><td>יונה</td></tr>
    <tr><td>מועדי ריאיון חסרים, מקרה שלא מופיע במדריך, שיחה עם בוגרים, שיתופי פעולה, ספקים, גופים חיצוניים</td><td><a href="https://chat.whatsapp.com/BAKtJpRYbCKCXt6iM0INDG" target="_blank" rel="noopener">קבוצת הווטסאפ של הצוות</a></td></tr>
@@ -186,7 +194,7 @@ const ITEMS=[
  ch:"אושרו בעבר: ביואינפורמטיקה (ת\"א), הנדסה כימית (טכניון). לא אושרו: חקלאות ואגרונומיה, טכנולוגיות דיגיטליות ברפואה (HIT). רק אם המסלול חדש ולא ברור – שואלים בקבוצת הצוות."},
 {c:"elig",q:"לא שירתתי בצבא / עתודה / דחיתי את הגיוס",k:"שירות צבאי עתודה דחיית שירות לאומי פטור",rule:"התכנית מחייבת שירות צבאי או לאומי. מועמד/ת מרקע חרדי – מעבירים להדס.",
  m:"תכנית עתידים לתעשייה ולהייטק מיועדת לסטודנטים לאחר שירות צבאי או שירות לאומי, ולכן לצערנו לא נוכל להתקדם בתהליך.\nמאחלות לך הצלחה רבה בלימודים.",
- ch:"לא שולחים את המייל הזה אם המועמד/ת מרקע חרדי – מעבירים להדס, שם בוחנים את המקרה. סטודנט לפני גיוס – מדור מלגות."},
+ ch:"לא שולחים את המייל הזה אם המועמד/ת מרקע חרדי – מעבירים להדס, שם בוחנים את המקרה."},
 {c:"elig",q:"עדיין לא התקבלתי ללימודים / אני במכינה",k:"מכינה קבלה ממתין תשובה מהאוניברסיטה",rule:"אפשר להירשם, ולעדכן כשמתקבלים.",
  m:"אפשר להירשם גם לפני שהתקבלת ללימודים. כשתתקבל/י – חשוב לעדכן אותנו במייל חוזר, ונעדכן את זה בתיק שלך.\nלטופס ההרשמה: "+T2},
 {c:"elig",q:"נרשמתי בשנה שעברה ונדחיתי – אפשר לנסות שוב?",k:"שנה שעברה שוב מחדש נדחיתי בעבר",rule:"כן. ממלאים טופס הרשמה מחדש ומעלים מסמכים עדכניים.",
